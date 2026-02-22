@@ -2,6 +2,8 @@
 title: 配置shokax中遇到的问题
 date: 2026-02-22 10:25:30
 tags: [技术,难题]
+comment: false
+reward: false
 ---
 
 # 配置shokaX中遇到的问题

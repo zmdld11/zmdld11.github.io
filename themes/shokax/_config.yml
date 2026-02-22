@@ -164,7 +164,8 @@ font:
 
 # //at.alicdn.com/t/c/font_4415496_59g1326wajd.css => 4415496_59g1326wajd
 # 自定义iconfont图标参见文档教程
-iconfont: "4415496_59g1326wajd"
+# iconfont: "4415496_59g1326wajd"
+iconfont: "5128080_zwk96nyh97"
 
 menu:
   home: / || home

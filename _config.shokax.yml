@@ -7,6 +7,8 @@ menu:
     default: / || user  # 默认显示项
     archives: /archives/ || archive   # 子菜单项1
     tags: /archives/ || tag
+  测试区: /测试区/ || spanner
+  日志: /日志/ || log
   # link2: /page2/ || coffee  # 独立导航项 - 链接2
 
 # 暗黑模式设置
@@ -43,7 +45,7 @@ waline:
   enable: true
   serverURL: "https://waline-comment-one-beta.vercel.app"
   lang: "zh-CN"
-  locale: {placeholder: "欢迎留言交流..."} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
+  locale: {placeholder: "你只有真正学会了上网，才能留言交流..."} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
   emoji: # 表情包
     # - https://unpkg.com/@waline/emojis@1.0.1/weibo
     # - https://unpkg.com/@waline/emojis@1.0.1/alus
