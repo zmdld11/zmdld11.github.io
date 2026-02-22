@@ -22,3 +22,4 @@ db.json
 *.seed
 *.pid.lock
 lightning-minify/
+deploy.sh

@@ -2,9 +2,10 @@ alternate: zmdld11
 
 menu:
   home: / || home          # 独立导航项 - 首页
-  # submenu:                 # 下拉菜单组
-  #   default: /page/ || user  # 默认显示项
-  #   link: /page1/ || cloud   # 子菜单项1
+  汇总:                 # 下拉菜单组
+    default: /page/ || user  # 默认显示项
+    archives: /archives/ || archive   # 子菜单项1
+    tags: /archives/ || tag
   # link2: /page2/ || coffee  # 独立导航项 - 链接2
     
 social:
