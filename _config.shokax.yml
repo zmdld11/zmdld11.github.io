@@ -1,13 +1,70 @@
 alternate: zmdld11
 
+# 菜单栏设置
 menu:
   home: / || home          # 独立导航项 - 首页
-  汇总:                 # 下拉菜单组
-    default: /page/ || user  # 默认显示项
+  categories:                 # 下拉菜单组
+    default: / || user  # 默认显示项
     archives: /archives/ || archive   # 子菜单项1
     tags: /archives/ || tag
   # link2: /page2/ || coffee  # 独立导航项 - 链接2
-    
+
+# 暗黑模式设置
+darkmode: false
+auto_dark: # 自动亮/暗模式
+  enable: true #是否开启
+  start: 20 #开始时间
+  end: 7 #结束时间
+
+# 主页设置
+homeConfig:
+  gradient: false # 使用CSS渐变作为文章封面
+  # fixedCover 性能比默认的更好，且开启时将启用LCP优化和预加载
+  fixedCover: "/images/index/9.jpg" # 主页面cover(为空则使用bing随机图片)
+  coverConfig:
+    enableCover: true # 是否开启头图
+    enablePreload: true #是否开启预加载头图
+    enableNextGradientCover: true # 使用CSS渐变作为上/下一页封面
+  cateCards:
+    - slug: # 分类 slug
+      cover: # 分类封面
+
+# 打赏设置
+reward:
+  # If true, reward will be displayed in every article by default.
+  enable: true
+  account:
+    wechatpay: /wechatpay.png
+    alipay: /alipay.jpg
+
+# 评论区设置
+# https://waline.js.org/
+waline:
+  enable: true
+  serverURL: "https://waline-comment-80vzab6lp-zmdld11s-projects.vercel.app"
+  lang: "zh-CN"
+  locale: {placeholder: "欢迎留言交流..."} # https://waline.js.org/guide/features/i18n.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80
+  emoji: # 表情包
+    # - https://unpkg.com/@waline/emojis@1.0.1/weibo
+    # - https://unpkg.com/@waline/emojis@1.0.1/alus
+    - https://unpkg.com/@waline/emojis@1.0.1/bilibili
+    # - https://unpkg.com/@waline/emojis@1.0.1/qq
+    # - https://unpkg.com/@waline/emojis@1.0.1/tieba
+    # - https://unpkg.com/@waline/emojis@1.0.1/tw-emoji
+  meta: # 可以填写的内容
+    - nick
+    - mail
+    # - link
+  requiredMeta: # 必须填写的内容
+    - nick
+    - mail
+  wordLimit: 0 # 字数限制,0为不限制
+  pageSize: 10 # 每页评论条数
+  pageview: false # 是否开启浏览量统计,可独立开启
+  recaptchaV3Key: # reCAPTCHA v3密钥
+  turnstileKey: # Turnstile密钥
+
+# 社交设置
 social:
   github: https://github.com/zmdld11 || github || "#191717"
   #gitee: https://gitee.com/yourname || gitee || "#e60026"

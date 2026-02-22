@@ -51,4 +51,8 @@ image_list must have at least 6 items
 
 并在source文件夹下新建images文件夹，将图片文件放入（文件名需要一一对应）。
 
-```- /```为source文件夹，需要根据实际情况新建文件夹，能正确读取即可。
+`- /`为source文件夹，需要根据实际情况新建文件夹，能正确读取即可。
+
+### 更新
+
+实测并不需要6张图，只要有图就行，创建images.yml作为文章图，images_index.yml作为头图即可。

@@ -202,7 +202,7 @@ waline:
   meta: # 可以填写的内容
     - nick
     - mail
-    - link
+    # - link
   requiredMeta: # 必须填写的内容
     - nick
     - mail
