@@ -3,10 +3,11 @@ alternate: zmdld11
 # 菜单栏设置
 menu:
   home: / || home          # 独立导航项 - 首页
+  archives: /archives/ || archive
   categories:                 # 下拉菜单组
     default: / || user  # 默认显示项
-    archives: /archives/ || archive   # 子菜单项1
-    tags: /archives/ || tag
+    categories: /categories/ || sitemap   # 子菜单项1
+    tags: /tags/ || tags
   测试区: /测试区/ || spanner
   日志: /日志/ || log
   打赏: /打赏/ || coffee
@@ -21,13 +22,13 @@ auto_dark: # 自动亮/暗模式
 
 # 主页设置
 homeConfig:
-  gradient: false # 使用CSS渐变作为文章封面
+  gradient: true # 使用CSS渐变作为文章封面
   # fixedCover 性能比默认的更好，且开启时将启用LCP优化和预加载
   fixedCover: "/images/index/9.jpg" # 主页面cover(为空则使用bing随机图片)
   coverConfig:
     enableCover: true # 是否开启头图
-    enablePreload: true #是否开启预加载头图
-    enableNextGradientCover: true # 使用CSS渐变作为上/下一页封面
+    enablePreload: false #是否开启预加载头图
+    enableNextGradientCover: false # 使用CSS渐变作为上/下一页封面
   cateCards:
     - slug: # 分类 slug
       cover: # 分类封面

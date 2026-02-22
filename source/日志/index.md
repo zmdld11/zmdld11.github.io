@@ -1,6 +1,6 @@
 ---
 title: 日志
-date: 2026-02-22 15:09:01
+type: "log"
 comment: false
 ---
 
@@ -9,4 +9,6 @@ comment: false
  - 采用shokaX主题
  - 新增网页头图
  - 新增测试区和评论区
+ - 新增categories项
+ - 设置最小页面长度，防止页面闪烁（这怎么修啊）
  - 给个打赏喵~o( =∩ω∩= )m
