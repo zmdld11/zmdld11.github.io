@@ -9,6 +9,7 @@ menu:
     tags: /archives/ || tag
   测试区: /测试区/ || spanner
   日志: /日志/ || log
+  打赏: /打赏/ || coffee
   # link2: /page2/ || coffee  # 独立导航项 - 链接2
 
 # 暗黑模式设置
@@ -34,7 +35,7 @@ homeConfig:
 # 打赏设置
 reward:
   # If true, reward will be displayed in every article by default.
-  enable: true
+  enable: false
   account:
     wechatpay: /wechatpay.png
     alipay: /alipay.jpg
