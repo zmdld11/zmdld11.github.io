@@ -1,0 +1,26 @@
+alternate: zmdld11
+
+menu:
+  home: / || home          # 独立导航项 - 首页
+  # submenu:                 # 下拉菜单组
+  #   default: /page/ || user  # 默认显示项
+  #   link: /page1/ || cloud   # 子菜单项1
+  # link2: /page2/ || coffee  # 独立导航项 - 链接2
+    
+social:
+  github: https://github.com/zmdld11 || github || "#191717"
+  #gitee: https://gitee.com/yourname || gitee || "#e60026"
+  #google: https://plus.google.com/yourname || google
+  #twitter: https://twitter.com/yourname || twitter || "#00aff0"
+  zhihu: https://www.zhihu.com/people/zmdld11 || zhihu || "#1e88e5"
+  music: https://music.163.com/#/user/home?id=2067554796 || cloud-music || "#e60026"
+  bilibili: https://space.bilibili.com/275632349 || bilibili || "#F25D8E"
+  #weibo: https://weibo.com/yourname || weibo || "#ea716e"
+  #about: https://about.me/yourname || address-card || "#3b5998"
+  #email: mailto:foo@xxx.com || envelope || "#55acd5"
+  #facebook: https://www.facebook.com/yourname || facebook
+  #stackoverflow: https://stackoverflow.com/ || stack-overflow
+  #youtube: https://youtube.com/yourname || youtube
+  #instagram: https://instagram.com/yourname || instagram
+  #skype: skype:yourname?call|chat || skype
+  #douban: https://www.douban.com/people/yourname/ || douban
