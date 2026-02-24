@@ -34,6 +34,11 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      # ↓↓↓ 新增这一步：构建 pagefind 搜索索引 ↓↓↓
+      - name: Build Pagefind search index
+        run: pnpm dlx pagefind --site public
+        
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
