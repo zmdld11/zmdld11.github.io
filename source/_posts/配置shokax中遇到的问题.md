@@ -59,3 +59,20 @@ image_list must have at least 6 items
 ### 更新
 
 实测并不需要6张图，只要有图就行，创建images.yml作为文章图，images_index.yml作为头图即可。
+
+## 搜索功能线上无法使用
+
+由于 Hexo 对于 ESM 的支持存在严重缺陷，而 Pagefind 仅支持 ESM 格式，ShokaX 无法在主题中内置其自动索引流程，你必须在每次构建后使用 CLI 进行索引，在每次`hexo g`完成后使用`pnpm dlx pagefind --site public`进行手动索引。
+
+我以为写在package.json的GitHub page是能自动部署的（汗）。
+
+### 解决办法：
+
+打开/.github/workflows/pages.yml，在build的steps中Build和Upload Pages artifact中间加入：
+
+```yml
+- name: Build Pagefind search index
+  run: pnpm dlx pagefind --site public
+```
+
+GitHub page将自动部署。
