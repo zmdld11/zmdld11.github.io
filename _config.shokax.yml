@@ -90,3 +90,14 @@ social:
   #instagram: https://instagram.com/yourname || instagram
   #skype: skype:yourname?call|chat || skype
   #douban: https://www.douban.com/people/yourname/ || douban
+
+# 播放器设置
+audio:
+ - title: 漫游
+   list:
+    #  - https://music.163.com/#/playlist?id=2943811283
+     - https://music.163.com/playlist?id=14416133597
+ - title: 主包喜欢的音乐
+   list:
+    #  - https://music.163.com/#/playlist?id=2031842656
+     - https://music.163.com/playlist?id=3107409689
