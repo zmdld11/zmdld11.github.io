@@ -53,6 +53,9 @@ importers:
       hexo-generator-tag:
         specifier: ^2.0.0
         version: 2.0.0
+      hexo-hide-posts:
+        specifier: ^0.4.3
+        version: 0.4.3
       hexo-lightning-minify:
         specifier: ^0.2.2
         version: 0.2.2(chokidar@3.6.0)
@@ -1762,6 +1765,9 @@ packages:
   hexo-generator-tag@2.0.0:
     resolution: {integrity: sha512-1px/hF3veEohWDN8jjzchQhaiz+uOStUvvMaBJC9vWOlALh30UFcapL8IrvAwwJZjFRVA+WqGgDRqoQ8+yaaFw==}
     engines: {node: '>=14'}
+
+  hexo-hide-posts@0.4.3:
+    resolution: {integrity: sha512-5VLzaX6ntJ0uJy56X5tgbII6oucBoUS5gCzm37ozXibMT8lBmRgbuzzayKNuBL+oQpyAa+vEsLyxlSunyaRs7g==}
 
   hexo-i18n@2.0.0:
     resolution: {integrity: sha512-dkUXecEtChaQMdTHN4WR13c8GwKqjbSOZPJS9qDqV6Ebnb77Wa/nQzWFckhP0dCps3a9lUQBd8hYGOMbOosiQQ==}
@@ -4904,6 +4910,10 @@ snapshots:
   hexo-generator-tag@2.0.0:
     dependencies:
       hexo-pagination: 3.0.0
+
+  hexo-hide-posts@0.4.3:
+    dependencies:
+      chalk: 4.1.2
 
   hexo-i18n@2.0.0:
     dependencies:

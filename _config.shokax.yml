@@ -68,6 +68,10 @@ waline:
   recaptchaV3Key: # reCAPTCHA v3密钥
   turnstileKey: # Turnstile密钥
 
+# 搜索设置
+pagefind:
+  enable: true
+
 # 社交设置
 social:
   github: https://github.com/zmdld11 || github || "#191717"

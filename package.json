@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo generate && pnpm dlx pagefind --site public",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.30.2",
   "hexo": {
     "version": "7.3.0"
   },
@@ -28,6 +28,7 @@
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^4.0.0",
     "hexo-generator-tag": "^2.0.0",
+    "hexo-hide-posts": "^0.4.3",
     "hexo-lightning-minify": "^0.2.2",
     "hexo-pagination": "4.0.0",
     "hexo-renderer-aether": "^0.0.6",
