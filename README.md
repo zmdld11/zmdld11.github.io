@@ -1,17 +1,13 @@
-# Quartz v4
+# zmdld11 的个人博客
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+欢迎来到我的个人博客！
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+这里是我的数字花园，使用 [Quartz 4](https://quartz.jzhao.xyz/) 搭建，主要记录我的开发日志、日常生活、摄影内容（如扫街）以及一些技术分享和软件推荐。
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## 博客地址
+访问我的博客：[https://zmdld11.github.io](https://zmdld11.github.io)
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+## 本地运行与开发
+1. 安装依赖：pm i\ 或者 pm ci2. 本地预览：px quartz build --serve3. 部署构建：推送到 \main\ 分支后由 GitHub Actions 自动构建部署。
 
-## Sponsors
-
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+欢迎随便逛逛！
