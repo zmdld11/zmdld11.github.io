@@ -8,6 +8,7 @@
 访问我的博客：[https://zmdld11.github.io](https://zmdld11.github.io)
 
 ## 本地运行与开发
-1. 安装依赖：pm i\ 或者 pm ci2. 本地预览：px quartz build --serve3. 部署构建：推送到 \main\ 分支后由 GitHub Actions 自动构建部署。
+1. 本地预览：px quartz build --serve
+2. 部署构建：推送到 \main\ 分支后由 GitHub Actions 自动构建部署。
 
 欢迎随便逛逛！
