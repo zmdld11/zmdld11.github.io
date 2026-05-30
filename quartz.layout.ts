@@ -8,8 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/zmdld11",
     },
   }),
 }
@@ -38,6 +37,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
+    Component.ExternalLink({ title: "📊 量化看板", href: "http://101.133.134.164:8000" }),
     Component.Explorer(),
   ],
   right: [
@@ -62,6 +62,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
+    Component.ExternalLink({ title: "📊 量化看板", href: "http://101.133.134.164:8000" }),
     Component.Explorer(),
   ],
   right: [],
