@@ -1,0 +1,392 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
+
+/* 设计稿 V3 —— 奶油软糖（浅色糖果 / 大圆角 / 贴纸感小组件） */
+
+// 日历样例：2026 年 9 月
+const first = new Date(2026, 8, 1);
+const startCol = (first.getDay() + 6) % 7;
+const daysInMonth = new Date(2026, 9, 0).getDate();
+const cells = [
+  ...Array.from({ length: startCol }, () => 0),
+  ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
+];
+const today = 24;
+
+const posts = [
+  { emoji: "🏗️", title: "把博客从 Quartz 搬到 Astro 的心路历程", tag: "建站", date: "09-24" },
+  { emoji: "📈", title: "量化看板搭建记录：从零到实盘", tag: "量化", date: "09-12" },
+  { emoji: "📷", title: "扫街摄影入门：我拍坏的三百张照片", tag: "摄影", date: "03-08" },
+];
+
+const nav = [
+  { label: "V1 玻璃Bento", href: "/preview/v1" },
+  { label: "V2 杂志", href: "/preview/v2" },
+  { label: "V3 软糖", href: "/preview/v3", current: true },
+  { label: "V4 终端", href: "/preview/v4" },
+];
+---
+
+<BaseLayout title={`V3 奶油软糖 · ${site.title}`} colorScheme="light" previewNav={nav}>
+  <div class="page">
+    <!-- 糖果气泡背景 -->
+    <div class="bubbles" aria-hidden="true">
+      <div class="bub p1"></div>
+      <div class="bub p2"></div>
+      <div class="bub p3"></div>
+    </div>
+
+    <main class="wrap">
+      <!-- 问候条 -->
+      <header class="greet card">
+        <span class="hi">早上好呀 ☀️</span>
+        <span class="muted" id="v3-date">载入中…</span>
+        <span class="chip">☁️ 晴 26°</span>
+      </header>
+
+      <section class="bento">
+        <!-- 身份卡 -->
+        <article class="card sp4 identity">
+          <div class="avatar">🦊</div>
+          <div>
+            <h1>{site.author} <span class="wave">👋</span></h1>
+            <p class="muted">今天也要元气满满！</p>
+          </div>
+          <div class="row">
+            <a class="chip pink" href="https://github.com/zmdld11">GitHub</a>
+            <a class="chip mint" href="http://101.133.134.164:8000">📊 量化看板</a>
+          </div>
+        </article>
+
+        <!-- 时钟 -->
+        <article class="card sp4 clock">
+          <p class="card-head">现在几点啦 <span class="badge">样例</span></p>
+          <div class="time" id="v3-clock">--:--</div>
+          <p class="muted small">时间过得好快呀</p>
+        </article>
+
+        <!-- 日历 -->
+        <article class="card sp4 calendar">
+          <p class="card-head">九月 <span class="badge">样例</span></p>
+          <div class="cal">
+            {["一","二","三","四","五","六","日"].map((d) => <span class="head">{d}</span>)}
+            {cells.map((d) => (
+              <span class:list={["day", { today: d === today, empty: d === 0 }]}>{d === 0 ? "" : d}</span>
+            ))}
+          </div>
+        </article>
+
+        <!-- 音乐（旋转唱片） -->
+        <article class="card sp4 music">
+          <p class="card-head">正在听 <span class="badge">样例</span></p>
+          <div class="player">
+            <div class="vinyl"><span></span></div>
+            <div class="track">
+              <strong>Sample Track</strong>
+              <span class="muted small">未知艺术家</span>
+              <div class="bar"><i></i></div>
+              <span class="muted small">01:24 / 04:05</span>
+            </div>
+            <button class="play">▶</button>
+          </div>
+          <div class="playlist">
+            <span class="pl-row"><i>01</i>Sample Track<b>04:05</b></span>
+            <span class="pl-row"><i>02</i>夜曲<b>03:42</b></span>
+            <span class="pl-row"><i>03</i>晴天<b>04:29</b></span>
+          </div>
+        </article>
+
+        <!-- 文章列表 -->
+        <article class="card sp8 posts">
+          <p class="card-head">最近写了 <span class="badge">样例</span></p>
+          {
+            posts.map((p) => (
+              <a class="post" href="/">
+                <span class="emoji">{p.emoji}</span>
+                <div class="body">
+                  <strong>{p.title}</strong>
+                  <span class="muted small">{p.date} · {p.tag}</span>
+                </div>
+                <span class="go">→</span>
+              </a>
+            ))
+          }
+        </article>
+
+        <!-- 一言（气泡） -->
+        <article class="card sp8 quote">
+          <p class="card-head">今日一言 <span class="badge">样例</span></p>
+          <div class="quote-body">
+            <div>
+              <div class="bubble">“慢慢来，比较快。”</div>
+              <span class="muted small">—— hitokoto</span>
+              <div class="row">
+                <span class="chip pink">💬 换一句</span>
+                <span class="chip mint">⭐ 收藏</span>
+              </div>
+            </div>
+            <div class="deco" aria-hidden="true">🍓<i>✨</i><i>🌸</i></div>
+          </div>
+        </article>
+
+        <!-- 统计 -->
+        <article class="card sp4 stats">
+          <p class="card-head">小窝数据 <span class="badge">样例</span></p>
+          <div class="grid3">
+            <div><b>20</b><span class="muted small">文章</span></div>
+            <div><b>1,024</b><span class="muted small">访客</span></div>
+            <div><b>212</b><span class="muted small">天</span></div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="foot muted">© 2026 {site.author} · 样例设计稿 V3 · 数据均为占位</footer>
+    </main>
+  </div>
+</BaseLayout>
+
+<script>
+  const t = document.getElementById("v3-clock");
+  const d = document.getElementById("v3-date");
+  if (t && d) {
+    const tick = () => {
+      const now = new Date();
+      t.textContent = now.toLocaleTimeString("zh-CN", { hour12: false, hour: "2-digit", minute: "2-digit" });
+      d.textContent = now.toLocaleDateString("zh-CN", { month: "long", day: "numeric", weekday: "long" });
+    };
+    tick();
+    setInterval(tick, 30_000);
+  }
+</script>
+
+<style>
+  /* 软糖风令牌覆盖 */
+  .page {
+    --bg: #fff6ec;
+    --card: rgba(255, 255, 255, 0.92);
+    --card-border: rgba(251, 113, 133, 0.16);
+    --text: #43302b;
+    --text-muted: #a0786c;
+    --text-faint: #c4a79d;
+    --accent: #fb7185;
+    --accent-2: #fbbf24;
+    --accent-soft: rgba(251, 113, 133, 0.1);
+    --shadow: 0 14px 34px rgba(251, 113, 133, 0.16);
+    --radius-lg: 26px;
+    --radius-md: 18px;
+
+    min-height: 100vh;
+    position: relative;
+    overflow-x: clip;
+  }
+
+  .bubbles { position: fixed; inset: 0; z-index: -1; background: var(--bg); }
+  .bub { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.55; }
+  .p1 { width: 380px; height: 380px; top: -120px; left: -80px; background: #fda4af; }
+  .p2 { width: 320px; height: 320px; top: 30%; right: -100px; background: #fcd34d; }
+  .p3 { width: 300px; height: 300px; bottom: -120px; left: 20%; background: #6ee7b7; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 26px 22px 80px; }
+
+  .card { padding: 22px; }
+
+  .greet {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    margin-bottom: 18px;
+    font-size: 15px;
+  }
+  .hi { font-weight: 800; font-size: 17px; }
+  .greet .muted { flex: 1; }
+  .chip.pink { background: rgba(251, 113, 133, 0.14); border-color: rgba(251, 113, 133, 0.35); }
+  .chip.mint { background: rgba(52, 211, 153, 0.12); border-color: rgba(52, 211, 153, 0.35); }
+
+  .card-head { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; font-size: 13.5px; font-weight: 700; }
+  .badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--text-faint);
+  }
+
+  /* 身份 */
+  .identity { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    font-size: 34px;
+    background: linear-gradient(135deg, #fecdd3, #fde68a);
+    margin-bottom: 8px;
+  }
+  .identity h1 { font-size: 22px; margin: 0; }
+  .wave { display: inline-block; }
+  .identity p { margin: 2px 0 12px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* 时钟 */
+  .clock { display: flex; flex-direction: column; justify-content: center; }
+  .time { font-size: 46px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--accent); }
+  .small { font-size: 12px; }
+  .clock p { margin: 0; }
+  .clock .card-head { margin-bottom: 6px; }
+
+  /* 日历 */
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; font-size: 12px; }
+  .head { color: var(--text-faint); padding: 3px 0; }
+  .day { padding: 5px 0; border-radius: 999px; color: var(--text-muted); }
+  .day.today {
+    background: linear-gradient(135deg, var(--accent), #fb923c);
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(251, 113, 133, 0.4);
+  }
+
+  /* 音乐 */
+  .player { display: flex; align-items: center; gap: 16px; }
+  .vinyl {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center, #fda4af 0 26%, #43302b 27% 100%);
+    display: grid;
+    place-items: center;
+    animation: spin 6s linear infinite;
+  }
+  .vinyl span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff6ec;
+    border: 2px solid #fda4af;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .track { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+  .bar { height: 6px; border-radius: 999px; background: var(--accent-soft); overflow: hidden; }
+  .bar i { display: block; width: 35%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit; }
+  .play {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), #fb923c);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(251, 113, 133, 0.4);
+  }
+  .playlist {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .pl-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .pl-row i {
+    font-style: normal;
+    color: var(--text-faint);
+    font-size: 11px;
+  }
+  .pl-row b {
+    margin-left: auto;
+    color: var(--text-faint);
+    font-weight: 500;
+    font-size: 11px;
+  }
+
+  /* 文章 */
+  .posts { display: flex; flex-direction: column; gap: 10px; }
+  .post {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    background: var(--accent-soft);
+    transition: transform 0.2s;
+  }
+  .post:hover { transform: translateX(4px); }
+  .emoji {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    background: #fff;
+  }
+  .post .body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .post strong { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .go { color: var(--accent); font-weight: 700; }
+
+  /* 一言 */
+  .quote-body {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .quote-body > div:first-child {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .quote .bubble {
+    display: inline-block;
+    position: relative;
+    background: var(--accent-soft);
+    border-radius: 18px 18px 18px 4px;
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+  .quote .row {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .deco {
+    flex: none;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 54px;
+    background: linear-gradient(135deg, #fecdd3, #fde68a);
+    position: relative;
+  }
+  .deco i {
+    position: absolute;
+    font-style: normal;
+    font-size: 20px;
+  }
+  .deco i:first-child { top: 8px; right: 14px; }
+  .deco i:last-child { bottom: 10px; left: 10px; }
+
+  /* 统计 */
+  .stats { display: flex; flex-direction: column; justify-content: center; }
+  .grid3 { display: flex; justify-content: space-around; text-align: center; }
+  .grid3 b { display: block; font-size: 24px; color: var(--accent); margin-bottom: 2px; }
+
+  .foot { text-align: center; margin-top: 36px; font-size: 12.5px; }
+</style>

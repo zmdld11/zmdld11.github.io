@@ -1,0 +1,316 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
+
+/* 设计稿 V2 —— 杂志编辑部（暖纸底 / 衬线大标题 / 文章为主角） */
+
+const posts = [
+  {
+    no: "01",
+    title: "把博客从 Quartz 搬到 Astro 的心路历程",
+    excerpt:
+      "与其在别人的框架里缝缝补补，不如自己搓一个。这篇记录选型、迁移与踩坑的全过程，也给同样想重构的人一份参考。",
+    date: "二〇二六年九月廿四",
+    tag: "建站",
+  },
+  {
+    no: "02",
+    title: "量化看板搭建记录：从零到实盘",
+    excerpt:
+      "数据源、回测框架与看板选型的踩坑全记录。策略会亏钱，但看板至少要好看。",
+    date: "二〇二六年九月十二",
+    tag: "量化",
+  },
+  {
+    no: "03",
+    title: "扫街摄影入门：我拍坏的三百张照片",
+    excerpt:
+      "器材不重要，重要的是走上街。一份写给自己的复盘，顺便选出没那么坏的几张。",
+    date: "二〇二六年三月〇八",
+    tag: "摄影",
+  },
+  {
+    no: "04",
+    title: "配置 ShokaX 中遇到的问题",
+    excerpt: "旧文存档：Hexo 时代主题配置的血泪史，留作纪念。",
+    date: "二〇二六年二月〇二",
+    tag: "旧文",
+  },
+];
+
+const sidebar = {
+  github: [
+    "push · MyBlog · 2 小时前",
+    "star · Mizuki · 5 小时前",
+    "issue · dev-workflow#12 · 昨天",
+    "push · dev-workflow · 前天",
+  ],
+  tags: ["建站", "量化", "摄影", "工具", "随笔", "旧文"],
+};
+
+const nav = [
+  { label: "V1 玻璃Bento", href: "/preview/v1" },
+  { label: "V2 杂志", href: "/preview/v2", current: true },
+  { label: "V3 软糖", href: "/preview/v3" },
+  { label: "V4 终端", href: "/preview/v4" },
+];
+---
+
+<BaseLayout title={`V2 杂志 · ${site.title}`} colorScheme="light" previewNav={nav}>
+  <div class="page">
+    <!-- 报头 -->
+    <header class="masthead">
+      <p class="issue muted">二〇二六年 · 九月号 · 总第 1 期</p>
+      <h1 class="site-name">{site.title}</h1>
+      <nav class="menu">
+        <a href="/">首页</a><span>·</span><a href="/">归档</a><span>·</span><a href="/">标签</a><span>·</span><a href="/">关于</a>
+      </nav>
+    </header>
+
+    <!-- 特稿 -->
+    <section class="feature">
+      <div class="feature-text">
+        <p class="kicker">卷首 · FEATURED</p>
+        <h2>写字、造轮子、<br />把日子过成自己喜欢的样子。</h2>
+        <p class="dek">
+          这里是 {site.author} 的个人博客：关于建站、量化、摄影，以及一切让我着迷的小玩意儿。
+        </p>
+        <a class="read" href="/">从最新一篇读起 →</a>
+      </div>
+      <div class="feature-cover" aria-hidden="true">
+        <span>封</span>
+      </div>
+    </section>
+
+    <!-- 正文两栏 -->
+    <div class="columns">
+      <section class="articles">
+        <p class="kicker">目录 · INDEX</p>
+        {
+          posts.map((p) => (
+            <a class="item" href="/">
+              <span class="no">{p.no}</span>
+              <div>
+                <h3>{p.title}</h3>
+                <p>{p.excerpt}</p>
+                <span class="meta">{p.date} · {p.tag}</span>
+              </div>
+            </a>
+          ))
+        }
+      </section>
+
+      <aside class="sidebar">
+        <section class="widget">
+          <h4>现在时刻 <span class="badge">样例</span></h4>
+          <p class="now" id="v2-clock">--:--</p>
+          <p class="muted small" id="v2-date">载入中…</p>
+        </section>
+
+        <section class="widget">
+          <h4>GitHub 近况 <span class="badge">样例</span></h4>
+          <ul>
+            {sidebar.github.map((g) => <li>{g}</li>)}
+          </ul>
+        </section>
+
+        <section class="widget">
+          <h4>标签</h4>
+          <div class="tags">
+            {sidebar.tags.map((t) => <a class="tag" href="/">{t}</a>)}
+          </div>
+        </section>
+
+        <section class="widget">
+          <h4>外链</h4>
+          <a class="quant" href="http://101.133.134.164:8000" target="_blank" rel="noopener">📊 量化看板 ↗</a>
+          <a class="quant" href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub ↗</a>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="foot muted">© 2026 {site.author} · 样例设计稿 V2 · 数据均为占位</footer>
+  </div>
+</BaseLayout>
+
+<script>
+  const t = document.getElementById("v2-clock");
+  const d = document.getElementById("v2-date");
+  if (t && d) {
+    const tick = () => {
+      const now = new Date();
+      t.textContent = now.toLocaleTimeString("zh-CN", { hour12: false, hour: "2-digit", minute: "2-digit" });
+      d.textContent = now.toLocaleDateString("zh-CN", { month: "long", day: "numeric", weekday: "long" });
+    };
+    tick();
+    setInterval(tick, 30_000);
+  }
+</script>
+
+<style>
+  /* 杂志风令牌覆盖 */
+  .page {
+    --bg: #faf7f1;
+    --card: #fffdf9;
+    --card-border: rgba(28, 25, 23, 0.16);
+    --text: #1c1917;
+    --text-muted: #6b6259;
+    --text-faint: #a29a8f;
+    --accent: #b91c1c;
+    --accent-2: #9a3412;
+    --accent-soft: rgba(185, 28, 28, 0.06);
+    --shadow: none;
+    --card-blur: 0px;
+    --radius-lg: 4px;
+    --radius-md: 3px;
+    --radius-sm: 2px;
+
+    min-height: 100vh;
+    background: var(--bg);
+    font-family: var(--font-serif);
+  }
+
+  .page :global(body) { font-family: var(--font-serif); }
+
+  .wrap, .page { padding: 0; }
+  .page { max-width: 1060px; margin: 0 auto; padding: 0 28px 64px; }
+
+  /* 报头 */
+  .masthead {
+    text-align: center;
+    padding: 34px 0 18px;
+    border-bottom: 3px double var(--card-border);
+  }
+  .issue { font-size: 12px; letter-spacing: 0.3em; margin: 0 0 10px; }
+  .site-name { font-size: clamp(34px, 6vw, 52px); margin: 0 0 14px; font-weight: 700; letter-spacing: 0.06em; }
+  .menu { display: flex; justify-content: center; gap: 14px; font-size: 15px; }
+  .menu a { padding: 2px 6px; border-bottom: 2px solid transparent; }
+  .menu a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+
+  /* 特稿 */
+  .feature {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 40px;
+    padding: 44px 0 40px;
+    border-bottom: 1px solid var(--card-border);
+    align-items: center;
+  }
+  .feature h2 {
+    font-size: clamp(30px, 4.6vw, 46px);
+    line-height: 1.32;
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .dek { font-size: 16px; line-height: 2; color: var(--text-muted); margin: 0 0 22px; max-width: 46ch; }
+  .read { color: var(--accent); font-size: 15px; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .feature-cover {
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(185, 28, 28, 0.16), transparent 60%),
+      radial-gradient(circle at 75% 70%, rgba(154, 52, 18, 0.14), transparent 55%),
+      var(--card);
+    border: 1px solid var(--card-border);
+    font-size: 88px;
+    color: var(--accent);
+    opacity: 0.9;
+  }
+
+  /* 两栏 */
+  .columns {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 48px;
+    padding-top: 36px;
+  }
+  @media (max-width: 860px) {
+    .feature, .columns { grid-template-columns: 1fr; }
+  }
+
+  .item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .item .no {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-faint);
+    line-height: 1;
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .item h3 { font-size: 21px; margin: 0 0 8px; transition: color 0.2s; }
+  .item:hover h3 { color: var(--accent); }
+  .item p { margin: 0 0 10px; font-size: 14px; line-height: 1.9; color: var(--text-muted); }
+  .meta { font-size: 12px; letter-spacing: 0.12em; color: var(--text-faint); }
+
+  /* 侧栏小组件 */
+  .widget {
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .widget h4 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+  .badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    color: var(--text-faint);
+    font-weight: 400;
+    vertical-align: 2px;
+  }
+  .now { font-size: 34px; margin: 0; font-variant-numeric: tabular-nums; }
+  .small { font-size: 12px; margin: 4px 0 0; }
+  .widget ul { list-style: none; margin: 0; padding: 0; }
+  .widget li {
+    font-size: 12.5px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--card-border);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+  }
+  .widget li:last-child { border-bottom: none; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 12.5px;
+    padding: 3px 10px;
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .quant {
+    display: block;
+    font-size: 14px;
+    padding: 6px 0;
+    color: var(--text);
+  }
+  .quant:hover { color: var(--accent); }
+
+  .foot {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+    font-size: 12.5px;
+  }
+</style>
