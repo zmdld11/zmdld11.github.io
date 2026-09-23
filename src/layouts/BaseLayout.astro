@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+import { site } from "../config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 锁定配色方案（设计稿用；正式站将支持手动切换） */
+  colorScheme?: "dark" | "light";
+  /** 传入则在页底显示设计稿切换器 */
+  previewNav?: { label: string; href: string; current?: boolean }[];
+}
+
+const {
+  title = `${site.title} · ${site.subtitle}`,
+  description = site.subtitle,
+  colorScheme = "light",
+  previewNav,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN" data-theme={colorScheme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+    {
+      previewNav && (
+        <nav class="preview-switch" aria-label="设计稿切换">
+          {previewNav.map((item) => (
+            <a href={item.href} class:list={[{ current: item.current }]}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+  </body>
+</html>

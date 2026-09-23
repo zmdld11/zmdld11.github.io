@@ -1,9 +1,11 @@
-name: Deploy Quartz site to GitHub Pages
+# 部署：push main 后构建 Astro 站点并发布到 GitHub Pages
+# 触发：push main / 手动 workflow_dispatch
+# 产出：dist/ 作为 Pages artifact 上线
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -12,34 +14,42 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all history for git info
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install Dependencies
+          cache: npm
+
+      - name: Install dependencies
         run: npm ci
-      - name: Build Quartz
-        run: npx quartz build
-      - name: Upload artifact
+
+      # 贡献热力图取数步骤将在「博客重构 5/8」（issue #7）中加入：
+      # 用 Secret CONTRIBUTIONS_TOKEN 调 GitHub GraphQL，生成 src/data/contributions.json
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-22.04
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
