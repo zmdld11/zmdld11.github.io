@@ -30,8 +30,10 @@ jobs:
           node-version: 22
           cache: npm
 
+      # 注：锁文件由本地 npm 11 生成，Node 22 自带的 npm 10 跑 npm ci 会报 Invalid Version，
+      # 故用 npm install；后续统一 CI/本地 npm 大版本后可改回 npm ci
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       # 贡献热力图取数步骤将在「博客重构 5/8」（issue #7）中加入：
       # 用 Secret CONTRIBUTIONS_TOKEN 调 GitHub GraphQL，生成 src/data/contributions.json
