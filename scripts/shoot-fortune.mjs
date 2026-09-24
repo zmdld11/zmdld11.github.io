@@ -34,16 +34,23 @@ await page.evaluate(() => {
 });
 await new Promise((r) => setTimeout(r, 1800));
 
+// 隐藏全站悬浮播放条(站点级固定控件,非本页内容,避免元素截图被烙印)
+await page.evaluate(() => { const p = document.getElementById("mini-player"); if (p) p.style.display = "none"; });
 // 顶部
 await page.evaluate(() => window.scrollTo(0, 0));
 await new Promise((r) => setTimeout(r, 300));
 fs.writeFileSync(`${dir}/1-top.png`, await page.screenshot());
 
-// 三张结果卡区域(元素级截图)
+// 三张结果卡区域:元素截图会被 Edge 翻译工具条烙印,改 clip + captureBeyondViewport(无浏览器UI合成)
 const mods = await page.$$(".f-mod");
 const names = ["2-result-western", "3-result-bazi", "4-result-liuyao", "5-result-tarot"];
 for (let i = 0; i < Math.min(mods.length, 4); i++) {
-  await mods[i].screenshot({ path: `${dir}/${names[i]}.png` });
+  const box = await mods[i].boundingBox();
+  await page.screenshot({
+    path: `${dir}/${names[i]}.png`,
+    clip: { x: Math.max(0, box.x - 8), y: Math.max(0, box.y - 8), width: box.width + 16, height: box.height + 16 },
+    captureBeyondViewport: true,
+  });
 }
 
 // 暗色主题整页
@@ -53,10 +60,17 @@ await page.evaluate(() => {
 await new Promise((r) => setTimeout(r, 400));
 fs.writeFileSync(`${dir}/6-dark-full.png`, await page.screenshot({ fullPage: true }));
 
-// 首页入口卡
+// 首页入口卡(同样用 clip 避开浏览器UI)
 await page.goto("http://localhost:4321/", { waitUntil: "networkidle2" });
 const card = await page.$(".fortune-card");
-if (card) await card.screenshot({ path: `${dir}/7-home-card.png` });
+if (card) {
+  const cb = await card.boundingBox();
+  await page.screenshot({
+    path: `${dir}/7-home-card.png`,
+    clip: { x: Math.max(0, cb.x - 8), y: Math.max(0, cb.y - 8), width: cb.width + 16, height: cb.height + 16 },
+    captureBeyondViewport: true,
+  });
+}
 // 移动端宽度
 await page.setViewport({ width: 390, height: 844 });
 await page.goto("http://localhost:4321/fortune/", { waitUntil: "networkidle2" });
