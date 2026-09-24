@@ -12,6 +12,8 @@ export const site = {
   url: "https://zmdld11.github.io",
   /** 页脚起始年份 */
   since: 2026,
+  /** 建站日期（统计"运行天数"用） */
+  sinceDate: "2026-02-21",
 } as const;
 
 /** 外链入口（量化看板等） */

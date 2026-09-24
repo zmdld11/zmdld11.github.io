@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
-import { site } from "../config/site";
+import { site, widgets } from "../config/site";
 import { excerpt, fmtDate } from "../lib/post-utils";
 
 const posts = (
@@ -32,33 +32,43 @@ const events = [
     </article>
 
     <!-- 时钟 -->
-    <article class="card card-hover sp4 clock">
-      <header class="card-head">现在</header>
-      <div class="time" id="home-clock">--:--:--</div>
-      <p class="date" id="home-date">载入中…</p>
-    </article>
+    {
+      widgets.clock && (
+        <article class="card card-hover sp4 clock">
+          <header class="card-head">现在</header>
+          <div class="time" id="home-clock">--:--:--</div>
+          <p class="date" id="home-date">载入中…</p>
+        </article>
+      )
+    }
 
-    <!-- 日历（客户端渲染当月，农历/节日将在小组件 issue 中加入） -->
-    <article class="card card-hover sp4 calendar">
-      <header class="card-head" id="home-cal-head">日历</header>
-      <div class="cal-grid" id="home-cal"></div>
-    </article>
+    <!-- 日历（农历 + 节日/节气） -->
+    {
+      widgets.calendar && (
+        <article class="card card-hover sp4 calendar">
+          <header class="card-head" id="home-cal-head">日历</header>
+          <div class="cal-grid" id="home-cal"></div>
+        </article>
+      )
+    }
 
     <!-- GitHub 动态（issue #7 接入真实数据） -->
-    <article class="card card-hover sp6 github">
-      <header class="card-head">GitHub 动态 <span class="badge">样例</span></header>
-      <ul>
-        {
-          events.map((e) => (
-            <li>
-              <span class="icon">{e.icon}</span>
-              <span class="text">{e.text}</span>
-              <span class="time">{e.time}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </article>
+    {
+      widgets.githubActivity && (
+        <article class="card card-hover sp6 github">
+          <header class="card-head">GitHub 动态 <span class="badge">样例</span></header>
+          <ul>
+            {events.map((e) => (
+              <li>
+                <span class="icon">{e.icon}</span>
+                <span class="text">{e.text}</span>
+                <span class="time">{e.time}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      )
+    }
 
     <!-- 最新文章（真实数据） -->
     <article class="card card-hover sp6 posts">
@@ -77,65 +87,87 @@ const events = [
       }
     </article>
 
-    <!-- 音乐播放器（issue #6 接入歌单） -->
-    <article class="card card-hover sp4 music">
-      <header class="card-head">正在播放 <span class="badge">样例</span></header>
-      <div class="player">
-        <div class="cover accent-text">♪</div>
-        <div class="track">
-          <strong>Sample Track</strong>
-          <span class="muted">未知艺术家</span>
-          <div class="bar"><i></i></div>
-          <span class="timecode muted">01:24 / 04:05</span>
-        </div>
-        <div class="controls"><button>⏮</button><button class="play">▶</button><button>⏭</button></div>
-      </div>
-    </article>
+    <!-- 音乐播放器（歌单：content/settings/playlist.json，与右下角迷你条联动） -->
+    {
+      widgets.musicPlayer && (
+        <article class="card card-hover sp4 music">
+          <header class="card-head">正在播放</header>
+          <div class="player">
+            <div class="cover accent-text">♪</div>
+            <div class="track">
+              <strong id="card-title">…</strong>
+              <span class="muted" id="card-artist">…</span>
+              <div class="bar" id="card-bar" title="点击跳转进度">
+                <i id="card-bar-fill"></i>
+              </div>
+              <span class="timecode muted" id="card-time">0:00 / 0:00</span>
+            </div>
+            <div class="controls">
+              <button id="card-prev" aria-label="上一首">⏮</button>
+              <button class="play" id="card-play" aria-label="播放/暂停">▶</button>
+              <button id="card-next" aria-label="下一首">⏭</button>
+            </div>
+          </div>
+        </article>
+      )
+    }
 
-    <!-- 一言（issue #6 接入 hitokoto） -->
-    <article class="card card-hover sp4 hitokoto">
-      <header class="card-head">一言 <span class="badge">样例</span></header>
-      <blockquote>“我们听取所有的声音，然后走自己选的路。”</blockquote>
-      <span class="muted">—— 佚名</span>
-    </article>
+    <!-- 一言（hitokoto） -->
+    {
+      widgets.hitokoto && (
+        <article class="card card-hover sp4 hitokoto">
+          <header class="card-head">一言</header>
+          <blockquote id="hitokoto-text">“我们听取所有的声音，然后走自己选的路。”</blockquote>
+          <span class="muted" id="hitokoto-from">—— 佚名</span>
+        </article>
+      )
+    }
 
-    <!-- 统计（访客/运行天数待 issue #6，文章数为真实值） -->
-    <article class="card card-hover sp4 stats">
+    <!-- 统计（文章数真实；访客不蒜子；运行天数自建站日起） -->
+    <article class="card card-hover sp4 stats" data-since={site.sinceDate}>
       <header class="card-head">小站统计</header>
       <div class="stat-row">
         <div><b>{posts.length}</b><span class="muted">文章</span></div>
-        <div><b class="muted">–</b><span class="muted">访客</span></div>
-        <div><b>212</b><span class="muted">运行天数</span></div>
+        <div><b id="stat-uv">–</b><span class="muted">访客</span></div>
+        <div><b id="stat-days">–</b><span class="muted">运行天数</span></div>
       </div>
     </article>
   </section>
 </SiteLayout>
 
 <script>
-  const t = document.getElementById("home-clock");
-  const d = document.getElementById("home-date");
+  import { Solar } from "lunar-typescript";
+  import { BlogPlayer } from "../scripts/media-player";
+
+  const fmt = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+
+  /* ---- 时钟 ---- */
+  const clockEl = document.getElementById("home-clock");
+  const dateEl = document.getElementById("home-date");
   const tick = () => {
     const now = new Date();
-    if (t) t.textContent = now.toLocaleTimeString("zh-CN", { hour12: false });
-    if (d)
-      d.textContent = now.toLocaleDateString("zh-CN", {
+    if (clockEl) clockEl.textContent = now.toLocaleTimeString("zh-CN", { hour12: false });
+    if (dateEl)
+      dateEl.textContent = now.toLocaleDateString("zh-CN", {
         year: "numeric",
         month: "long",
         day: "numeric",
         weekday: "long",
       });
   };
-  tick();
-  setInterval(tick, 1000);
+  if (clockEl) {
+    tick();
+    setInterval(tick, 1000);
+  }
 
-  // 当月日历（周一开头）
-  const head = document.getElementById("home-cal-head");
-  const grid = document.getElementById("home-cal");
-  if (head && grid) {
+  /* ---- 当月日历（农历 + 节日/节气，周一起始） ---- */
+  const calHead = document.getElementById("home-cal-head");
+  const calGrid = document.getElementById("home-cal");
+  if (calHead && calGrid) {
     const now = new Date();
     const y = now.getFullYear();
-    const m = now.getMonth();
-    head.textContent = `${y} 年 ${m + 1} 月`;
+    const m = now.getMonth(); // 0-based
+    calHead.textContent = `${y} 年 ${m + 1} 月`;
     const startCol = (new Date(y, m, 1).getDay() + 6) % 7;
     const days = new Date(y, m + 1, 0).getDate();
     const frag = document.createDocumentFragment();
@@ -145,15 +177,99 @@ const events = [
       s.textContent = w;
       frag.append(s);
     }
-    for (let i = 0; i < startCol; i++) frag.append(Object.assign(document.createElement("span"), { className: "cal-day" }));
-    for (let day = 1; day <= days; day++) {
-      const s = document.createElement("span");
-      s.className = day === now.getDate() ? "cal-day today" : "cal-day";
-      s.textContent = String(day);
-      frag.append(s);
+    for (let i = 0; i < startCol; i++)
+      frag.append(Object.assign(document.createElement("span"), { className: "cal-day" }));
+    for (let d = 1; d <= days; d++) {
+      const solar = Solar.fromYmd(y, m + 1, d);
+      const lunar = solar.getLunar();
+      const festival =
+        solar.getFestivals()[0] ?? lunar.getFestivals()[0] ?? lunar.getJieQi() ?? "";
+      const label =
+        festival || (lunar.getDay() === 1 ? lunar.getMonthInChinese() + "月" : lunar.getDayInChinese());
+      const cell = document.createElement("span");
+      cell.className = "cal-day" + (festival ? " festival" : "") + (d === now.getDate() ? " today" : "");
+      const num = document.createElement("i");
+      num.className = "d";
+      num.textContent = String(d);
+      const lab = document.createElement("i");
+      lab.className = "l";
+      lab.textContent = label;
+      cell.append(num, lab);
+      frag.append(cell);
     }
-    grid.replaceChildren(frag);
+    calGrid.replaceChildren(frag);
   }
+
+  /* ---- 播放器卡片（与右下角迷你条共用 BlogPlayer） ---- */
+  const cardPlay = document.getElementById("card-play");
+  const cardPrev = document.getElementById("card-prev");
+  const cardNext = document.getElementById("card-next");
+  const cardTitle = document.getElementById("card-title");
+  const cardArtist = document.getElementById("card-artist");
+  const cardBar = document.getElementById("card-bar");
+  const cardBarFill = document.getElementById("card-bar-fill");
+  const cardTime = document.getElementById("card-time");
+  if (cardPlay && cardTitle) {
+    const render = (st) => {
+      cardPlay.textContent = st.playing ? "⏸" : "▶";
+      cardTitle.textContent = st.track.title;
+      if (cardArtist) cardArtist.textContent = st.track.artist ?? "";
+      if (cardBarFill)
+        cardBarFill.style.width = st.duration ? `${(st.currentTime / st.duration) * 100}%` : "0%";
+      if (cardTime)
+        cardTime.textContent = `${fmt(st.currentTime)} / ${fmt(st.duration)}`;
+    };
+    render(BlogPlayer.state());
+    cardPlay.addEventListener("click", () => BlogPlayer.toggle());
+    cardPrev?.addEventListener("click", () => BlogPlayer.prev());
+    cardNext?.addEventListener("click", () => BlogPlayer.next());
+    cardBar?.addEventListener("click", (e) => {
+      const rect = cardBar.getBoundingClientRect();
+      BlogPlayer.seek((e.clientX - rect.left) / rect.width);
+    });
+    window.addEventListener("blogplayer", (e) => render(e.detail));
+  }
+
+  /* ---- 一言（hitokoto，失败保持占位句） ---- */
+  const hitoText = document.getElementById("hitokoto-text");
+  const hitoFrom = document.getElementById("hitokoto-from");
+  if (hitoText) {
+    const ctrl = new AbortController();
+    setTimeout(() => ctrl.abort(), 3000);
+    fetch("https://v1.hitokoto.cn/?max_length=24", { signal: ctrl.signal })
+      .then((r) => r.json())
+      .then((h) => {
+        hitoText.textContent = `“${h.hitokoto}”`;
+        if (hitoFrom) hitoFrom.textContent = `—— ${h.from_work ?? h.from ?? "佚名"}`;
+      })
+      .catch(() => {});
+  }
+
+  /* ---- 运行天数 ---- */
+  const daysEl = document.getElementById("stat-days");
+  const statsCard = document.querySelector<HTMLElement>(".stats[data-since]");
+  if (daysEl && statsCard) {
+    const since = new Date(statsCard.dataset.since ?? "");
+    daysEl.textContent = String(
+      Math.max(1, Math.floor((Date.now() - since.getTime()) / 86400000)),
+    );
+  }
+</script>
+
+<script>
+  // 不蒜子回调较慢：把 UV 同步到统计卡（footer 的 PV 由 busuanzi 直接填充）
+  window.addEventListener("load", () => {
+    const uv = document.getElementById("stat-uv");
+    const src = document.getElementById("busuanzi_value_site_uv");
+    if (!uv || !src) return;
+    let tries = 0;
+    const timer = setInterval(() => {
+      if (src.textContent && src.textContent !== "–") {
+        uv.textContent = src.textContent;
+        clearInterval(timer);
+      } else if (++tries > 20) clearInterval(timer);
+    }, 500);
+  });
 </script>
 
 <style>
@@ -221,12 +337,40 @@ const events = [
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
     text-align: center;
-    font-size: 12px;
   }
-  .cal-head { color: var(--text-faint); padding: 4px 0; }
-  .cal-day { padding: 4px 0; border-radius: 8px; color: var(--text-muted); }
-  .cal-day.today {
+  .cal-head { color: var(--text-faint); padding: 3px 0; font-size: 11px; }
+  /* 日历单元格由客户端脚本生成，不带 scoped 属性，必须 :global 匹配 */
+  .cal-grid :global(.cal-day) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 2px 0;
+    border-radius: 8px;
+    min-width: 0;
+  }
+  .cal-grid :global(.cal-day .d) {
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .cal-grid :global(.cal-day .l) {
+    font-style: normal;
+    font-size: 9px;
+    color: var(--text-faint);
+    line-height: 1.3;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .cal-grid :global(.cal-day.festival .l) { color: var(--accent); }
+  .cal-grid :global(.cal-day.today) {
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  .cal-grid :global(.cal-day.today .d),
+  .cal-grid :global(.cal-day.today .l) {
     color: var(--on-accent);
     font-weight: 700;
   }
@@ -291,18 +435,19 @@ const events = [
     background: linear-gradient(135deg, var(--accent-2), var(--accent));
   }
   .track { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
-  .bar { height: 5px; border-radius: 999px; background: var(--card-border); overflow: hidden; }
-  .bar i { display: block; width: 35%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit; }
+  .track strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar { height: 5px; border-radius: 999px; background: var(--card-border); overflow: hidden; cursor: pointer; }
+  .bar i { display: block; width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit; transition: width 0.3s linear; }
   .timecode { font-size: 11px; }
-  .controls { display: flex; gap: 6px; }
+  .controls { display: flex; flex-direction: column; gap: 6px; }
   .controls button {
-    width: 34px; height: 34px;
+    width: 32px; height: 32px;
     border-radius: 50%;
     border: 1px solid var(--card-border);
     background: transparent;
     color: var(--text);
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
   }
   .controls .play {
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -310,7 +455,7 @@ const events = [
     border: none;
   }
 
-  .hitokoto blockquote { margin: 0 0 10px; font-size: 15px; line-height: 1.85; }
+  .hitokoto blockquote { margin: 0 0 10px; font-size: 15px; line-height: 1.85; min-height: 3em; }
 
   .stats { display: flex; flex-direction: column; justify-content: center; }
   .stat-row { display: flex; justify-content: space-around; text-align: center; }
