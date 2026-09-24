@@ -18,13 +18,16 @@ npm run preview  # 预览构建产物
 
 ```
 src/config/site.ts        # 少动层：站点信息/布局/组件开关
-src/content/              # 常动层：文章 + settings JSON（后台可改）
-src/pages/preview/        # 首页设计稿 v1-v4（选型用，选完移除）
+src/content/posts/        # 文章：<slug>/index.md + 图片同目录随迁
+src/content.config.ts     # collections 定义
+src/layouts/SiteLayout.astro  # 站点骨架：页头/页脚/主题切换/极光背景
+src/pages/preview/        # 首页选型设计稿存档（v1-v5，正式站基于 V5）
 src/styles/global.css     # 设计令牌（全站视觉唯一来源）
+scripts/                  # 一次性迁移与图片优化脚本
 cloudflare-worker/        # OAuth 网关（重构 6/8 时落地）
 ```
 
-## 设计稿选型（当前阶段）
+## 当前状态
 
-`npm run dev` 后访问 <http://localhost:4321>，可在四版主页设计稿间切换：
-V1 玻璃 Bento / V2 杂志编辑部 / V3 奶油软糖 / V4 终端极客。
+- ✅ 已上线：首页（V5 玻璃 Bento，浅色默认 + 明暗切换）、文章页、归档、标签、关于
+- 🚧 进行中：小组件接入真实数据（GitHub 动态/播放器/一言/统计）、自研发帖后台
