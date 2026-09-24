@@ -28,6 +28,7 @@ export const widgets = {
   calendar: true,
   musicPlayer: true,
   githubActivity: true,
+  contributions: true,
   hitokoto: true,
   visitorCounter: true,
 } as const;

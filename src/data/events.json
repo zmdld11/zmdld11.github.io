@@ -1,0 +1,3289 @@
+{
+  "login": "zmdld11",
+  "fetchedAt": "2026-09-24T02:02:48.592Z",
+  "events": [
+    {
+      "id": "15633541290",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/12",
+          "id": 5561894345,
+          "node_id": "I_kwDOShmgoc8AAAABS4PFyQ",
+          "number": 12,
+          "title": "【三期】音乐播放器：网易云账号歌单在线播放",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-24T01:56:07Z",
+          "updated_at": "2026-09-24T01:56:07Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n希望播放器能外链用户的网易云账号：选择自己的网易云歌单并在线播放（2026-09-24 提出）。\n\n## 候选方案（开工前先调研定稿）\n- **A. 自建 Worker 反代（推荐目标）**：Cloudflare Worker 部署社区维护的网易云 API 分支 + 扫码登录取 cookie 存 Worker KV；播放器 playlist.json 扩展 `source: \"netease\"` + playlistId；Worker 提供歌单曲目列表与播放地址解析（登录态可放 VIP 音质）\n- **B. 手动外链**：playlist.json 直填 `music.163.com/song/media/outer/url?id=xxx`，只对免费歌有效、不稳定，可先顶\n- **C. 音频自托管**：对象存储/自有服务器，最稳，版权与成本另议\n\n## 风险（知情项）\n- 非官方接口，网易改版即失效，需持续维护；原 NeteaseCloudMusicApi 有 DMCA 下架前科，须选活跃分支\n- VIP 歌曲对访客不可放（无登录态）\n- 灰色地带，仅个人使用规模\n\n## 验收标准（草案）\n- [ ] 播放器可选择用户指定网易云歌单并在线播放\n- [ ] cookie/凭据只存 Worker KV，不进任何仓库与前端产物\n- [ ] 接口失效时播放器优雅降级（切回直链歌单/隐藏卡片）\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:56:09Z"
+    },
+    {
+      "id": "15633541188",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/12",
+          "id": 5561894345,
+          "node_id": "I_kwDOShmgoc8AAAABS4PFyQ",
+          "number": 12,
+          "title": "【三期】音乐播放器：网易云账号歌单在线播放",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-24T01:56:07Z",
+          "updated_at": "2026-09-24T01:56:07Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n希望播放器能外链用户的网易云账号：选择自己的网易云歌单并在线播放（2026-09-24 提出）。\n\n## 候选方案（开工前先调研定稿）\n- **A. 自建 Worker 反代（推荐目标）**：Cloudflare Worker 部署社区维护的网易云 API 分支 + 扫码登录取 cookie 存 Worker KV；播放器 playlist.json 扩展 `source: \"netease\"` + playlistId；Worker 提供歌单曲目列表与播放地址解析（登录态可放 VIP 音质）\n- **B. 手动外链**：playlist.json 直填 `music.163.com/song/media/outer/url?id=xxx`，只对免费歌有效、不稳定，可先顶\n- **C. 音频自托管**：对象存储/自有服务器，最稳，版权与成本另议\n\n## 风险（知情项）\n- 非官方接口，网易改版即失效，需持续维护；原 NeteaseCloudMusicApi 有 DMCA 下架前科，须选活跃分支\n- VIP 歌曲对访客不可放（无登录态）\n- 灰色地带，仅个人使用规模\n\n## 验收标准（草案）\n- [ ] 播放器可选择用户指定网易云歌单并在线播放\n- [ ] cookie/凭据只存 Worker KV，不进任何仓库与前端产物\n- [ ] 接口失效时播放器优雅降级（切回直链歌单/隐藏卡片）\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/12/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:56:08Z"
+    },
+    {
+      "id": "21998009882",
+      "type": "CreateEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1384419221,
+        "name": "zmdld11/How-Fortune-Am-I",
+        "url": "https://api.github.com/repos/zmdld11/How-Fortune-Am-I"
+      },
+      "payload": {
+        "ref": "main",
+        "ref_type": "branch",
+        "full_ref": "refs/heads/main",
+        "master_branch": "main",
+        "description": "命理计算 agent skill(ZCode/Claude Code):真实星历 + 八字引擎的标准化排盘——西占本命盘/行运合盘/八字紫微/梅花六爻/合婚择日，可复核、反巴纳姆 | A Barnum-free fortune-telling skill with real ephemeris & BaZi engines",
+        "pusher_type": "user"
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:47:12Z"
+    },
+    {
+      "id": "21997844202",
+      "type": "PushEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "repository_id": 1243193505,
+        "push_id": 44417968236,
+        "ref": "refs/heads/main",
+        "head": "54356b42f74a5d577d829d27c11f5dac12bea550",
+        "before": "d7e95b952775f4b7c2322c8b01e7b45182cc3122"
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:44:30Z"
+    },
+    {
+      "id": "15633021321",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/7",
+          "id": 5560843947,
+          "node_id": "I_kwDOShmgoc8AAAABS3O-qw",
+          "number": 7,
+          "title": "博客重构 5/8：GitHub 动态流 + 贡献热力图",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:42Z",
+          "updated_at": "2026-09-24T01:43:46Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n实时同步\"我在 GitHub 干了什么\"（P4）。总体方案见《博客重建方案.md》§3.3/§5.8。\n\n## 实现规划\n- 事件流：客户端拉 `GET /users/zmdld11/events/public`（免 token，按访客 IP 限额 60/h），localStorage 缓存 30min + ETag 条件请求；过滤展示 push/issue/PR/star\n- 贡献热力图：构建时（deploy.yml 前置 step）用 GraphQL + PAT 取数生成 `src/data/contributions.json`，页面静态渲染\n- 需要用户：fine-grained PAT（仅 read:user）→ 配置仓库 Secret `CONTRIBUTIONS_TOKEN`\n\n## 验收标准\n- [ ] 首页展示真实公开动态与贡献图\n- [ ] token 不出现在任何前端产物（构建产物审查）\n- [ ] 有缓存降耗，正常浏览不触限额\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805955979",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/7#issuecomment-5805955979",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7",
+          "id": 5805955979,
+          "node_id": "IC_kwDOShmgoc8AAAABWg_biw",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T01:43:46Z",
+          "updated_at": "2026-09-24T01:43:46Z",
+          "body": "依赖前置已就绪：小组件框架与数据层（#6）已完成，事件流/贡献图卡片位置已预留（当前为样例占位）。**下一步实现本 issue，其中贡献图需要你提供一个 fine-grained PAT（仅 read:user 权限）并配置到仓库 Secret `CONTRIBUTIONS_TOKEN`**——到时给一步步指引。事件流本身免 token 可先做。",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805955979/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:43:46Z"
+    },
+    {
+      "id": "15633019716",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/6",
+          "id": 5560843642,
+          "node_id": "I_kwDOShmgoc8AAAABS3O9eg",
+          "number": 6,
+          "title": "博客重构 4/8：小组件四件套（时钟/日历/播放器/一言/统计）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:40Z",
+          "updated_at": "2026-09-24T01:43:44Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n\"可以不用，不能没有\"的小组件癖好（P3），首发清单已全选（D4）。总体方案见《博客重建方案.md》§5.6。\n\n## 实现规划（7 件）\n| 组件 | 技术要点 |\n|---|---|\n| 时钟 | Preact island 实时时钟/日期 |\n| 日历 | lunar-typescript，公历+农历+节日标记 |\n| 音乐播放器 | 原生 audio，悬浮迷你条 + bento 卡片两态，歌单 playlist.json（音频建议外链） |\n| GitHub 事件流 | 与 #5（重构 5/8）共用数据层 |\n| 贡献热力图 | 与 #5（重构 5/8）共用数据层 |\n| 一言 | hitokoto.cn API |\n| 访客统计 | 不蒜子（备选 Worker 自建） |\n\n组件注册表：每个 widget 独立目录，`site.ts` 一行开关。\n\n## 验收标准\n- [ ] 每个组件可在 site.ts 独立开关\n- [ ] 关闭后无残留网络请求\n- [ ] 移动端不破版\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805955641",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/6#issuecomment-5805955641",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6",
+          "id": 5805955641,
+          "node_id": "IC_kwDOShmgoc8AAAABWg_aOQ",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T01:43:44Z",
+          "updated_at": "2026-09-24T01:43:44Z",
+          "body": "进度 2026-09-24：**四组组件已上线**（commit d7e95b9）。\n\n| 组件 | 状态 |\n|---|---|\n| 农历日历 | ✅ lunar-typescript：每日农历标签、节日/节气强调色、今日渐变高亮，客户端按当月渲染 |\n| 音乐播放器 | ✅ 歌单常动层 content/settings/playlist.json（构建期内联）；首页卡片 + 全站悬浮迷你条共用单例 audio 实时联动，进度条可点击跳转 |\n| 一言 | ✅ hitokoto API，3s 超时回退占位句 |\n| 访客统计 | ✅ 不蒜子：页脚 PV + 统计卡 UV；运行天数自建站日（2026-02-21）计算 |\n| 时钟 | ✅（此前已有） |\n| GitHub 动态/贡献图 | → 归 #7（重构 5/8）实现 |\n\n**开关验收**：site.ts widgets 六个开关全量接线，关闭即不渲染、无网络请求（busuanzi 脚本为条件注入、hitokoto 由元素存在性守卫、audio 懒创建、歌单构建期内联）。\n\n**踩坑记录**：① Astro scoped 样式匹配不到客户端 JS 生成的 DOM——日历单元格样式全部失效，需用 :global() 编译；② Edge headless 窗口有 ~500px 最小宽度钳制，--window-size=390 的截图是 500px 布局被裁剪的伪影，测移动端布局需用 IAB 精确视口。\n\n移动端 390-500px、桌面明暗两态均已过独立视觉验收。**待 #7 完成后本 issue 关闭。**",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805955641/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:43:44Z"
+    },
+    {
+      "id": "15632188336",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/9",
+          "id": 5560845896,
+          "node_id": "I_kwDOShmgoc8AAAABS3PGSA",
+          "number": 9,
+          "title": "博客重构 7/8：自研发帖页 + 设置后台",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:35:00Z",
+          "updated_at": "2026-09-24T01:22:56Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n贴吧式发帖体验（P2）：在网站里直接写帖上传，支持 Markdown 和图片。方案见《博客重建方案.md》§5.7。\n\n## 实现规划（依赖 6/8 网关就绪）\n- `/admin`：Markdown 编辑器 + 实时预览；拖拽/粘贴传图（canvas 压缩 → base64 → GitHub Contents API）\n- 发布 = 提交 `src/content/posts/<slug>/`（自动生成 slug/日期/frontmatter）→ Actions 构建约 2 分钟上线；页面显示\"构建中\"状态\n- 草稿：`draft: true`，构建时排除（注：公开仓库草稿技术可见，已知情接受）\n- `/admin/settings`：改 theme/notice/playlist 三个 JSON + 上传背景/头图，全站 noindex + 登录校验\n\n## 验收标准\n- [ ] 网页发一篇带图帖，2 分钟内上线\n- [ ] 后台换背景图即生效（构建后）\n- [ ] 非本人账号无法写入\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805765826",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/9#issuecomment-5805765826",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9",
+          "id": 5805765826,
+          "node_id": "IC_kwDOShmgoc8AAAABWgz0wg",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T01:22:56Z",
+          "updated_at": "2026-09-24T01:22:56Z",
+          "body": "补充需求（2026-09-24 用户提出）：设置后台需支持**头像上传/更换**（归入常动层 theme.json 的 avatar 字段，头像留空时用字母占位）；**站标（favicon/logo）**用户敲定后固定进主题，不做后台开关。实现时随 /admin/settings 一起落地。",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805765826/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:22:56Z"
+    },
+    {
+      "id": "15632029739",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/5",
+          "id": 5560842001,
+          "node_id": "I_kwDOShmgoc8AAAABS3O3EQ",
+          "number": 5,
+          "title": "博客重构 3/8：Bento 首页 + 全站布局与设计系统",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 3,
+          "created_at": "2026-09-23T23:34:26Z",
+          "updated_at": "2026-09-24T01:18:58Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n界面现代化（P5），首页形态已定为 Bento 卡片仪表盘（D3）。总体方案见《博客重建方案.md》§5.5/§5.9。\n\n## 实现规划\n- **第一步：交 4 版主页设计稿**（/preview/v1-v4，静态 mockup + 设计令牌）供选型，选定方向后细化\n- 文章页 / 标签页 / 归档页 / 关于页\n- 明暗模式（跟随系统 + 手动切换）、View Transitions 页面过渡\n- 玻璃拟态卡片 / 极光渐变背景层（预留 theme.json 驱动接口）\n\n## 验收标准\n- [ ] 主页方向经用户选型定稿并实现\n- [ ] 核心页面视觉统一，全部由设计令牌驱动\n- [ ] 本地 Lighthouse 性能 ≥ 90\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805726387",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/5#issuecomment-5805726387",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5",
+          "id": 5805726387,
+          "node_id": "IC_kwDOShmgoc8AAAABWgxasw",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T01:18:57Z",
+          "updated_at": "2026-09-24T01:18:57Z",
+          "body": "新增 hidden 标记（commit 8053174，已上线）：软件推荐目录下的 12 篇子文不再出现在首页/归档/标签，仅可从目录页（/posts/ruan-jian-tui-jian-mu-lu/）进入。设计取舍：用 frontmatter `hidden: true` 而非嵌套文件夹——URL 保持稳定无需二次重定向，可见性与目录位置解耦，单篇一行开关。hidden 与 draft 正交（draft 不渲染，hidden 渲染但不上列表）。细节：可见文章的上下篇导航跳过隐藏区；隐藏文之间保持完整时间序便于系列阅读。顺带修正上下篇方向反转的旧 bug。",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805726387/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:18:57Z"
+    },
+    {
+      "id": "21995274559",
+      "type": "PushEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "repository_id": 1243193505,
+        "push_id": 44415749800,
+        "ref": "refs/heads/main",
+        "head": "2d6c6fc60892e2be58f3685b5033dfaf32ebfcc6",
+        "before": "c7ecab310ac5b3d3246525b8cc3a2fbb6a25394c"
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:02:35Z"
+    },
+    {
+      "id": "15631348688",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/4",
+          "id": 5560841758,
+          "node_id": "I_kwDOShmgoc8AAAABS3O2Hg",
+          "number": 4,
+          "title": "博客重构 2/8：内容迁移（20 篇 + 旧路径跳转）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:24Z",
+          "updated_at": "2026-09-24T01:02:03Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n现 content/ 共 20 篇 md，frontmatter 为 Hexo 风格（date/tags/categories/comment/reward），`软件推荐目录.md` 残留 `{% post_link %}` 语法；baseUrl 从未配置。总体方案见《博客重建方案.md》§6.2。\n\n## 实现规划\n- `scripts/migrate-quartz.mjs` 一次性脚本：frontmatter 转换（`date`→`pubDate`、删 `comment`/`reward`、补 `description`/`draft`）\n- 文章移入 `src/content/posts/<slug>/index.md`，同名图片文件夹随迁；slug 转拼音\n- `{% post_link %}` 残留人工改写为普通链接\n- `astro.config.mjs` 配置 `redirects`，旧中文路径可跳转；确认 site 域名配置\n\n## 验收标准\n- [ ] 20 篇全部可访问、图片不丢\n- [ ] 旧路径可跳转到新地址\n- [ ] RSS/sitemap 的绝对链接域名正确\n- [ ] 迁移后 20 篇逐篇人工过一遍渲染\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805563712",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/4#issuecomment-5805563712",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/4",
+          "id": 5805563712,
+          "node_id": "IC_kwDOShmgoc8AAAABWgnfQA",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T01:02:03Z",
+          "updated_at": "2026-09-24T01:02:03Z",
+          "body": "进度 2026-09-24：✅ 19 篇全部迁入 src/content/posts/<slug>/（旧 Quartz 首页不迁移），frontmatter 转换/图片随迁/post_link 改写完成；✅ 19 条旧中文路径 redirects 已上线生效（旧路径 meta-refresh 跳转验证通过）；✅ 图片优化 45MB→3.6MB。**遗留**：RSS/sitemap 的域名核对依赖 RSS 生成本身，归入重构 8/8（#10）完成后回看。20 篇逐篇人工复核进行中。",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805563712/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:02:03Z"
+    },
+    {
+      "id": "15631346764",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/3",
+          "id": 5560839649,
+          "node_id": "I_kwDOShmgoc8AAAABS3Ot4Q",
+          "number": 3,
+          "title": "博客重构 1/8：Astro 骨架 + 设计令牌 + 部署切换",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "closed",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 2,
+          "created_at": "2026-09-23T23:34:06Z",
+          "updated_at": "2026-09-24T01:02:01Z",
+          "closed_at": "2026-09-24T01:02:01Z",
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\nQuartz 4 定制任何界面都要改框架源码（痛点 P1），已定稿重建为 Astro 5 从零自建。总体方案见仓库《博客重建方案.md》§5/§6（本文只列要点）。\n\n## 实现规划\n- 打 `quartz-archive` 分支保全现状；main 移除 `quartz/`、`docs/`、`Dockerfile`、`fix_images.ps1`、上游空转 workflows 等（方案 §6.3 清单，archive 可找回）\n- 初始化 Astro 5 + TypeScript + Tailwind 4（纯静态输出）\n- `src/config/site.ts` 少动层配置（站点信息/字体/布局/组件开关）\n- `src/styles/` 设计令牌：明暗两套 CSS 变量（颜色/圆角/阴影/间距/字体栈）\n- `deploy.yml` 切换为 astro build → Pages，保留手动触发；贡献图取数 step 留位（#5 用）\n\n## 验收标准\n- [ ] `npm run dev` / `npm run build` 本地通过\n- [ ] 改 site.ts 一处令牌全站生效\n- [ ] deploy.yml 就绪，push 后 Pages 可部署空站\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/timeline",
+          "performed_via_github_app": null,
+          "state_reason": "completed",
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805563237",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/3#issuecomment-5805563237",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3",
+          "id": 5805563237,
+          "node_id": "IC_kwDOShmgoc8AAAABWgndZQ",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T01:02:00Z",
+          "updated_at": "2026-09-24T01:02:00Z",
+          "body": "小结（重构 1/8 ✅ 已完成并上线）：\n\n**最终方案**：Astro 5 + TypeScript + Tailwind 4，纯静态输出；设计令牌集中在 src/styles/global.css（明暗两套 CSS 变量），site.ts 为少动层配置——改一处令牌全站生效 ✅；deploy.yml 切换 astro build → Pages ✅；空站已上线并被后续迭代取代为完整站点 ✅。\n\n**踩坑记录（重要）**：\n1. rolldown@1.2.10 的 @rolldown/binding-linux-arm64-musl@1.2.10 未发布到 registry，npm 解析其可选依赖在 Linux CI 上报 `Invalid Version:` 崩溃（Windows 本地因平台过滤不触发，极具迷惑性）；npm 11 遇 404 可选依赖同样崩，属 npm 侧缺陷。修复：package.json overrides 钉 rolldown 1.2.9（c7ecab3）。\n2. 该 404 还导致 npm 11 在锁文件写入一条无 version 的幽灵条目（rolldown 嵌套 binding），/regen 锁文件也无法避免，根治靠 overrides。\n\n**验收对照**：本地 dev/build ✅；令牌单点生效 ✅（明暗切换即证据）；Pages 部署 ✅（run 35940873896 绿）。",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805563237/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:02:00Z"
+    },
+    {
+      "id": "15631346468",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "closed",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/3",
+          "id": 5560839649,
+          "node_id": "I_kwDOShmgoc8AAAABS3Ot4Q",
+          "number": 3,
+          "title": "博客重构 1/8：Astro 骨架 + 设计令牌 + 部署切换",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "closed",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 2,
+          "created_at": "2026-09-23T23:34:06Z",
+          "updated_at": "2026-09-24T01:02:01Z",
+          "closed_at": "2026-09-24T01:02:01Z",
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\nQuartz 4 定制任何界面都要改框架源码（痛点 P1），已定稿重建为 Astro 5 从零自建。总体方案见仓库《博客重建方案.md》§5/§6（本文只列要点）。\n\n## 实现规划\n- 打 `quartz-archive` 分支保全现状；main 移除 `quartz/`、`docs/`、`Dockerfile`、`fix_images.ps1`、上游空转 workflows 等（方案 §6.3 清单，archive 可找回）\n- 初始化 Astro 5 + TypeScript + Tailwind 4（纯静态输出）\n- `src/config/site.ts` 少动层配置（站点信息/字体/布局/组件开关）\n- `src/styles/` 设计令牌：明暗两套 CSS 变量（颜色/圆角/阴影/间距/字体栈）\n- `deploy.yml` 切换为 astro build → Pages，保留手动触发；贡献图取数 step 留位（#5 用）\n\n## 验收标准\n- [ ] `npm run dev` / `npm run build` 本地通过\n- [ ] 改 site.ts 一处令牌全站生效\n- [ ] deploy.yml 就绪，push 后 Pages 可部署空站\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/timeline",
+          "performed_via_github_app": null,
+          "state_reason": "completed",
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T01:02:01Z"
+    },
+    {
+      "id": "21994646490",
+      "type": "PushEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "repository_id": 1243193505,
+        "push_id": 44415223891,
+        "ref": "refs/heads/main",
+        "head": "7ea3f8554a540805eb22442e89ca98ee2a8f6a0b",
+        "before": "20efb42cb42d23f5992728ca0ea8313e27dfb93d"
+      },
+      "public": true,
+      "created_at": "2026-09-24T00:52:49Z"
+    },
+    {
+      "id": "21994395316",
+      "type": "PushEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "repository_id": 1243193505,
+        "push_id": 44414691284,
+        "ref": "refs/heads/main",
+        "head": "195035ad6f545100679135287e78cb7f2f633567",
+        "before": "97decffcfd20fd8e4fbf9fb3eef45f5d2c9d1286"
+      },
+      "public": true,
+      "created_at": "2026-09-24T00:42:32Z"
+    },
+    {
+      "id": "21994215727",
+      "type": "PushEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "repository_id": 1243193505,
+        "push_id": 44414873938,
+        "ref": "refs/heads/main",
+        "head": "5fb0695c93c900480b36a7e5d52ac189e46a89bc",
+        "before": "195035ad6f545100679135287e78cb7f2f633567"
+      },
+      "public": true,
+      "created_at": "2026-09-24T00:46:03Z"
+    },
+    {
+      "id": "15629374513",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/5",
+          "id": 5560842001,
+          "node_id": "I_kwDOShmgoc8AAAABS3O3EQ",
+          "number": 5,
+          "title": "博客重构 3/8：Bento 首页 + 全站布局与设计系统",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 3,
+          "created_at": "2026-09-23T23:34:26Z",
+          "updated_at": "2026-09-24T01:18:58Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n界面现代化（P5），首页形态已定为 Bento 卡片仪表盘（D3）。总体方案见《博客重建方案.md》§5.5/§5.9。\n\n## 实现规划\n- **第一步：交 4 版主页设计稿**（/preview/v1-v4，静态 mockup + 设计令牌）供选型，选定方向后细化\n- 文章页 / 标签页 / 归档页 / 关于页\n- 明暗模式（跟随系统 + 手动切换）、View Transitions 页面过渡\n- 玻璃拟态卡片 / 极光渐变背景层（预留 theme.json 驱动接口）\n\n## 验收标准\n- [ ] 主页方向经用户选型定稿并实现\n- [ ] 核心页面视觉统一，全部由设计令牌驱动\n- [ ] 本地 Lighthouse 性能 ≥ 90\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805091425",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/5#issuecomment-5805091425",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5",
+          "id": 5805091425,
+          "node_id": "IC_kwDOShmgoc8AAAABWgKqYQ",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T00:13:44Z",
+          "updated_at": "2026-09-24T00:13:44Z",
+          "body": "选型反馈 2026-09-24：用户偏好 **V1 布局 + V3 浅色气质**，V1 太暗、希望提供明暗双模式且默认浅色。已交付 **V5 融合稿**（`/preview/v5`，commit 见仓库）：V1 玻璃 Bento 骨架 × 浅色粉紫蓝软雾默认 × 右上角一键切换暗色（回落 V1 深空玻璃），localStorage 记忆、`?theme=dark` 可直链。踩坑记录：页面级 `--card` 覆盖未区分主题导致暗色下卡片被盖成浅玻璃、文字不可读——已限定覆盖仅浅色生效；设计稿截图必须取自生产构建。明暗两态均过独立视觉评审。**待用户最终确认 V5 后进入布局细化。**",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5805091425/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T00:13:44Z"
+    },
+    {
+      "id": "15628862386",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/5",
+          "id": 5560842001,
+          "node_id": "I_kwDOShmgoc8AAAABS3O3EQ",
+          "number": 5,
+          "title": "博客重构 3/8：Bento 首页 + 全站布局与设计系统",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 3,
+          "created_at": "2026-09-23T23:34:26Z",
+          "updated_at": "2026-09-24T01:18:58Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n界面现代化（P5），首页形态已定为 Bento 卡片仪表盘（D3）。总体方案见《博客重建方案.md》§5.5/§5.9。\n\n## 实现规划\n- **第一步：交 4 版主页设计稿**（/preview/v1-v4，静态 mockup + 设计令牌）供选型，选定方向后细化\n- 文章页 / 标签页 / 归档页 / 关于页\n- 明暗模式（跟随系统 + 手动切换）、View Transitions 页面过渡\n- 玻璃拟态卡片 / 极光渐变背景层（预留 theme.json 驱动接口）\n\n## 验收标准\n- [ ] 主页方向经用户选型定稿并实现\n- [ ] 核心页面视觉统一，全部由设计令牌驱动\n- [ ] 本地 Lighthouse 性能 ≥ 90\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5804973500",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/5#issuecomment-5804973500",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/5",
+          "id": 5804973500,
+          "node_id": "IC_kwDOShmgoc8AAAABWgDdvA",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T00:01:43Z",
+          "updated_at": "2026-09-24T00:01:43Z",
+          "body": "进度 2026-09-24：四版主页设计稿已交付（commit 14dcd70）：`/preview/v1` 玻璃Bento · `/preview/v2` 杂志编辑部 · `/preview/v3` 奶油软糖 · `/preview/v4` 终端极客，截图存 design-previews/（已 gitignore）。独立视觉评审四版全部通过（V3 两处布局硬伤已修复；注意设计稿截图须取自生产构建，dev 模式有 Astro Dev Toolbar 干扰）。**待站长选型后细化。**",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5804973500/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T00:01:43Z"
+    },
+    {
+      "id": "15628861788",
+      "type": "IssueCommentEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/3",
+          "id": 5560839649,
+          "node_id": "I_kwDOShmgoc8AAAABS3Ot4Q",
+          "number": 3,
+          "title": "博客重构 1/8：Astro 骨架 + 设计令牌 + 部署切换",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "closed",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 2,
+          "created_at": "2026-09-23T23:34:06Z",
+          "updated_at": "2026-09-24T01:02:01Z",
+          "closed_at": "2026-09-24T01:02:01Z",
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\nQuartz 4 定制任何界面都要改框架源码（痛点 P1），已定稿重建为 Astro 5 从零自建。总体方案见仓库《博客重建方案.md》§5/§6（本文只列要点）。\n\n## 实现规划\n- 打 `quartz-archive` 分支保全现状；main 移除 `quartz/`、`docs/`、`Dockerfile`、`fix_images.ps1`、上游空转 workflows 等（方案 §6.3 清单，archive 可找回）\n- 初始化 Astro 5 + TypeScript + Tailwind 4（纯静态输出）\n- `src/config/site.ts` 少动层配置（站点信息/字体/布局/组件开关）\n- `src/styles/` 设计令牌：明暗两套 CSS 变量（颜色/圆角/阴影/间距/字体栈）\n- `deploy.yml` 切换为 astro build → Pages，保留手动触发；贡献图取数 step 留位（#5 用）\n\n## 验收标准\n- [ ] `npm run dev` / `npm run build` 本地通过\n- [ ] 改 site.ts 一处令牌全站生效\n- [ ] deploy.yml 就绪，push 后 Pages 可部署空站\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3/timeline",
+          "performed_via_github_app": null,
+          "state_reason": "completed",
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5804973274",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/3#issuecomment-5804973274",
+          "issue_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/3",
+          "id": 5804973274,
+          "node_id": "IC_kwDOShmgoc8AAAABWgDc2g",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-24T00:01:42Z",
+          "updated_at": "2026-09-24T00:01:42Z",
+          "body": "进度 2026-09-24：✅ quartz-archive 分支已建（另有全量 bundle 备份于仓库外）；✅ Quartz 框架文件已从 main 移除（commit faeb596）；✅ Astro 5 + Tailwind 4 骨架、设计令牌、site.ts 双层配置、deploy.yml 切换完成（commit 8e1a4f4）；npm run dev / build 本地通过。**待用户确认后 push 上线空站。**",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/comments/5804973274/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-24T00:01:42Z"
+    },
+    {
+      "id": "15627753421",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/11",
+          "id": 5560847744,
+          "node_id": "I_kwDOShmgoc8AAAABS3PNgA",
+          "number": 11,
+          "title": "【二期】小组件：Steam / PotatoVN 游戏与浏览记录同步",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T23:35:16Z",
+          "updated_at": "2026-09-23T23:35:16Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n希望在博客有一个\"最近在玩\"卡片，同步 Steam 和 PotatoVN 的游戏 / 浏览记录（与 GitHub 动态并列）。**二期任务**，排在重构 1/8-8/8 之后。\n\n## 开工前需调研（结论补充到本 issue）\n- Steam Web API：`IPlayerService/GetRecentlyPlayedGames`、`GetOwnedGames`——需 Steam Web API Key + SteamID；隐私取决于个人资料设置\n- PotatoVN：本地数据（SQLite）或其同步的 Bangumi 记录（Bangumi API 可取游戏/VN 收藏与进度）——数据源二选一或并用\n- 展示形态：封面墙 / 最近游玩列表 + 游戏时长\n- 更新方式：构建时拉取（Actions 定时 cron 或随部署）vs 客户端拉取\n\n## 待定\n- 隐私范围（展示哪些记录、是否区分 VN/Steam）\n- API Key 存放（Actions Secret，不进前端）\n\n## 验收标准（草案）\n- [ ] 首页出现\"最近在玩\"卡片，数据来自真实记录\n- [ ] Key 不出现在任何前端产物\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:35:17Z"
+    },
+    {
+      "id": "15627753294",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/11",
+          "id": 5560847744,
+          "node_id": "I_kwDOShmgoc8AAAABS3PNgA",
+          "number": 11,
+          "title": "【二期】小组件：Steam / PotatoVN 游戏与浏览记录同步",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T23:35:16Z",
+          "updated_at": "2026-09-23T23:35:16Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n希望在博客有一个\"最近在玩\"卡片，同步 Steam 和 PotatoVN 的游戏 / 浏览记录（与 GitHub 动态并列）。**二期任务**，排在重构 1/8-8/8 之后。\n\n## 开工前需调研（结论补充到本 issue）\n- Steam Web API：`IPlayerService/GetRecentlyPlayedGames`、`GetOwnedGames`——需 Steam Web API Key + SteamID；隐私取决于个人资料设置\n- PotatoVN：本地数据（SQLite）或其同步的 Bangumi 记录（Bangumi API 可取游戏/VN 收藏与进度）——数据源二选一或并用\n- 展示形态：封面墙 / 最近游玩列表 + 游戏时长\n- 更新方式：构建时拉取（Actions 定时 cron 或随部署）vs 客户端拉取\n\n## 待定\n- 隐私范围（展示哪些记录、是否区分 VN/Steam）\n- API Key 存放（Actions Secret，不进前端）\n\n## 验收标准（草案）\n- [ ] 首页出现\"最近在玩\"卡片，数据来自真实记录\n- [ ] Key 不出现在任何前端产物\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/11/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:35:16Z"
+    },
+    {
+      "id": "15627751867",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/10",
+          "id": 5560847473,
+          "node_id": "I_kwDOShmgoc8AAAABS3PMcQ",
+          "number": 10,
+          "title": "博客重构 8/8：收尾（SEO / 404 / 性能 / 量化入口）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T23:35:13Z",
+          "updated_at": "2026-09-23T23:35:13Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n重建收尾杂项，方案见《博客重建方案.md》§7。\n\n## 实现规划\n- RSS / sitemap / meta / OG 标签补全\n- 404 页兜底（配合旧路径 redirects）\n- 量化看板入口保留；`http://101.133.134.164:8000` 为 HTTP 会被浏览器混合内容拦截 → 标注问题/提示，待面板上 HTTPS 后改为直链\n- README 重写（Astro 工程说明）\n- 构建产物体积审查\n\n## 验收标准\n- [ ] RSS 可订阅、绝对链接正确\n- [ ] 404 兜底可用\n- [ ] Lighthouse 报告归档到 issue\n- [ ] 量化入口可见且问题已标注\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:35:14Z"
+    },
+    {
+      "id": "15627751758",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/10",
+          "id": 5560847473,
+          "node_id": "I_kwDOShmgoc8AAAABS3PMcQ",
+          "number": 10,
+          "title": "博客重构 8/8：收尾（SEO / 404 / 性能 / 量化入口）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T23:35:13Z",
+          "updated_at": "2026-09-23T23:35:13Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n重建收尾杂项，方案见《博客重建方案.md》§7。\n\n## 实现规划\n- RSS / sitemap / meta / OG 标签补全\n- 404 页兜底（配合旧路径 redirects）\n- 量化看板入口保留；`http://101.133.134.164:8000` 为 HTTP 会被浏览器混合内容拦截 → 标注问题/提示，待面板上 HTTPS 后改为直链\n- README 重写（Astro 工程说明）\n- 构建产物体积审查\n\n## 验收标准\n- [ ] RSS 可订阅、绝对链接正确\n- [ ] 404 兜底可用\n- [ ] Lighthouse 报告归档到 issue\n- [ ] 量化入口可见且问题已标注\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/10/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:35:14Z"
+    },
+    {
+      "id": "15627742627",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/9",
+          "id": 5560845896,
+          "node_id": "I_kwDOShmgoc8AAAABS3PGSA",
+          "number": 9,
+          "title": "博客重构 7/8：自研发帖页 + 设置后台",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:35:00Z",
+          "updated_at": "2026-09-24T01:22:56Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n贴吧式发帖体验（P2）：在网站里直接写帖上传，支持 Markdown 和图片。方案见《博客重建方案.md》§5.7。\n\n## 实现规划（依赖 6/8 网关就绪）\n- `/admin`：Markdown 编辑器 + 实时预览；拖拽/粘贴传图（canvas 压缩 → base64 → GitHub Contents API）\n- 发布 = 提交 `src/content/posts/<slug>/`（自动生成 slug/日期/frontmatter）→ Actions 构建约 2 分钟上线；页面显示\"构建中\"状态\n- 草稿：`draft: true`，构建时排除（注：公开仓库草稿技术可见，已知情接受）\n- `/admin/settings`：改 theme/notice/playlist 三个 JSON + 上传背景/头图，全站 noindex + 登录校验\n\n## 验收标准\n- [ ] 网页发一篇带图帖，2 分钟内上线\n- [ ] 后台换背景图即生效（构建后）\n- [ ] 非本人账号无法写入\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:35:01Z"
+    },
+    {
+      "id": "15627742529",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/9",
+          "id": 5560845896,
+          "node_id": "I_kwDOShmgoc8AAAABS3PGSA",
+          "number": 9,
+          "title": "博客重构 7/8：自研发帖页 + 设置后台",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:35:00Z",
+          "updated_at": "2026-09-24T01:22:56Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n贴吧式发帖体验（P2）：在网站里直接写帖上传，支持 Markdown 和图片。方案见《博客重建方案.md》§5.7。\n\n## 实现规划（依赖 6/8 网关就绪）\n- `/admin`：Markdown 编辑器 + 实时预览；拖拽/粘贴传图（canvas 压缩 → base64 → GitHub Contents API）\n- 发布 = 提交 `src/content/posts/<slug>/`（自动生成 slug/日期/frontmatter）→ Actions 构建约 2 分钟上线；页面显示\"构建中\"状态\n- 草稿：`draft: true`，构建时排除（注：公开仓库草稿技术可见，已知情接受）\n- `/admin/settings`：改 theme/notice/playlist 三个 JSON + 上传背景/头图，全站 noindex + 登录校验\n\n## 验收标准\n- [ ] 网页发一篇带图帖，2 分钟内上线\n- [ ] 后台换背景图即生效（构建后）\n- [ ] 非本人账号无法写入\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/9/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:35:01Z"
+    },
+    {
+      "id": "15627740843",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/8",
+          "id": 5560845582,
+          "node_id": "I_kwDOShmgoc8AAAABS3PFDg",
+          "number": 8,
+          "title": "博客重构 6/8：自研 OAuth 网关（Cloudflare Worker）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T23:34:57Z",
+          "updated_at": "2026-09-23T23:34:57Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\nGitHub OAuth 不支持 PKCE/纯前端换 token（decap-cms#40077），自研发帖页需要服务端网关保管 client_secret。方案见《博客重建方案.md》§5.7。\n\n## 实现规划\n- `cloudflare-worker/`：/authorize 跳 GitHub 授权 + /callback 用环境变量里的 client_secret 换 token 后 postMessage 回页面，约百行（可参考 sveltia-cms-auth）\n- 注册 GitHub OAuth App（Homepage=博客地址，Callback=Worker 域名），scope 最小化 `public_repo`\n- Worker 校验 origin 白名单；token 仅存 sessionStorage\n- **前置（用户操作）**：注册 Cloudflare（免费）→ 我给一步步指引；建 OAuth App\n\n## 验收标准\n- [ ] 登录往返成功，token 回传 /admin 页面\n- [ ] client_secret 仅存 Worker 环境变量，不入任何仓库文件\n- [ ] 非 zmdld11 账号登录后被拒绝所有写操作\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:34:59Z"
+    },
+    {
+      "id": "15627740751",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/8",
+          "id": 5560845582,
+          "node_id": "I_kwDOShmgoc8AAAABS3PFDg",
+          "number": 8,
+          "title": "博客重构 6/8：自研 OAuth 网关（Cloudflare Worker）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T23:34:57Z",
+          "updated_at": "2026-09-23T23:34:57Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\nGitHub OAuth 不支持 PKCE/纯前端换 token（decap-cms#40077），自研发帖页需要服务端网关保管 client_secret。方案见《博客重建方案.md》§5.7。\n\n## 实现规划\n- `cloudflare-worker/`：/authorize 跳 GitHub 授权 + /callback 用环境变量里的 client_secret 换 token 后 postMessage 回页面，约百行（可参考 sveltia-cms-auth）\n- 注册 GitHub OAuth App（Homepage=博客地址，Callback=Worker 域名），scope 最小化 `public_repo`\n- Worker 校验 origin 白名单；token 仅存 sessionStorage\n- **前置（用户操作）**：注册 Cloudflare（免费）→ 我给一步步指引；建 OAuth App\n\n## 验收标准\n- [ ] 登录往返成功，token 回传 /admin 页面\n- [ ] client_secret 仅存 Worker 环境变量，不入任何仓库文件\n- [ ] 非 zmdld11 账号登录后被拒绝所有写操作\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/8/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:34:59Z"
+    },
+    {
+      "id": "15627730308",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/7",
+          "id": 5560843947,
+          "node_id": "I_kwDOShmgoc8AAAABS3O-qw",
+          "number": 7,
+          "title": "博客重构 5/8：GitHub 动态流 + 贡献热力图",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:42Z",
+          "updated_at": "2026-09-24T01:43:46Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n实时同步\"我在 GitHub 干了什么\"（P4）。总体方案见《博客重建方案.md》§3.3/§5.8。\n\n## 实现规划\n- 事件流：客户端拉 `GET /users/zmdld11/events/public`（免 token，按访客 IP 限额 60/h），localStorage 缓存 30min + ETag 条件请求；过滤展示 push/issue/PR/star\n- 贡献热力图：构建时（deploy.yml 前置 step）用 GraphQL + PAT 取数生成 `src/data/contributions.json`，页面静态渲染\n- 需要用户：fine-grained PAT（仅 read:user）→ 配置仓库 Secret `CONTRIBUTIONS_TOKEN`\n\n## 验收标准\n- [ ] 首页展示真实公开动态与贡献图\n- [ ] token 不出现在任何前端产物（构建产物审查）\n- [ ] 有缓存降耗，正常浏览不触限额\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:34:44Z"
+    },
+    {
+      "id": "15627730192",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/7",
+          "id": 5560843947,
+          "node_id": "I_kwDOShmgoc8AAAABS3O-qw",
+          "number": 7,
+          "title": "博客重构 5/8：GitHub 动态流 + 贡献热力图",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:42Z",
+          "updated_at": "2026-09-24T01:43:46Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n实时同步\"我在 GitHub 干了什么\"（P4）。总体方案见《博客重建方案.md》§3.3/§5.8。\n\n## 实现规划\n- 事件流：客户端拉 `GET /users/zmdld11/events/public`（免 token，按访客 IP 限额 60/h），localStorage 缓存 30min + ETag 条件请求；过滤展示 push/issue/PR/star\n- 贡献热力图：构建时（deploy.yml 前置 step）用 GraphQL + PAT 取数生成 `src/data/contributions.json`，页面静态渲染\n- 需要用户：fine-grained PAT（仅 read:user）→ 配置仓库 Secret `CONTRIBUTIONS_TOKEN`\n\n## 验收标准\n- [ ] 首页展示真实公开动态与贡献图\n- [ ] token 不出现在任何前端产物（构建产物审查）\n- [ ] 有缓存降耗，正常浏览不触限额\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/7/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:34:44Z"
+    },
+    {
+      "id": "15627728126",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/6",
+          "id": 5560843642,
+          "node_id": "I_kwDOShmgoc8AAAABS3O9eg",
+          "number": 6,
+          "title": "博客重构 4/8：小组件四件套（时钟/日历/播放器/一言/统计）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:40Z",
+          "updated_at": "2026-09-24T01:43:44Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n\"可以不用，不能没有\"的小组件癖好（P3），首发清单已全选（D4）。总体方案见《博客重建方案.md》§5.6。\n\n## 实现规划（7 件）\n| 组件 | 技术要点 |\n|---|---|\n| 时钟 | Preact island 实时时钟/日期 |\n| 日历 | lunar-typescript，公历+农历+节日标记 |\n| 音乐播放器 | 原生 audio，悬浮迷你条 + bento 卡片两态，歌单 playlist.json（音频建议外链） |\n| GitHub 事件流 | 与 #5（重构 5/8）共用数据层 |\n| 贡献热力图 | 与 #5（重构 5/8）共用数据层 |\n| 一言 | hitokoto.cn API |\n| 访客统计 | 不蒜子（备选 Worker 自建） |\n\n组件注册表：每个 widget 独立目录，`site.ts` 一行开关。\n\n## 验收标准\n- [ ] 每个组件可在 site.ts 独立开关\n- [ ] 关闭后无残留网络请求\n- [ ] 移动端不破版\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12335863437,
+          "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+          "name": "博客重构",
+          "color": "0E8A16",
+          "default": false,
+          "description": "Quartz→Astro 重建系列任务",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12335863437,
+            "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+            "name": "博客重构",
+            "color": "0E8A16",
+            "default": false,
+            "description": "Quartz→Astro 重建系列任务",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:34:41Z"
+    },
+    {
+      "id": "15627727999",
+      "type": "IssuesEvent",
+      "actor": {
+        "id": 52627756,
+        "login": "zmdld11",
+        "display_login": "zmdld11",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zmdld11",
+        "avatar_url": "https://avatars.githubusercontent.com/u/52627756?"
+      },
+      "repo": {
+        "id": 1243193505,
+        "name": "zmdld11/zmdld11.github.io",
+        "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6",
+          "repository_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io",
+          "labels_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/labels{/name}",
+          "comments_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/comments",
+          "events_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/events",
+          "html_url": "https://github.com/zmdld11/zmdld11.github.io/issues/6",
+          "id": 5560843642,
+          "node_id": "I_kwDOShmgoc8AAAABS3O9eg",
+          "number": 6,
+          "title": "博客重构 4/8：小组件四件套（时钟/日历/播放器/一言/统计）",
+          "user": {
+            "login": "zmdld11",
+            "id": 52627756,
+            "node_id": "MDQ6VXNlcjUyNjI3NzU2",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52627756?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/zmdld11",
+            "html_url": "https://github.com/zmdld11",
+            "followers_url": "https://api.github.com/users/zmdld11/followers",
+            "following_url": "https://api.github.com/users/zmdld11/following{/other_user}",
+            "gists_url": "https://api.github.com/users/zmdld11/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/zmdld11/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/zmdld11/subscriptions",
+            "organizations_url": "https://api.github.com/users/zmdld11/orgs",
+            "repos_url": "https://api.github.com/users/zmdld11/repos",
+            "events_url": "https://api.github.com/users/zmdld11/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/zmdld11/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12335863437,
+              "node_id": "LA_kwDOShmgoc8AAAAC30ZWjQ",
+              "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/labels/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84",
+              "name": "博客重构",
+              "color": "0E8A16",
+              "default": false,
+              "description": "Quartz→Astro 重建系列任务",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 1,
+          "created_at": "2026-09-23T23:34:40Z",
+          "updated_at": "2026-09-24T01:43:44Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 背景\n\"可以不用，不能没有\"的小组件癖好（P3），首发清单已全选（D4）。总体方案见《博客重建方案.md》§5.6。\n\n## 实现规划（7 件）\n| 组件 | 技术要点 |\n|---|---|\n| 时钟 | Preact island 实时时钟/日期 |\n| 日历 | lunar-typescript，公历+农历+节日标记 |\n| 音乐播放器 | 原生 audio，悬浮迷你条 + bento 卡片两态，歌单 playlist.json（音频建议外链） |\n| GitHub 事件流 | 与 #5（重构 5/8）共用数据层 |\n| 贡献热力图 | 与 #5（重构 5/8）共用数据层 |\n| 一言 | hitokoto.cn API |\n| 访客统计 | 不蒜子（备选 Worker 自建） |\n\n组件注册表：每个 widget 独立目录，`site.ts` 一行开关。\n\n## 验收标准\n- [ ] 每个组件可在 site.ts 独立开关\n- [ ] 关闭后无残留网络请求\n- [ ] 移动端不破版\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/zmdld11/zmdld11.github.io/issues/6/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      },
+      "public": true,
+      "created_at": "2026-09-23T23:34:41Z"
+    }
+  ]
+}

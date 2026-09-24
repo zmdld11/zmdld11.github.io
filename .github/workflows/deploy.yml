@@ -35,8 +35,14 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
-      # 贡献热力图取数步骤将在「博客重构 5/8」（issue #7）中加入：
-      # 用 Secret CONTRIBUTIONS_TOKEN 调 GitHub GraphQL，生成 src/data/contributions.json
+      # 贡献热力图 + 公开动态预取：无 Secret / 失效时脚本自动跳过并保留现有数据
+      - name: Fetch GitHub data
+        env:
+          CONTRIBUTIONS_TOKEN: ${{ secrets.CONTRIBUTIONS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/fetch-contributions.mjs
+          node scripts/fetch-events.mjs
 
       - name: Build
         run: npm run build
