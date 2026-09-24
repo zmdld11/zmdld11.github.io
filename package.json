@@ -17,5 +17,8 @@
   "devDependencies": {
     "gray-matter": "^4.0.3",
     "pinyin-pro": "^3.29.4"
+  },
+  "overrides": {
+    "rolldown": "1.2.9"
   }
 }

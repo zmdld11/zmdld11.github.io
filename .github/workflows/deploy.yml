@@ -30,12 +30,10 @@ jobs:
           node-version: 22
           cache: npm
 
-      # 注：锁文件由 npm 11 生成，Node 22 自带的 npm 10 在 rolldown 可选依赖上
-      # 有 "Invalid Version" 的 Arborist bug，故 CI 统一升级到 npm 11 再 npm ci
+      # 注：rolldown@1.2.10 的 linux-arm64-musl binding 未发布，npm 解析其可选依赖会
+      # 崩溃（Invalid Version），package.json overrides 已钉到健康的 1.2.9，此处可正常 npm ci
       - name: Install dependencies
-        run: |
-          npm install -g npm@11
-          npm ci --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
       # 贡献热力图取数步骤将在「博客重构 5/8」（issue #7）中加入：
       # 用 Secret CONTRIBUTIONS_TOKEN 调 GitHub GraphQL，生成 src/data/contributions.json
