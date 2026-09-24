@@ -43,6 +43,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
       <div class="row">
         <a class="chip" href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub</a>
         <a class="chip" href="http://101.133.134.164:8000" target="_blank" rel="noopener">📊 量化看板</a>
+        <a class="chip" href="http://101.133.134.164:8787" target="_blank" rel="noopener">🔮 命理小馆</a>
       </div>
     </article>
 
@@ -147,13 +148,13 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
       )
     }
 
-    <!-- 命理小馆入口（本地排盘 + AI 解读，详见 /fortune） -->
+    <!-- 命理小馆入口（独立站，自托管在阿里云；排盘全在浏览器本地算） -->
     {
       widgets.fortune && (
         <article class="card card-hover sp4 fortune-card">
           <header class="card-head">
             命理小馆
-            <a class="more" href="/fortune/">去算一卦 →</a>
+            <a class="more" href="http://101.133.134.164:8787" target="_blank" rel="noopener">去算一卦 →</a>
           </header>
           <p class="fortune-line">
             <span class="fortune-icons">🔮 🪙 🃏</span>

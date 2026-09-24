@@ -23,9 +23,11 @@ src/content.config.ts     # collections 定义
 src/layouts/SiteLayout.astro  # 站点骨架：页头/页脚/主题切换/极光背景
 src/pages/preview/        # 首页选型设计稿存档（v1-v5，正式站基于 V5）
 src/styles/global.css     # 设计令牌（全站视觉唯一来源）
-src/scripts/fortune/      # 命理小馆排盘库（纯前端；AI 转发服务已拆到 My-Fortune 仓库）
 scripts/                  # 一次性迁移与图片优化脚本
 ```
+
+> 命理小馆（算命/占卜）已拆成独立项目 [Get-Fortune](https://github.com/zmdld11/Get-Fortune)，
+> 自托管在 <http://101.133.134.164:8787>；本仓库只保留首页入口卡与外链。
 
 ## 当前状态
 

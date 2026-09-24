@@ -1,0 +1,1648 @@
+data: {"t":"chunk","v":"##"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"一"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"开场"}
+
+data: {"t":"chunk","v":"口径"}
+
+data: {"t":"chunk","v":"声明"}
+
+data: {"t":"chunk","v":"\n\n"}
+
+data: {"t":"chunk","v":"本次"}
+
+data: {"t":"chunk","v":"解读"}
+
+data: {"t":"chunk","v":"依据"}
+
+data: {"t":"chunk","v":"你"}
+
+data: {"t":"chunk","v":"提供的"}
+
+data: {"t":"chunk","v":"程序"}
+
+data: {"t":"chunk","v":"排"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"结果"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"**"}
+
+data: {"t":"chunk","v":"但"}
+
+data: {"t":"chunk","v":"需要"}
+
+data: {"t":"chunk","v":"先"}
+
+data: {"t":"chunk","v":"说明"}
+
+data: {"t":"chunk","v":":"}
+
+data: {"t":"chunk","v":"你"}
+
+data: {"t":"chunk","v":"这次"}
+
+data: {"t":"chunk","v":"给的"}
+
+data: {"t":"chunk","v":"输入"}
+
+data: {"t":"chunk","v":"里"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"两个"}
+
+data: {"t":"chunk","v":"模块"}
+
+data: {"t":"chunk","v":"的"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":"都是"}
+
+data: {"t":"chunk","v":"空的"}
+
+data: {"t":"chunk","v":"**"}
+
+data: {"t":"chunk","v":"——"}
+
+data: {"t":"chunk","v":"西方"}
+
+data: {"t":"chunk","v":"占"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"命"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"只有"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"三大"}
+
+data: {"t":"chunk","v":"件"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"标题"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"八字"}
+
+data: {"t":"chunk","v":"只有"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"四"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"标题"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"标题"}
+
+data: {"t":"chunk","v":"下方"}
+
+data: {"t":"chunk","v":"没有任何"}
+
+data: {"t":"chunk","v":"行星"}
+
+data: {"t":"chunk","v":"黄"}
+
+data: {"t":"chunk","v":"经"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"位"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"度数"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"容许"}
+
+data: {"t":"chunk","v":"度"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"四"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":"或"}
+
+data: {"t":"chunk","v":"大"}
+
+data: {"t":"chunk","v":"运"}
+
+data: {"t":"chunk","v":"流"}
+
+data: {"t":"chunk","v":"年"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"按"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"组"}
+
+data: {"t":"chunk","v":"件的"}
+
+data: {"t":"chunk","v":"硬"}
+
+data: {"t":"chunk","v":"标准"}
+
+data: {"t":"chunk","v":"第"}
+
+data: {"t":"chunk","v":"1"}
+
+data: {"t":"chunk","v":"条"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"我不能"}
+
+data: {"t":"chunk","v":"重新"}
+
+data: {"t":"chunk","v":"计算"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"不能"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"顺便"}
+
+data: {"t":"chunk","v":"补充"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"任何"}
+
+data: {"t":"chunk","v":"数字"}
+
+data: {"t":"chunk","v":"或"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"因此"}
+
+data: {"t":"chunk","v":"**"}
+
+data: {"t":"chunk","v":"本次"}
+
+data: {"t":"chunk","v":"无法"}
+
+data: {"t":"chunk","v":"给出"}
+
+data: {"t":"chunk","v":"有"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"锚"}
+
+data: {"t":"chunk","v":"点的"}
+
+data: {"t":"chunk","v":"逐"}
+
+data: {"t":"chunk","v":"条"}
+
+data: {"t":"chunk","v":"解读"}
+
+data: {"t":"chunk","v":"**,"}
+
+data: {"t":"chunk","v":"只能"}
+
+data: {"t":"chunk","v":"就"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"现有"}
+
+data: {"t":"chunk","v":"信息"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"和"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"测试"}
+
+data: {"t":"chunk","v":"意图"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"作"}
+
+data: {"t":"chunk","v":"说明"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"并把"}
+
+data: {"t":"chunk","v":"需要"}
+
+data: {"t":"chunk","v":"补"}
+
+data: {"t":"chunk","v":"的数据"}
+
+data: {"t":"chunk","v":"列"}
+
+data: {"t":"chunk","v":"清楚"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"---\n\n"}
+
+data: {"t":"chunk","v":"##"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"二"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"要点"}
+
+data: {"t":"chunk","v":"\n\n"}
+
+data: {"t":"chunk","v":"直接"}
+
+data: {"t":"chunk","v":"引用"}
+
+data: {"t":"chunk","v":"你"}
+
+data: {"t":"chunk","v":"贴"}
+
+data: {"t":"chunk","v":"出的"}
+
+data: {"t":"chunk","v":"内容"}
+
+data: {"t":"chunk","v":":\n\n"}
+
+data: {"t":"chunk","v":"|"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"模块"}
+
+data: {"t":"chunk","v":" |"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"你"}
+
+data: {"t":"chunk","v":"提供"}
+
+data: {"t":"chunk","v":"的内容"}
+
+data: {"t":"chunk","v":" |\n"}
+
+data: {"t":"chunk","v":"|---|---"}
+
+data: {"t":"chunk","v":"|\n"}
+
+data: {"t":"chunk","v":"|"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"西方"}
+
+data: {"t":"chunk","v":"占"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"命"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":" |"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"仅"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"三大"}
+
+data: {"t":"chunk","v":"件"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"标题"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":" |\n"}
+
+data: {"t":"chunk","v":"|"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"八字"}
+
+data: {"t":"chunk","v":" |"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"仅"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"四"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"标题"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":" |\n\n"}
+
+data: {"t":"chunk","v":"除此之外"}
+
+data: {"t":"chunk","v":"没有"}
+
+data: {"t":"chunk","v":"可"}
+
+data: {"t":"chunk","v":"引"}
+
+data: {"t":"chunk","v":"用的"}
+
+data: {"t":"chunk","v":"表格"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"---\n\n"}
+
+data: {"t":"chunk","v":"##"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"三"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"逐"}
+
+data: {"t":"chunk","v":"模块"}
+
+data: {"t":"chunk","v":"解读"}
+
+data: {"t":"chunk","v":"\n\n"}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"西方"}
+
+data: {"t":"chunk","v":"占"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"命"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"结构"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"太阳"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"月亮"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"上升"}
+
+data: {"t":"chunk","v":"落"}
+
+data: {"t":"chunk","v":"座"}
+
+data: {"t":"chunk","v":"落"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"命"}
+
+data: {"t":"chunk","v":"主"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"相位"}
+
+data: {"t":"chunk","v":"容许"}
+
+data: {"t":"chunk","v":"度"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"月"}
+
+data: {"t":"chunk","v":"相"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"位"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"群"}
+
+data: {"t":"chunk","v":"。\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"表现"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"无法"}
+
+data: {"t":"chunk","v":"判断"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"按"}
+
+data: {"t":"chunk","v":"锚"}
+
+data: {"t":"chunk","v":"点"}
+
+data: {"t":"chunk","v":"清单"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"至少要"}
+
+data: {"t":"chunk","v":"拿到"}
+
+data: {"t":"chunk","v":"①"}
+
+data: {"t":"chunk","v":"三大"}
+
+data: {"t":"chunk","v":"件"}
+
+data: {"t":"chunk","v":"("}
+
+data: {"t":"chunk","v":"含"}
+
+data: {"t":"chunk","v":"庙"}
+
+data: {"t":"chunk","v":"旺"}
+
+data: {"t":"chunk","v":"落"}
+
+data: {"t":"chunk","v":")、"}
+
+data: {"t":"chunk","v":"②"}
+
+data: {"t":"chunk","v":"命"}
+
+data: {"t":"chunk","v":"主"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"落"}
+
+data: {"t":"chunk","v":"座"}
+
+data: {"t":"chunk","v":"落"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"+"}
+
+data: {"t":"chunk","v":"相位"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"③"}
+
+data: {"t":"chunk","v":"容许"}
+
+data: {"t":"chunk","v":"度"}
+
+data: {"t":"chunk","v":"<"}
+
+data: {"t":"chunk","v":"3"}
+
+data: {"t":"chunk","v":"°"}
+
+data: {"t":"chunk","v":"的"}
+
+data: {"t":"chunk","v":"相位"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"④"}
+
+data: {"t":"chunk","v":"≥"}
+
+data: {"t":"chunk","v":"2"}
+
+data: {"t":"chunk","v":"星的"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"位"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"才能"}
+
+data: {"t":"chunk","v":"给出"}
+
+data: {"t":"chunk","v":"专属"}
+
+data: {"t":"chunk","v":"断言"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"现在"}
+
+data: {"t":"chunk","v":"一项"}
+
+data: {"t":"chunk","v":"都"}
+
+data: {"t":"chunk","v":"缺"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"写"}
+
+data: {"t":"chunk","v":"任何"}
+
+data: {"t":"chunk","v":"性格"}
+
+data: {"t":"chunk","v":"描述"}
+
+data: {"t":"chunk","v":"都会"}
+
+data: {"t":"chunk","v":"变成"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"锚"}
+
+data: {"t":"chunk","v":"点的"}
+
+data: {"t":"chunk","v":"巴"}
+
+data: {"t":"chunk","v":"纳"}
+
+data: {"t":"chunk","v":"姆"}
+
+data: {"t":"chunk","v":"话"}
+
+data: {"t":"chunk","v":"术"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"违反"}
+
+data: {"t":"chunk","v":"硬"}
+
+data: {"t":"chunk","v":"标准"}
+
+data: {"t":"chunk","v":"第"}
+
+data: {"t":"chunk","v":"2"}
+
+data: {"t":"chunk","v":"条"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"八字"}
+
+data: {"t":"chunk","v":"\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"结构"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"年"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"月"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"日"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"时"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"月"}
+
+data: {"t":"chunk","v":"支"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"气得"}
+
+data: {"t":"chunk","v":"令"}
+
+data: {"t":"chunk","v":"判断"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"禄"}
+
+data: {"t":"chunk","v":"刃"}
+
+data: {"t":"chunk","v":"强"}
+
+data: {"t":"chunk","v":"根"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"天"}
+
+data: {"t":"chunk","v":"干"}
+
+data: {"t":"chunk","v":"比"}
+
+data: {"t":"chunk","v":"劫"}
+
+data: {"t":"chunk","v":"印"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"无"}
+
+data: {"t":"chunk","v":"大"}
+
+data: {"t":"chunk","v":"运"}
+
+data: {"t":"chunk","v":"流"}
+
+data: {"t":"chunk","v":"年"}
+
+data: {"t":"chunk","v":"。\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"表现"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"无法"}
+
+data: {"t":"chunk","v":"判断"}
+
+data: {"t":"chunk","v":"旺"}
+
+data: {"t":"chunk","v":"衰"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"更"}
+
+data: {"t":"chunk","v":"无法"}
+
+data: {"t":"chunk","v":"取"}
+
+data: {"t":"chunk","v":"用"}
+
+data: {"t":"chunk","v":"神"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"锚"}
+
+data: {"t":"chunk","v":"点"}
+
+data: {"t":"chunk","v":"清单"}
+
+data: {"t":"chunk","v":"第"}
+
+data: {"t":"chunk","v":"①"}
+
+data: {"t":"chunk","v":"条"}
+
+data: {"t":"chunk","v":"明确"}
+
+data: {"t":"chunk","v":"要求"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"旺"}
+
+data: {"t":"chunk","v":"衰"}
+
+data: {"t":"chunk","v":"别"}
+
+data: {"t":"chunk","v":"一步"}
+
+data: {"t":"chunk","v":"跳"}
+
+data: {"t":"chunk","v":"结论"}
+
+data: {"t":"chunk","v":"\","}
+
+data: {"t":"chunk","v":"而现在"}
+
+data: {"t":"chunk","v":"连"}
+
+data: {"t":"chunk","v":"起"}
+
+data: {"t":"chunk","v":"跳"}
+
+data: {"t":"chunk","v":"的数据"}
+
+data: {"t":"chunk","v":"都没有"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"###"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"两"}
+
+data: {"t":"chunk","v":"系统"}
+
+data: {"t":"chunk","v":"交叉"}
+
+data: {"t":"chunk","v":"\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"因"}
+
+data: {"t":"chunk","v":"两"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"皆"}
+
+data: {"t":"chunk","v":"空"}
+
+data: {"t":"chunk","v":",**"}
+
+data: {"t":"chunk","v":"不存在"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"结论"}
+
+data: {"t":"chunk","v":"一致"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"或"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"口径"}
+
+data: {"t":"chunk","v":"冲突"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"可"}
+
+data: {"t":"chunk","v":"谈"}
+
+data: {"t":"chunk","v":"**"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"---\n\n"}
+
+data: {"t":"chunk","v":"##"}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"四"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"回"}
+
+data: {"t":"chunk","v":"应用"}
+
+data: {"t":"chunk","v":"户"}
+
+data: {"t":"chunk","v":"的问题"}
+
+data: {"t":"chunk","v":"\n\n"}
+
+data: {"t":"chunk","v":"你的"}
+
+data: {"t":"chunk","v":"问题是"}
+
+data: {"t":"chunk","v":":\""}
+
+data: {"t":"chunk","v":"接口"}
+
+data: {"t":"chunk","v":"联"}
+
+data: {"t":"chunk","v":"调"}
+
+data: {"t":"chunk","v":"测试"}
+
+data: {"t":"chunk","v":":"}
+
+data: {"t":"chunk","v":"请"}
+
+data: {"t":"chunk","v":"用"}
+
+data: {"t":"chunk","v":"一句话"}
+
+data: {"t":"chunk","v":"概括"}
+
+data: {"t":"chunk","v":"这个"}
+
+data: {"t":"chunk","v":"盘的"}
+
+data: {"t":"chunk","v":"总体"}
+
+data: {"t":"chunk","v":"特征"}
+
+data: {"t":"chunk","v":"。\"\n\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"结构"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"这是一"}
+
+data: {"t":"chunk","v":"次"}
+
+data: {"t":"chunk","v":"联"}
+
+data: {"t":"chunk","v":"调"}
+
+data: {"t":"chunk","v":"测试"}
+
+data: {"t":"chunk","v":"请求"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":"为空"}
+
+data: {"t":"chunk","v":"。\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"结论"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"在"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":"为空"}
+
+data: {"t":"chunk","v":"的前提下"}
+
+data: {"t":"chunk","v":",**"}
+
+data: {"t":"chunk","v":"唯一"}
+
+data: {"t":"chunk","v":"诚实"}
+
+data: {"t":"chunk","v":"的一句话"}
+
+data: {"t":"chunk","v":"是"}
+
+data: {"t":"chunk","v":"——"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"当前"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"数据"}
+
+data: {"t":"chunk","v":"为空"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"无法"}
+
+data: {"t":"chunk","v":"概括"}
+
+data: {"t":"chunk","v":"总体"}
+
+data: {"t":"chunk","v":"特征"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"请"}
+
+data: {"t":"chunk","v":"补齐"}
+
+data: {"t":"chunk","v":"排"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"输出"}
+
+data: {"t":"chunk","v":"字段"}
+
+data: {"t":"chunk","v":"后再"}
+
+data: {"t":"chunk","v":"请求"}
+
+data: {"t":"chunk","v":"解读"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"**"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"任何"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"你"}
+
+data: {"t":"chunk","v":"是一个"}
+
+data: {"t":"chunk","v":"外表"}
+
+data: {"t":"chunk","v":"沉稳"}
+
+data: {"t":"chunk","v":"内心"}
+
+data: {"t":"chunk","v":"炽"}
+
+data: {"t":"chunk","v":"热"}
+
+data: {"t":"chunk","v":"的人"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"之类"}
+
+data: {"t":"chunk","v":"的一句话"}
+
+data: {"t":"chunk","v":"概括"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"都会"}
+
+data: {"t":"chunk","v":"是对"}
+
+data: {"t":"chunk","v":"空"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"编"}
+
+data: {"t":"chunk","v":"造"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"直接"}
+
+data: {"t":"chunk","v":"踩"}
+
+data: {"t":"chunk","v":"红线"}
+
+data: {"t":"chunk","v":"。\n"}
+
+data: {"t":"chunk","v":"-"}
+
+data: {"t":"chunk","v":" **"}
+
+data: {"t":"chunk","v":"时间"}
+
+data: {"t":"chunk","v":"窗"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"未"}
+
+data: {"t":"chunk","v":"给出"}
+
+data: {"t":"chunk","v":"任何"}
+
+data: {"t":"chunk","v":"日期"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"故"}
+
+data: {"t":"chunk","v":"无可"}
+
+data: {"t":"chunk","v":"引"}
+
+data: {"t":"chunk","v":"用的"}
+
+data: {"t":"chunk","v":"时间"}
+
+data: {"t":"chunk","v":"窗"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"**"}
+
+data: {"t":"chunk","v":"联"}
+
+data: {"t":"chunk","v":"调"}
+
+data: {"t":"chunk","v":"建议"}
+
+data: {"t":"chunk","v":"("}
+
+data: {"t":"chunk","v":"供"}
+
+data: {"t":"chunk","v":"你"}
+
+data: {"t":"chunk","v":"测试"}
+
+data: {"t":"chunk","v":"接口"}
+
+data: {"t":"chunk","v":"用"}
+
+data: {"t":"chunk","v":")"}
+
+data: {"t":"chunk","v":"**:"}
+
+data: {"t":"chunk","v":"要让"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"组件"}
+
+data: {"t":"chunk","v":"正常"}
+
+data: {"t":"chunk","v":"产出"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"排"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"结果"}
+
+data: {"t":"chunk","v":"至少"}
+
+data: {"t":"chunk","v":"需"}
+
+data: {"t":"chunk","v":"包含"}
+
+data: {"t":"chunk","v":"——\n"}
+
+data: {"t":"chunk","v":"1"}
+
+data: {"t":"chunk","v":"."}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"西"}
+
+data: {"t":"chunk","v":"占"}
+
+data: {"t":"chunk","v":":"}
+
+data: {"t":"chunk","v":"太阳"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"月亮"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"上升"}
+
+data: {"t":"chunk","v":"的"}
+
+data: {"t":"chunk","v":"星座"}
+
+data: {"t":"chunk","v":"+"}
+
+data: {"t":"chunk","v":"度数"}
+
+data: {"t":"chunk","v":"+"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"位"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"命"}
+
+data: {"t":"chunk","v":"主"}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"容许"}
+
+data: {"t":"chunk","v":"度"}
+
+data: {"t":"chunk","v":"<"}
+
+data: {"t":"chunk","v":"3"}
+
+data: {"t":"chunk","v":"°"}
+
+data: {"t":"chunk","v":"的"}
+
+data: {"t":"chunk","v":"相位"}
+
+data: {"t":"chunk","v":"列表"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"每"}
+
+data: {"t":"chunk","v":"宫"}
+
+data: {"t":"chunk","v":"所"}
+
+data: {"t":"chunk","v":"落"}
+
+data: {"t":"chunk","v":"行星"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"月"}
+
+data: {"t":"chunk","v":"相"}
+
+data: {"t":"chunk","v":"。\n"}
+
+data: {"t":"chunk","v":"2"}
+
+data: {"t":"chunk","v":"."}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"八字"}
+
+data: {"t":"chunk","v":":"}
+
+data: {"t":"chunk","v":"四"}
+
+data: {"t":"chunk","v":"柱"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"月"}
+
+data: {"t":"chunk","v":"支"}
+
+data: {"t":"chunk","v":"本"}
+
+data: {"t":"chunk","v":"气"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"日"}
+
+data: {"t":"chunk","v":"主"}
+
+data: {"t":"chunk","v":"强弱"}
+
+data: {"t":"chunk","v":"相关"}
+
+data: {"t":"chunk","v":"的地"}
+
+data: {"t":"chunk","v":"支"}
+
+data: {"t":"chunk","v":"("}
+
+data: {"t":"chunk","v":"禄"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"刃"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"根"}
+
+data: {"t":"chunk","v":");"}
+
+data: {"t":"chunk","v":"当前"}
+
+data: {"t":"chunk","v":"大"}
+
+data: {"t":"chunk","v":"运"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":"与"}
+
+data: {"t":"chunk","v":"起"}
+
+data: {"t":"chunk","v":"止"}
+
+data: {"t":"chunk","v":"年份"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"目标"}
+
+data: {"t":"chunk","v":"流"}
+
+data: {"t":"chunk","v":"年"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":"。\n"}
+
+data: {"t":"chunk","v":"3"}
+
+data: {"t":"chunk","v":"."}
+
+data: {"t":"chunk","v":" "}
+
+data: {"t":"chunk","v":"口径"}
+
+data: {"t":"chunk","v":"节"}
+
+data: {"t":"chunk","v":":"}
+
+data: {"t":"chunk","v":"坐标系"}
+
+data: {"t":"chunk","v":"("}
+
+data: {"t":"chunk","v":"回归"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"恒星"}
+
+data: {"t":"chunk","v":")、"}
+
+data: {"t":"chunk","v":"是否"}
+
+data: {"t":"chunk","v":"真"}
+
+data: {"t":"chunk","v":"太阳"}
+
+data: {"t":"chunk","v":"时"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"计算"}
+
+data: {"t":"chunk","v":"精度"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"临界"}
+
+data: {"t":"chunk","v":"贴"}
+
+data: {"t":"chunk","v":"边"}
+
+data: {"t":"chunk","v":"警告"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"补齐"}
+
+data: {"t":"chunk","v":"后"}
+
+data: {"t":"chunk","v":"重"}
+
+data: {"t":"chunk","v":"发"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"我"}
+
+data: {"t":"chunk","v":"就能"}
+
+data: {"t":"chunk","v":"按"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"每条"}
+
+data: {"t":"chunk","v":"断言"}
+
+data: {"t":"chunk","v":"挂"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"面"}
+
+data: {"t":"chunk","v":"依据"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"的"}
+
+data: {"t":"chunk","v":"格式"}
+
+data: {"t":"chunk","v":"给你"}
+
+data: {"t":"chunk","v":"可"}
+
+data: {"t":"chunk","v":"复核"}
+
+data: {"t":"chunk","v":"的"}
+
+data: {"t":"chunk","v":"解读"}
+
+data: {"t":"chunk","v":"。\n\n"}
+
+data: {"t":"chunk","v":"---\n\n"}
+
+data: {"t":"chunk","v":"最后"}
+
+data: {"t":"chunk","v":"交"}
+
+data: {"t":"chunk","v":"底"}
+
+data: {"t":"chunk","v":":"}
+
+data: {"t":"chunk","v":"以上"}
+
+data: {"t":"chunk","v":"天体"}
+
+data: {"t":"chunk","v":"位置"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"干支"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"卦"}
+
+data: {"t":"chunk","v":"象"}
+
+data: {"t":"chunk","v":"均为"}
+
+data: {"t":"chunk","v":"可"}
+
+data: {"t":"chunk","v":"复核"}
+
+data: {"t":"chunk","v":"的真实"}
+
+data: {"t":"chunk","v":"计算"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"但"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"星"}
+
+data: {"t":"chunk","v":"盘"}
+
+data: {"t":"chunk","v":"/"}
+
+data: {"t":"chunk","v":"八字"}
+
+data: {"t":"chunk","v":"→"}
+
+data: {"t":"chunk","v":"性格"}
+
+data: {"t":"chunk","v":"与"}
+
+data: {"t":"chunk","v":"命运"}
+
+data: {"t":"chunk","v":"\""}
+
+data: {"t":"chunk","v":"属于"}
+
+data: {"t":"chunk","v":"传统"}
+
+data: {"t":"chunk","v":"解释"}
+
+data: {"t":"chunk","v":"系统"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"没有"}
+
+data: {"t":"chunk","v":"科学"}
+
+data: {"t":"chunk","v":"证据"}
+
+data: {"t":"chunk","v":"支持"}
+
+data: {"t":"chunk","v":"。"}
+
+data: {"t":"chunk","v":"请"}
+
+data: {"t":"chunk","v":"把它"}
+
+data: {"t":"chunk","v":"当"}
+
+data: {"t":"chunk","v":"一面"}
+
+data: {"t":"chunk","v":"镜"}
+
+data: {"t":"chunk","v":"子和"}
+
+data: {"t":"chunk","v":"一张"}
+
+data: {"t":"chunk","v":"时间"}
+
+data: {"t":"chunk","v":"表"}
+
+data: {"t":"chunk","v":","}
+
+data: {"t":"chunk","v":"而不是"}
+
+data: {"t":"chunk","v":"判决"}
+
+data: {"t":"chunk","v":"书"}
+
+data: {"t":"chunk","v":";"}
+
+data: {"t":"chunk","v":"升学"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"就业"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"婚"}
+
+data: {"t":"chunk","v":"恋"}
+
+data: {"t":"chunk","v":"、"}
+
+data: {"t":"chunk","v":"投资"}
+
+data: {"t":"chunk","v":"请"}
+
+data: {"t":"chunk","v":"按"}
+
+data: {"t":"chunk","v":"现实"}
+
+data: {"t":"chunk","v":"信息"}
+
+data: {"t":"chunk","v":"决策"}
+
+data: {"t":"chunk","v":"。"}
+
+data: [DONE]
+

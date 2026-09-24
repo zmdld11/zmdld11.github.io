@@ -7,8 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "test:paipan": "tsx src/scripts/fortune/selftest.ts"
+    "astro": "astro"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
@@ -18,10 +17,7 @@
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",
-    "opencc-js": "^1.4.2",
-    "pinyin-pro": "^3.29.4",
-    "puppeteer-core": "^25.12.0",
-    "tsx": "^4.23.15"
+    "pinyin-pro": "^3.29.4"
   },
   "overrides": {
     "rolldown": "1.2.9"
