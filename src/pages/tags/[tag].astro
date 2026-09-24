@@ -4,7 +4,10 @@ import { getCollection } from "astro:content";
 import { excerpt, fmtDate } from "../../lib/post-utils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const posts = await getCollection(
+    "posts",
+    ({ data }) => !data.draft && !data.hidden,
+  );
   const tags = new Set<string>();
   for (const p of posts) {
     for (const t of [...p.data.tags, ...(p.data.category ? [p.data.category] : [])]) tags.add(t);

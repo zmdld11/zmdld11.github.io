@@ -11,6 +11,8 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     category: z.string().optional(),
     draft: z.boolean().default(false),
+    /** true = 页面照常渲染，但不出现在首页/归档/标签等列表（仅从指定入口进入） */
+    hidden: z.boolean().default(false),
   }),
 });
 

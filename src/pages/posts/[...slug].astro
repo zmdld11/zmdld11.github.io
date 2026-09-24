@@ -5,17 +5,25 @@ import { site } from "../../config/site";
 import { fmtDate } from "../../lib/post-utils";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  // hidden 文章照常渲染（可从目录页进入），但可见文章的上下篇导航要跳过它们；
+  // hidden 文章自己的上下篇则保持完整时间序，方便系列内连续阅读
+  const all = (await getCollection("posts", ({ data }) => !data.draft)).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
-  return posts.map((entry, i) => ({
-    params: { slug: entry.id },
-    props: {
-      entry,
-      prev: posts[i + 1] ?? null,
-      next: posts[i - 1] ?? null,
-    },
-  }));
+  const visible = all.filter((p) => !p.data.hidden);
+  return all.map((entry) => {
+    const pool = entry.data.hidden ? all : visible;
+    const i = pool.indexOf(entry);
+    return {
+      params: { slug: entry.id },
+      props: {
+        entry,
+        // pool 为时间倒序：i-1 较新，i+1 较旧
+        prev: pool[i - 1] ?? null,
+        next: pool[i + 1] ?? null,
+      },
+    };
+  });
 }
 
 const { entry, prev, next } = Astro.props;

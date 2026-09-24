@@ -2,7 +2,10 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts", ({ data }) => !data.draft);
+const posts = await getCollection(
+  "posts",
+  ({ data }) => !data.draft && !data.hidden,
+);
 const counts = new Map<string, number>();
 for (const p of posts) {
   for (const t of [...p.data.tags, ...(p.data.category ? [p.data.category] : [])]) {
