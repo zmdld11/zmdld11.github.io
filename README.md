@@ -23,8 +23,8 @@ src/content.config.ts     # collections 定义
 src/layouts/SiteLayout.astro  # 站点骨架：页头/页脚/主题切换/极光背景
 src/pages/preview/        # 首页选型设计稿存档（v1-v5，正式站基于 V5）
 src/styles/global.css     # 设计令牌（全站视觉唯一来源）
+src/scripts/fortune/      # 命理小馆排盘库（纯前端；AI 转发服务已拆到 My-Fortune 仓库）
 scripts/                  # 一次性迁移与图片优化脚本
-cloudflare-worker/        # OAuth 网关（重构 6/8 时落地）
 ```
 
 ## 当前状态

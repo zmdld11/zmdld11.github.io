@@ -8,9 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test:paipan": "tsx src/scripts/fortune/selftest.ts",
-    "build:server": "esbuild fortune-server/index.ts --bundle --platform=node --format=esm --outfile=fortune-server/dist/server.mjs --legal-comments=none",
-    "test:server": "node scripts/test-fortune-server.mjs"
+    "test:paipan": "tsx src/scripts/fortune/selftest.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
