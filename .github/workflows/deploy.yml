@@ -35,6 +35,13 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Debug npm log（临时，定位 Invalid Version 后移除）
+        if: failure()
+        run: |
+          npm -v
+          node -v
+          tail -60 /home/runner/.npm/_logs/*.log || true
+
       # 贡献热力图取数步骤将在「博客重构 5/8」（issue #7）中加入：
       # 用 Secret CONTRIBUTIONS_TOKEN 调 GitHub GraphQL，生成 src/data/contributions.json
 
