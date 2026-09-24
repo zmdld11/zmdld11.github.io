@@ -687,16 +687,21 @@ const liuyaoM: ModuleDef = {
   id: "liuyao", name: "六爻纳甲", cat: "ask",
   requires: ["question"], note: "网页摇铜钱最正统;无钱用时间起卦(声明非正统)",
   compute(ctx) {
+    // 六兽按当日日干起(青龙/朱雀/勾陈/腾蛇/白虎/玄武)
+    const { y, m, d, hh, mm, tz } = nowLocal(ctx);
+    const lonE = 15 * tz;
+    const fpNow = fourPillars(y, m, d, hh, mm, lonE);
+    const dayStem = STEMS[fpNow.pillars[2] % 10];
     let cast, warn: string[] = [];
     if (ctx.input.tosses && ctx.input.tosses.length === 6) {
-      cast = liuyaoCast(ctx.input.tosses);
+      cast = liuyaoCast(ctx.input.tosses, dayStem);
     } else {
-      const { y, m, d, hh, mm, tz } = nowLocal(ctx);
-      const lonE = 15 * tz;
       cast = liuyaoTimeCast(y, m, d, hh, mm, lonE);
       warn.push("⚠ 未摇铜钱,采用时间起卦——非正统,信息量打折");
     }
-    const labels = ["上爻", "五爻", "四爻", "三爻", "二爻", "初爻"];
+    warn.push(`六兽按当日日干「${dayStem}」起`);
+    // lines[0..5] = 初爻→上爻;显示自上而下,标签按爻序号取(勿用倒序标签数组——Python 报表层曾在此错位)
+    const labels = ["初爻", "二爻", "三爻", "四爻", "五爻", "上爻"];
     const rows: string[][] = [];
     for (let i = 5; i >= 0; i--) {
       const [liuqin, ganzhi] = cast.lines[i];

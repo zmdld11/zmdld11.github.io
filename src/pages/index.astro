@@ -147,6 +147,22 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
       )
     }
 
+    <!-- 命理小馆入口（本地排盘 + AI 解读，详见 /fortune） -->
+    {
+      widgets.fortune && (
+        <article class="card card-hover sp4 fortune-card">
+          <header class="card-head">
+            命理小馆
+            <a class="more" href="/fortune/">去算一卦 →</a>
+          </header>
+          <p class="fortune-line">
+            <span class="fortune-icons">🔮 🪙 🃏</span>
+            星盘 · 八字 · 紫微 · 六爻 · 塔罗，本地精确排盘，AI 只管解读。
+          </p>
+        </article>
+      )
+    }
+
     <!-- 统计（文章数真实；访客不蒜子；运行天数自建站日起） -->
     <article class="card card-hover sp4 stats">
       <header class="card-head">小站统计</header>
@@ -589,6 +605,8 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
   }
 
   .hitokoto blockquote { margin: 0 0 10px; font-size: 15px; line-height: 1.85; min-height: 3em; }
+  .fortune-line { margin: 0; font-size: 14px; line-height: 1.9; color: var(--text-muted); }
+  .fortune-icons { font-size: 20px; letter-spacing: 6px; display: block; margin-bottom: 6px; }
 
   .stats { display: flex; flex-direction: column; justify-content: center; }
   .stat-row { display: flex; justify-content: space-around; text-align: center; }

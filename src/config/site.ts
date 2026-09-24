@@ -30,6 +30,7 @@ export const widgets = {
   githubActivity: true,
   contributions: true,
   hitokoto: true,
+  fortune: true,
   visitorCounter: true,
 } as const;
 
