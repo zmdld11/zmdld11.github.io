@@ -19,7 +19,7 @@ const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map<string, number[]>();
 
-function rateLimited(ip: string): boolean {
+export function rateLimited(ip: string): boolean {
   const now = Date.now();
   const arr = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
   if (arr.length >= MAX_PER_WINDOW) return true;
@@ -33,7 +33,7 @@ function rateLimited(ip: string): boolean {
   return false;
 }
 
-function cors(origin: string | null): Record<string, string> {
+export function cors(origin: string | null): Record<string, string> {
   const h: Record<string, string> = {
     "access-control-allow-methods": "POST, OPTIONS",
     "access-control-allow-headers": "content-type",
@@ -43,9 +43,9 @@ function cors(origin: string | null): Record<string, string> {
   return h;
 }
 
-const sse = (obj: unknown) => `data: ${JSON.stringify(obj)}\n\n`;
+export const sse = (obj: unknown) => `data: ${JSON.stringify(obj)}\n\n`;
 
-interface Payload {
+export interface Payload {
   modules?: { id?: unknown; name?: unknown }[];
   sections?: unknown;
   question?: unknown;
@@ -53,7 +53,7 @@ interface Payload {
 }
 
 /** 入参校验: 结构+体量上限,防止拼进超大 payload 烧 token */
-function validate(body: Payload): { ok: true; data: Required<Payload> } | { ok: false; msg: string } {
+export function validate(body: Payload): { ok: true; data: Required<Payload> } | { ok: false; msg: string } {
   const modules = body.modules;
   if (!Array.isArray(modules) || modules.length === 0 || modules.length > 30) {
     return { ok: false, msg: "modules 需为 1-30 个的数组" };
