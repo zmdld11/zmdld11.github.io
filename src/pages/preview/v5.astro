@@ -2,11 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site, socials } from "../../config/site";
 
-/* 设计稿 V1 —— 玻璃 Bento 仪表盘（暗色 / 极光 / 毛玻璃） */
+/* 设计稿 V5 —— 融合定稿候选：V1 玻璃 Bento 布局 × 浅色系默认
+   明暗双主题：右上角一键切换，localStorage 记忆，?theme=dark 可直链暗色 */
 
-// 日历样例数据：2026 年 9 月（今天 24 日高亮）
+// 日历样例：2026 年 9 月（今天 24 日高亮）
 const first = new Date(2026, 8, 1);
-const startCol = (first.getDay() + 6) % 7; // 周一为第一列
+const startCol = (first.getDay() + 6) % 7;
 const daysInMonth = new Date(2026, 9, 0).getDate();
 const cells = [
   ...Array.from({ length: startCol }, () => 0),
@@ -38,17 +39,17 @@ const events = [
 ];
 
 const nav = [
-  { label: "V1 玻璃Bento", href: "/preview/v1", current: true },
+  { label: "V1 玻璃Bento", href: "/preview/v1" },
   { label: "V2 杂志", href: "/preview/v2" },
   { label: "V3 软糖", href: "/preview/v3" },
   { label: "V4 终端", href: "/preview/v4" },
-  { label: "V5 融合✦", href: "/preview/v5" },
+  { label: "V5 融合✦", href: "/preview/v5", current: true },
 ];
 ---
 
-<BaseLayout title={`V1 玻璃Bento · ${site.title}`} colorScheme="dark" previewNav={nav}>
+<BaseLayout title={`V5 融合 · ${site.title}`} colorScheme="light" themeInit previewNav={nav}>
   <div class="page">
-    <!-- 极光背景 -->
+    <!-- 极光背景：浅色为粉紫蓝软雾，暗色回落到 V1 深空 -->
     <div class="aurora" aria-hidden="true">
       <div class="blob b1"></div>
       <div class="blob b2"></div>
@@ -60,6 +61,7 @@ const nav = [
         <span class="logo accent-text">{site.title}</span>
         <nav class="links">
           <a href="/">首页</a><a href="/">归档</a><a href="/">标签</a><a href="/">关于</a>
+          <button class="theme-btn" id="v5-theme-toggle" aria-label="切换明暗模式" title="切换明暗模式">🌙</button>
         </nav>
       </header>
 
@@ -79,8 +81,8 @@ const nav = [
         <!-- 时钟 -->
         <article class="card card-hover sp4 clock">
           <header class="card-head">现在 <span class="badge">样例</span></header>
-          <div class="time" id="v1-clock">--:--:--</div>
-          <p class="date" id="v1-date">载入中…</p>
+          <div class="time" id="v5-clock">--:--:--</div>
+          <p class="date" id="v5-date">载入中…</p>
         </article>
 
         <!-- 日历 -->
@@ -164,14 +166,14 @@ const nav = [
         </article>
       </section>
 
-      <footer class="foot muted">© 2026 {site.author} · 样例设计稿 V1 · 数据均为占位</footer>
+      <footer class="foot muted">© 2026 {site.author} · 样例设计稿 V5（V1×V3 融合 · 浅色默认） · 数据均为占位</footer>
     </main>
   </div>
 </BaseLayout>
 
 <script>
-  const t = document.getElementById("v1-clock");
-  const d = document.getElementById("v1-date");
+  const t = document.getElementById("v5-clock");
+  const d = document.getElementById("v5-date");
   if (t && d) {
     const tick = () => {
       const now = new Date();
@@ -186,6 +188,18 @@ const nav = [
     tick();
     setInterval(tick, 1000);
   }
+
+  const btn = document.getElementById("v5-theme-toggle");
+  const paint = () => {
+    btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+  };
+  paint();
+  btn?.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    paint();
+  });
 </script>
 
 <style>
@@ -195,7 +209,7 @@ const nav = [
     overflow-x: clip;
   }
 
-  /* 极光背景 */
+  /* 极光背景（浅色默认；暗色经 :global 覆盖） */
   .aurora {
     position: fixed;
     inset: 0;
@@ -208,9 +222,19 @@ const nav = [
     filter: blur(90px);
     opacity: 0.5;
   }
-  .b1 { width: 520px; height: 520px; top: -160px; left: -120px; background: #6d28d9; }
-  .b2 { width: 460px; height: 460px; top: 10%; right: -140px; background: #0e7490; }
-  .b3 { width: 420px; height: 420px; bottom: -180px; left: 30%; background: #4c1d95; opacity: 0.4; }
+  .b1 { width: 520px; height: 520px; top: -160px; left: -120px; background: #d8ccff; }
+  .b2 { width: 460px; height: 460px; top: 10%; right: -140px; background: #b5e8ff; }
+  .b3 { width: 420px; height: 420px; bottom: -180px; left: 30%; background: #ffd9e8; opacity: 0.55; }
+
+  :global(html[data-theme="dark"]) .b1 { background: #6d28d9; opacity: 0.5; }
+  :global(html[data-theme="dark"]) .b2 { background: #0e7490; opacity: 0.5; }
+  :global(html[data-theme="dark"]) .b3 { background: #4c1d95; opacity: 0.4; }
+
+  /* 浅色模式下玻璃感更明显一点：卡片更白、阴影更轻（暗色回落到全局深色玻璃令牌） */
+  :global(html:not([data-theme="dark"])) .page {
+    --card: rgba(255, 255, 255, 0.66);
+    --shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+  }
 
   .wrap {
     max-width: 1160px;
@@ -225,9 +249,24 @@ const nav = [
     margin-bottom: 26px;
   }
   .logo { font-weight: 800; font-size: 18px; }
-  .links { display: flex; gap: 22px; font-size: 14px; }
+  .links { display: flex; gap: 22px; font-size: 14px; align-items: center; }
   .links a { color: var(--text-muted); transition: color 0.2s; }
   .links a:hover { color: var(--text); }
+  .theme-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .theme-btn:hover {
+    transform: rotate(20deg) scale(1.06);
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  }
 
   .card { padding: 20px; }
   .card-head {

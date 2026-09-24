@@ -5,8 +5,10 @@ import { site } from "../config/site";
 interface Props {
   title?: string;
   description?: string;
-  /** 锁定配色方案（设计稿用；正式站将支持手动切换） */
+  /** 锁定配色方案（设计稿用；传入 themeInit 的页面由用户切换决定） */
   colorScheme?: "dark" | "light";
+  /** 开启后由 localStorage/?theme= 决定明暗（配合页面内的切换按钮） */
+  themeInit?: boolean;
   /** 传入则在页底显示设计稿切换器 */
   previewNav?: { label: string; href: string; current?: boolean }[];
 }
@@ -15,6 +17,7 @@ const {
   title = `${site.title} · ${site.subtitle}`,
   description = site.subtitle,
   colorScheme = "light",
+  themeInit = false,
   previewNav,
 } = Astro.props;
 ---
@@ -28,6 +31,18 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      themeInit && (
+        <script is:inline>
+          // 首帧前定主题：URL 参数 > 本地记忆 > 默认浅色
+          const q = new URLSearchParams(location.search).get("theme");
+          document.documentElement.dataset.theme =
+            q === "dark" || q === "light"
+              ? q
+              : (localStorage.getItem("theme") ?? "light");
+        </script>
+      )
+    }
   </head>
   <body>
     <slot />
