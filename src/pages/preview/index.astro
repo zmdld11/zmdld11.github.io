@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
+
+const drafts = [
+  {
+    id: "v1",
+    name: "V1 · 玻璃 Bento 仪表盘",
+    desc: "暗色 + 极光渐变背景，毛玻璃卡片墙，小组件全部上脸。计划书 D3 定稿方向的完整演绎。",
+    colors: ["#0b0e1a", "#8b7cff", "#4cc9f0"],
+  },
+  {
+    id: "v2",
+    name: "V2 · 杂志编辑部",
+    desc: "暖纸底 + 衬线大标题，文章是主角，小组件收进侧栏。安静、耐读、作品集气质。",
+    colors: ["#faf7f1", "#b91c1c", "#1c1917"],
+  },
+  {
+    id: "v3",
+    name: "V3 · 奶油软糖",
+    desc: "奶油底 + 糖果色 + 大圆角，贴纸感小组件，轻松可爱的个人小窝。",
+    colors: ["#fff6ec", "#fb7185", "#34d399"],
+  },
+  {
+    id: "v4",
+    name: "V4 · 终端极客",
+    desc: "等宽字体 + 终端窗口 + 数据流，把博客做成你的数字据点，量化气质拉满。",
+    colors: ["#070b09", "#34d399", "#fbbf24"],
+  },
+  {
+    id: "v5",
+    name: "V5 · 融合（V1×V3）✅ 已定稿",
+    desc: "V1 的玻璃 Bento 布局 × 浅色系默认，右上角一键切换暗色模式。正式站点即基于 V5。",
+    colors: ["#f3f4fb", "#6c5ce7", "#38bdf8"],
+  },
+];
+---
+
+<BaseLayout title={`设计稿存档 · ${site.title}`} colorScheme="dark">
+  <main class="wrap">
+    <p class="kicker">BLOG REBUILD · 设计稿存档</p>
+    <h1>五版主页方向</h1>
+    <p class="lead">
+      站长已选定 <a href="/preview/v5/"><strong>V5 融合稿</strong></a> 作为正式方向，
+      <a href="/">正式首页</a> 即基于 V5。以下为选型过程存档。
+    </p>
+
+    <div class="grid">
+      {
+        drafts.map((d) => (
+          <a class:list={["draft card", { picked: d.id === "v5" }]} href={`/preview/${d.id}/`}>
+            <div class="swatches">
+              {d.colors.map((c) => (
+                <span style={`background:${c}`} />
+              ))}
+            </div>
+            <h2>{d.name}</h2>
+            <p>{d.desc}</p>
+            <span class="open">打开设计稿 →</span>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .wrap {
+    min-height: 100vh;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 96px 24px 48px;
+  }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--text-faint);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    margin: 0 0 12px;
+  }
+  .lead {
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.8;
+    margin: 0 0 40px;
+  }
+  .lead a { color: var(--accent-2); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 18px;
+  }
+  .draft {
+    display: block;
+    padding: 24px;
+  }
+  .draft:hover {
+    transform: translateY(-4px);
+  }
+  .draft.picked {
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  .swatches {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .swatches span {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+  }
+  h2 {
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+  .draft p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.75;
+    margin: 0 0 18px;
+  }
+  .open {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-2);
+  }
+</style>

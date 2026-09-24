@@ -1,0 +1,166 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { site } from "../config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const nav = [
+  { label: "首页", href: "/" },
+  { label: "归档", href: "/archive/" },
+  { label: "标签", href: "/tags/" },
+  { label: "关于", href: "/about/" },
+];
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<BaseLayout title={title} description={description} colorScheme="light" themeInit>
+  <div class="site">
+    <div class="aurora" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+    </div>
+
+    <header class="topbar">
+      <a class="logo accent-text" href="/">{site.title}</a>
+      <nav class="links">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={pathname === item.href.replace(/\/$/, "") || (item.href !== "/" && pathname.startsWith(item.href)) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <button class="theme-btn" type="button" aria-label="切换明暗模式" title="切换明暗模式">🌙</button>
+      </nav>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="foot">
+      <span>© {new Date().getFullYear()} {site.author}</span>
+      <span class="foot-links">
+        <a href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub</a>
+        <a href="http://101.133.134.164:8000" target="_blank" rel="noopener">量化看板</a>
+        <a href="/archive/">归档</a>
+      </span>
+    </footer>
+  </div>
+</BaseLayout>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>(".theme-btn");
+  const paint = () => {
+    if (btn) btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+  };
+  paint();
+  btn?.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    paint();
+  });
+</script>
+
+<style>
+  .site {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: clip;
+  }
+
+  .aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--bg);
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+  }
+  .b1 { width: 520px; height: 520px; top: -160px; left: -120px; background: #d8ccff; }
+  .b2 { width: 460px; height: 460px; top: 10%; right: -140px; background: #b5e8ff; }
+  .b3 { width: 420px; height: 420px; bottom: -180px; left: 30%; background: #ffd9e8; opacity: 0.55; }
+
+  :global(html[data-theme="dark"]) .b1 { background: #6d28d9; opacity: 0.5; }
+  :global(html[data-theme="dark"]) .b2 { background: #0e7490; opacity: 0.5; }
+  :global(html[data-theme="dark"]) .b3 { background: #4c1d95; opacity: 0.4; }
+
+  /* 浅色模式下玻璃感更明显（暗色回落全局深色玻璃令牌） */
+  :global(html:not([data-theme="dark"])) .site {
+    --card: rgba(255, 255, 255, 0.66);
+    --shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+  }
+
+  .topbar {
+    max-width: 1160px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo { font-weight: 800; font-size: 18px; }
+  .links { display: flex; gap: 20px; font-size: 14px; align-items: center; }
+  .links a { color: var(--text-muted); transition: color 0.2s; padding: 4px 2px; }
+  .links a:hover { color: var(--text); }
+  .links a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+  .theme-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .theme-btn:hover {
+    transform: rotate(20deg) scale(1.06);
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  .site-main {
+    flex: 1;
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 26px 24px 40px;
+  }
+
+  .foot {
+    max-width: 1160px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 18px 24px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+  .foot-links { display: flex; gap: 16px; }
+  .foot a { color: var(--text-muted); }
+  .foot a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .foot { flex-direction: column; gap: 8px; }
+  }
+</style>

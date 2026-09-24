@@ -1,139 +1,319 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
 import { site } from "../config/site";
+import { excerpt, fmtDate } from "../lib/post-utils";
 
-const drafts = [
-  {
-    id: "v1",
-    name: "V1 · 玻璃 Bento 仪表盘",
-    desc: "暗色 + 极光渐变背景，毛玻璃卡片墙，小组件全部上脸。计划书 D3 定稿方向的完整演绎。",
-    colors: ["#0b0e1a", "#8b7cff", "#4cc9f0"],
-  },
-  {
-    id: "v2",
-    name: "V2 · 杂志编辑部",
-    desc: "暖纸底 + 衬线大标题，文章是主角，小组件收进侧栏。安静、耐读、作品集气质。",
-    colors: ["#faf7f1", "#b91c1c", "#1c1917"],
-  },
-  {
-    id: "v3",
-    name: "V3 · 奶油软糖",
-    desc: "奶油底 + 糖果色 + 大圆角，贴纸感小组件，轻松可爱的个人小窝。",
-    colors: ["#fff6ec", "#fb7185", "#34d399"],
-  },
-  {
-    id: "v4",
-    name: "V4 · 终端极客",
-    desc: "等宽字体 + 终端窗口 + 数据流，把博客做成你的数字据点，量化气质拉满。",
-    colors: ["#070b09", "#34d399", "#fbbf24"],
-  },
-  {
-    id: "v5",
-    name: "V5 · 融合（V1×V3）★",
-    desc: "V1 的玻璃 Bento 布局 × 浅色系默认，右上角一键切换暗色模式。按你的反馈新生成。",
-    colors: ["#f3f4fb", "#6c5ce7", "#38bdf8"],
-  },
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latest = posts.slice(0, 2);
+
+const events = [
+  { icon: "⬆️", text: "push 到 zmdld11/MyBlog：3 commits", time: "2 小时前" },
+  { icon: "⭐", text: "star 了 matsuzaka-yuki/Mizuki", time: "5 小时前" },
+  { icon: "🦑", text: "在 zmdld11/dev-workflow 开了 issue #12", time: "昨天" },
+  { icon: "⬆️", text: "push 到 zmdld11/dev-workflow：1 commit", time: "前天" },
+  { icon: "🎉", text: "创建了新仓库 zmdld11/potato-sync", time: "3 天前" },
 ];
 ---
 
-<BaseLayout title={`选型 · ${site.title}`} colorScheme="dark">
-  <main class="wrap">
-    <p class="kicker">BLOG REBUILD · 设计稿选型</p>
-    <h1>四版主页方向，挑一个感觉对的</h1>
-    <p class="lead">
-      都是静态设计稿（样例数据），点开看大图。选定方向后在
-      <a href="https://github.com/zmdld11/zmdld11.github.io/issues/5">重构 3/8</a>
-      里细化，也可以杂交：「V1 的骨架 + V3 的配色」这样提都行。
-    </p>
+<SiteLayout title={`${site.title} · ${site.subtitle}`} description={site.subtitle}>
+  <section class="bento">
+    <!-- 身份卡 -->
+    <article class="card card-hover sp4 identity">
+      <div class="avatar accent-text">Z</div>
+      <h1>{site.author}</h1>
+      <p class="bio">{site.subtitle}</p>
+      <div class="row">
+        <a class="chip" href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub</a>
+        <a class="chip" href="http://101.133.134.164:8000" target="_blank" rel="noopener">📊 量化看板</a>
+      </div>
+    </article>
 
-    <div class="grid">
+    <!-- 时钟 -->
+    <article class="card card-hover sp4 clock">
+      <header class="card-head">现在</header>
+      <div class="time" id="home-clock">--:--:--</div>
+      <p class="date" id="home-date">载入中…</p>
+    </article>
+
+    <!-- 日历（客户端渲染当月，农历/节日将在小组件 issue 中加入） -->
+    <article class="card card-hover sp4 calendar">
+      <header class="card-head" id="home-cal-head">日历</header>
+      <div class="cal-grid" id="home-cal"></div>
+    </article>
+
+    <!-- GitHub 动态（issue #7 接入真实数据） -->
+    <article class="card card-hover sp6 github">
+      <header class="card-head">GitHub 动态 <span class="badge">样例</span></header>
+      <ul>
+        {
+          events.map((e) => (
+            <li>
+              <span class="icon">{e.icon}</span>
+              <span class="text">{e.text}</span>
+              <span class="time">{e.time}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+
+    <!-- 最新文章（真实数据） -->
+    <article class="card card-hover sp6 posts">
+      <header class="card-head">最新文章 <a class="more" href="/archive/">全部 →</a></header>
       {
-        drafts.map((d) => (
-          <a class="draft card" href={`/preview/${d.id}`}>
-            <div class="swatches">
-              {d.colors.map((c) => (
-                <span style={`background:${c}`} />
-              ))}
+        latest.map((p) => (
+          <a class="post" href={`/posts/${p.id}/`}>
+            <div class="post-cover accent-text" aria-hidden="true">✦</div>
+            <div class="post-body">
+              <h3>{p.data.title}</h3>
+              <p>{p.data.description || excerpt(p.body ?? "")}</p>
+              <span class="meta">{fmtDate(p.data.pubDate)} · {p.data.category ?? p.data.tags[0] ?? "随笔"}</span>
             </div>
-            <h2>{d.name}</h2>
-            <p>{d.desc}</p>
-            <span class="open">打开设计稿 →</span>
           </a>
         ))
       }
-    </div>
+    </article>
 
-    <p class="note">🚧 博客重建中：旧文章迁移中（重构 2/8），正式首页将在选型后实现。</p>
-  </main>
-</BaseLayout>
+    <!-- 音乐播放器（issue #6 接入歌单） -->
+    <article class="card card-hover sp4 music">
+      <header class="card-head">正在播放 <span class="badge">样例</span></header>
+      <div class="player">
+        <div class="cover accent-text">♪</div>
+        <div class="track">
+          <strong>Sample Track</strong>
+          <span class="muted">未知艺术家</span>
+          <div class="bar"><i></i></div>
+          <span class="timecode muted">01:24 / 04:05</span>
+        </div>
+        <div class="controls"><button>⏮</button><button class="play">▶</button><button>⏭</button></div>
+      </div>
+    </article>
+
+    <!-- 一言（issue #6 接入 hitokoto） -->
+    <article class="card card-hover sp4 hitokoto">
+      <header class="card-head">一言 <span class="badge">样例</span></header>
+      <blockquote>“我们听取所有的声音，然后走自己选的路。”</blockquote>
+      <span class="muted">—— 佚名</span>
+    </article>
+
+    <!-- 统计（访客/运行天数待 issue #6，文章数为真实值） -->
+    <article class="card card-hover sp4 stats">
+      <header class="card-head">小站统计</header>
+      <div class="stat-row">
+        <div><b>{posts.length}</b><span class="muted">文章</span></div>
+        <div><b class="muted">–</b><span class="muted">访客</span></div>
+        <div><b>212</b><span class="muted">运行天数</span></div>
+      </div>
+    </article>
+  </section>
+</SiteLayout>
+
+<script>
+  const t = document.getElementById("home-clock");
+  const d = document.getElementById("home-date");
+  const tick = () => {
+    const now = new Date();
+    if (t) t.textContent = now.toLocaleTimeString("zh-CN", { hour12: false });
+    if (d)
+      d.textContent = now.toLocaleDateString("zh-CN", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+      });
+  };
+  tick();
+  setInterval(tick, 1000);
+
+  // 当月日历（周一开头）
+  const head = document.getElementById("home-cal-head");
+  const grid = document.getElementById("home-cal");
+  if (head && grid) {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = now.getMonth();
+    head.textContent = `${y} 年 ${m + 1} 月`;
+    const startCol = (new Date(y, m, 1).getDay() + 6) % 7;
+    const days = new Date(y, m + 1, 0).getDate();
+    const frag = document.createDocumentFragment();
+    for (const w of ["一", "二", "三", "四", "五", "六", "日"]) {
+      const s = document.createElement("span");
+      s.className = "cal-head";
+      s.textContent = w;
+      frag.append(s);
+    }
+    for (let i = 0; i < startCol; i++) frag.append(Object.assign(document.createElement("span"), { className: "cal-day" }));
+    for (let day = 1; day <= days; day++) {
+      const s = document.createElement("span");
+      s.className = day === now.getDate() ? "cal-day today" : "cal-day";
+      s.textContent = String(day);
+      frag.append(s);
+    }
+    grid.replaceChildren(frag);
+  }
+</script>
 
 <style>
-  .wrap {
-    min-height: 100vh;
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 96px 24px 48px;
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .bento { grid-template-columns: repeat(6, 1fr); } }
+  @media (max-width: 560px) { .bento { grid-template-columns: 1fr; } }
+  .sp4, .sp6 { grid-column: span 12; }
+  @media (min-width: 560px) { .sp4, .sp6 { grid-column: span 6; } }
+  @media (min-width: 900px) {
+    .sp4 { grid-column: span 4; }
+    .sp6 { grid-column: span 6; }
   }
-  .kicker {
-    font-size: 12px;
-    letter-spacing: 0.25em;
-    color: var(--text-faint);
-    margin: 0 0 14px;
-  }
-  h1 {
-    font-size: clamp(28px, 5vw, 40px);
-    margin: 0 0 12px;
-  }
-  .lead {
-    color: var(--text-muted);
-    max-width: 560px;
-    line-height: 1.8;
-    margin: 0 0 40px;
-  }
-  .lead a {
-    color: var(--accent-2);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 18px;
-  }
-  .draft {
-    display: block;
-    padding: 24px;
-  }
-  .draft:hover {
-    transform: translateY(-4px);
-  }
-  .swatches {
+
+  .card { padding: 20px; }
+  .card-head {
     display: flex;
+    align-items: center;
     gap: 8px;
-    margin-bottom: 16px;
-  }
-  .swatches span {
-    width: 26px;
-    height: 26px;
-    border-radius: 8px;
-    border: 1px solid var(--card-border);
-  }
-  h2 {
-    font-size: 19px;
-    margin: 0 0 8px;
-  }
-  .draft p {
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.75;
-    margin: 0 0 18px;
-  }
-  .open {
     font-size: 13px;
     font-weight: 600;
-    color: var(--accent-2);
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
   }
-  .note {
-    margin-top: 44px;
-    font-size: 13px;
+  .more { margin-left: auto; font-weight: 500; color: var(--accent); }
+  .badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: var(--accent-soft);
     color: var(--text-faint);
+    letter-spacing: 0.1em;
   }
+
+  .identity { display: flex; flex-direction: column; justify-content: center; }
+  .avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--on-accent);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    margin-bottom: 14px;
+  }
+  .identity h1 { font-size: 24px; margin: 0 0 6px; }
+  .bio { color: var(--text-muted); font-size: 14px; margin: 0 0 16px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .clock { display: flex; flex-direction: column; justify-content: center; }
+  .time {
+    font-size: 44px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .date { margin: 8px 0 0; font-size: 13px; }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .cal-head { color: var(--text-faint); padding: 4px 0; }
+  .cal-day { padding: 4px 0; border-radius: 8px; color: var(--text-muted); }
+  .cal-day.today {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: var(--on-accent);
+    font-weight: 700;
+  }
+
+  .github ul { list-style: none; margin: 0; padding: 0; }
+  .github li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--card-border);
+    font-size: 13.5px;
+  }
+  .github li:last-child { border-bottom: none; }
+  .github .icon { flex: none; }
+  .github .text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .github .time { flex: none; color: var(--text-faint); font-size: 12px; }
+
+  .posts { display: flex; flex-direction: column; gap: 12px; }
+  .post {
+    display: flex;
+    gap: 14px;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .post:hover { border-color: var(--card-border); background: var(--accent-soft); }
+  .post-cover {
+    flex: none;
+    width: 58px;
+    height: 58px;
+    border-radius: var(--radius-sm);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: var(--on-accent);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  .post-body { flex: 1; min-width: 0; }
+  .post-body h3 { font-size: 15px; margin: 0 0 4px; }
+  .post-body p {
+    margin: 0 0 6px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .meta { font-size: 12px; color: var(--text-faint); }
+
+  .player { display: flex; align-items: center; gap: 14px; }
+  .cover {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    color: var(--on-accent);
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  }
+  .track { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
+  .bar { height: 5px; border-radius: 999px; background: var(--card-border); overflow: hidden; }
+  .bar i { display: block; width: 35%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit; }
+  .timecode { font-size: 11px; }
+  .controls { display: flex; gap: 6px; }
+  .controls button {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .controls .play {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: var(--on-accent);
+    border: none;
+  }
+
+  .hitokoto blockquote { margin: 0 0 10px; font-size: 15px; line-height: 1.85; }
+
+  .stats { display: flex; flex-direction: column; justify-content: center; }
+  .stat-row { display: flex; justify-content: space-around; text-align: center; }
+  .stat-row b { display: block; font-size: 24px; margin-bottom: 4px; }
+  .stat-row span { font-size: 12px; }
 </style>

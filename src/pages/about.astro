@@ -1,0 +1,71 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { site } from "../config/site";
+---
+
+<SiteLayout title={`关于 · ${site.title}`}>
+  <section class="about card">
+    <div class="head">
+      <div class="avatar accent-text">Z</div>
+      <div>
+        <h1>{site.author}</h1>
+        <p class="muted">{site.subtitle}</p>
+      </div>
+    </div>
+
+    <div class="body">
+      <h2>关于我</h2>
+      <p>
+        学生党，喜欢折腾：写代码、搞量化、扫街拍照，偶尔拆机清灰。这里是我记录学习和生活的地方。
+      </p>
+
+      <h2>关于本站</h2>
+      <p>
+        基于 <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>
+        从零自建，部署在 GitHub Pages。玻璃 Bento 风格，浅色 / 暗色双主题。
+        技术细节与重建过程见仓库的
+        <a
+          href="https://github.com/zmdld11/zmdld11.github.io/blob/main/博客重建方案.md"
+          target="_blank"
+          rel="noopener">《博客重建方案》</a>。
+      </p>
+
+      <h2>找到我</h2>
+      <div class="links">
+        <a class="chip" href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub</a>
+        <a class="chip" href="http://101.133.134.164:8000" target="_blank" rel="noopener">📊 量化看板</a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .about { max-width: 720px; margin: 0 auto; padding: 34px 36px; }
+  .head { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--on-accent);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  h1 { margin: 0 0 4px; font-size: 24px; }
+  .muted { margin: 0; color: var(--text-muted); font-size: 14px; }
+  h2 {
+    font-size: 17px;
+    margin: 26px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--accent);
+  }
+  p { line-height: 1.95; font-size: 15px; margin: 0.6em 0; }
+  a { color: var(--accent); }
+  .links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    .about { padding: 24px 20px; }
+  }
+</style>
