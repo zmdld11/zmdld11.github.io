@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { site, widgets } from "../config/site";
+import { site, socials, widgets } from "../config/site";
 
 interface Props {
   title?: string;
@@ -50,8 +50,13 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
     <footer class="foot">
       <span>© {new Date().getFullYear()} {site.author}</span>
       <span class="foot-links">
-        <a href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub</a>
-        <a href="http://101.133.134.164:8000" target="_blank" rel="noopener">量化看板</a>
+        {
+          socials.map((s) => (
+            <a href={s.url} target="_blank" rel="noopener">
+              {s.label}
+            </a>
+          ))
+        }
         <a href="/archive/">归档</a>
         {
           widgets.visitorCounter && (

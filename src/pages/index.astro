@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
-import { site, widgets } from "../config/site";
+import { site, socials, widgets } from "../config/site";
 import { excerpt, fmtDate } from "../lib/post-utils";
 import contributions from "../data/contributions.json";
 import eventsRaw from "../data/events.json";
@@ -41,9 +41,13 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
       <h1>{site.author}</h1>
       <p class="bio">{site.subtitle}</p>
       <div class="row">
-        <a class="chip" href="https://github.com/zmdld11" target="_blank" rel="noopener">GitHub</a>
-        <a class="chip" href="http://101.133.134.164:8000" target="_blank" rel="noopener">📊 量化看板</a>
-        <a class="chip" href="http://101.133.134.164:8787" target="_blank" rel="noopener">🔮 命理小馆</a>
+        {
+          socials.map((s) => (
+            <a class="chip" href={s.url} target="_blank" rel="noopener">
+              {s.label}
+            </a>
+          ))
+        }
       </div>
     </article>
 
@@ -165,7 +169,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     }
 
     <!-- 统计（文章数真实；访客不蒜子；运行天数自建站日起） -->
-    <article class="card card-hover sp4 stats">
+    <article class="card card-hover sp4 stats" data-since={site.sinceDate}>
       <header class="card-head">小站统计</header>
       <div class="stat-row">
         <div><b>{posts.length}</b><span class="muted">文章</span></div>

@@ -16,9 +16,10 @@ export const site = {
   sinceDate: "2026-02-21",
 } as const;
 
-/** 外链入口（量化看板等） */
+/** 外链入口（身份卡按钮行与页脚共用；命理小馆排在量化看板左边） */
 export const socials = [
   { label: "GitHub", url: "https://github.com/zmdld11" },
+  { label: "🔮 命理小馆", url: "http://101.133.134.164:8787" },
   { label: "📊 量化看板", url: "http://101.133.134.164:8000" },
 ] as const;
 
