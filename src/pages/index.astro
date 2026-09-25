@@ -1,10 +1,12 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
-import { site, socials, widgets } from "../config/site";
+import { site, socials, weather, widgets } from "../config/site";
 import { excerpt, fmtDate } from "../lib/post-utils";
 import contributions from "../data/contributions.json";
 import eventsRaw from "../data/events.json";
+import bangumi from "../data/bangumi.json";
+import { CARDS } from "../lib/cards";
 import { mapEvents, relTime } from "../lib/github-events";
 
 const posts = (
@@ -20,7 +22,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
   <script type="application/json" id="contrib-data" set:html={JSON.stringify(contributions.days)} />
   <section class="bento">
     <!-- 身份卡（右上角：当月贡献迷你格） -->
-    <article class="card card-hover sp4 identity">
+    <article class="card card-hover sp4 identity" data-card-id="identity">
       <div class="id-top">
         <div class="avatar accent-text">Z</div>
         {
@@ -54,7 +56,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     <!-- 时钟 -->
     {
       widgets.clock && (
-        <article class="card card-hover sp4 clock">
+        <article class="card card-hover sp4 clock" data-card-id="clock">
           <header class="card-head">现在</header>
           <div class="time" id="home-clock">--:--:--</div>
           <p class="date" id="home-date">载入中…</p>
@@ -65,7 +67,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     <!-- 日历（农历 + 节日/节气） -->
     {
       widgets.calendar && (
-        <article class="card card-hover sp4 calendar">
+        <article class="card card-hover sp4 calendar" data-card-id="calendar">
           <header class="card-head" id="home-cal-head">日历</header>
           <div class="cal-grid" id="home-cal"></div>
         </article>
@@ -75,7 +77,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     <!-- GitHub 公开动态：构建期预取初始数据，客户端缓存/ETag 刷新 -->
     {
       widgets.githubActivity && (
-        <article class="card card-hover sp6 github">
+        <article class="card card-hover sp6 github" data-card-id="github">
           <header class="card-head">
             GitHub 动态
             <a class="more" href="https://github.com/zmdld11" target="_blank" rel="noopener">
@@ -100,7 +102,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     }
 
     <!-- 最新文章（真实数据） -->
-    <article class="card card-hover sp6 posts">
+    <article class="card card-hover sp6 posts" data-card-id="posts">
       <header class="card-head">最新文章 <a class="more" href="/archive/">全部 →</a></header>
       {
         latest.map((p) => (
@@ -119,7 +121,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     <!-- 音乐播放器（歌单：settings/music.json 可切网易云歌单/本地 playlist.json，与右下角迷你条联动） -->
     {
       widgets.musicPlayer && (
-        <article class="card card-hover sp4 music">
+        <article class="card card-hover sp4 music" data-card-id="music">
           <header class="card-head">正在播放</header>
           <div class="player">
             <div class="cover accent-text">♪</div>
@@ -144,10 +146,41 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     <!-- 一言（hitokoto） -->
     {
       widgets.hitokoto && (
-        <article class="card card-hover sp4 hitokoto">
+        <article class="card card-hover sp4 hitokoto" data-card-id="hitokoto">
           <header class="card-head">一言</header>
           <blockquote id="hitokoto-text">“我们听取所有的声音，然后走自己选的路。”</blockquote>
           <span class="muted" id="hitokoto-from">—— 佚名</span>
+        </article>
+      )
+    }
+
+    <!-- 天气（Open-Meteo 免 key 直连；失败自动隐藏，成功前先藏住避免空卡闪烁） -->
+    {
+      widgets.weather && (
+        <article class="card card-hover sp4 wx" data-card-id="weather" hidden>
+          <header class="card-head">
+            天气
+            <span class="muted wx-city" id="wx-city">{weather.city}</span>
+          </header>
+          <div class="wx-body">
+            <div class="wx-icon accent-text" id="wx-icon">⛅</div>
+            <div class="wx-main">
+              <div class="wx-temp"><b id="wx-temp">–</b>°C</div>
+              <span class="muted" id="wx-desc">获取中…</span>
+            </div>
+          </div>
+          <p class="muted wx-extra" id="wx-extra"></p>
+        </article>
+      )
+    }
+
+    <!-- 每日诗词（jinrishici，失败保持占位句） -->
+    {
+      widgets.poem && (
+        <article class="card card-hover sp4 poem" data-card-id="poem">
+          <header class="card-head">每日诗词</header>
+          <blockquote id="poem-text">“山中何事？松花酿酒，春水煎茶。”</blockquote>
+          <span class="muted" id="poem-from">—— 张可久《人月圆》</span>
         </article>
       )
     }
@@ -169,23 +202,116 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     }
 
     <!-- 统计（文章数真实；访客不蒜子；运行天数自建站日起） -->
-    <article class="card card-hover sp4 stats" data-since={site.sinceDate}>
+    <article class="card card-hover sp4 stats" data-card-id="stats" data-since={site.sinceDate}>
       <header class="card-head">小站统计</header>
-      <div class="stat-row">
+          <div class="stat-row">
         <div><b>{posts.length}</b><span class="muted">文章</span></div>
         <div><b id="stat-uv">–</b><span class="muted">访客</span></div>
         <div><b id="stat-days">–</b><span class="muted">运行天数</span></div>
       </div>
     </article>
+
+    <!-- 追番·在看（Bangumi 构建期同步；无数据不渲染） -->
+    {
+      widgets.bangumi && bangumi.items.length > 0 && (
+        <article class="card card-hover sp6 bangumi" data-card-id="bangumi">
+          <header class="card-head">
+            追番 · 在看
+            <a class="more" href={`https://bgm.tv/user/${bangumi.uid}`} target="_blank" rel="noopener">
+              Bangumi →
+            </a>
+          </header>
+          <div class="bgm-strip">
+            {bangumi.items.map((it) => (
+              <a class="bgm-item" href={it.href} target="_blank" rel="noopener" title={it.nameCn || it.name}>
+                <img src={it.cover} alt={it.nameCn || it.name} loading="lazy" width="64" height="90" />
+                <span>{it.nameCn || it.name}</span>
+              </a>
+            ))}
+          </div>
+        </article>
+      )
+    }
+
+    <!-- 卡片商店入口（虚线 ghost 卡） -->
+    <button class="card ghost-card sp6" id="store-open" type="button">
+      <span class="ghost-plus accent-text">＋</span>
+      <span class="ghost-label">添加卡片</span>
+      <span class="muted ghost-hint">从卡片商店启用组件</span>
+    </button>
   </section>
+
+  <!-- 卡片商店弹窗 -->
+  <div class="store-overlay" id="store-overlay" hidden>
+    <div class="store card" role="dialog" aria-modal="true" aria-label="卡片商店">
+      <header class="card-head">
+        卡片商店
+        <button class="store-close" id="store-close" type="button" aria-label="关闭商店">✕</button>
+      </header>
+      <p class="muted store-hint">开关只在当前浏览器生效，恢复默认可清除记录。</p>
+      <div class="store-list">
+        {
+          CARDS.map((c) => (
+            <label class="store-item">
+              <span class="s-icon">{c.icon}</span>
+              <span class="s-body">
+                <b>{c.name}</b>
+                <span class="muted">{c.desc}</span>
+              </span>
+              <input type="checkbox" class="store-toggle" data-store-id={c.id} />
+              <i class="s-switch" aria-hidden="true" />
+            </label>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </SiteLayout>
 
 <script>
   import { Solar } from "lunar-typescript";
   import { BlogPlayer } from "../scripts/media-player";
   import { mapEvents, relTime } from "../lib/github-events";
+  import { cardOn, cardPrefs, applyCards, CARD_STORE_KEY } from "../lib/cards";
+  import { site, weather } from "../config/site";
 
   const fmt = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+
+  /* ---- 卡片商店：先应用启停，再挂商店弹窗逻辑 ---- */
+  applyCards();
+  const storeOverlay = document.getElementById("store-overlay");
+  const storeOpen = document.getElementById("store-open");
+  const storeClose = document.getElementById("store-close");
+  if (storeOverlay && storeOpen) {
+    const syncToggles = () => {
+      const prefs = cardPrefs();
+      for (const input of storeOverlay.querySelectorAll("input[data-store-id]"))
+        input.checked = prefs[input.dataset.storeId] ?? true;
+    };
+    syncToggles();
+    storeOpen.addEventListener("click", () => {
+      syncToggles();
+      storeOverlay.hidden = false;
+    });
+    storeClose?.addEventListener("click", () => (storeOverlay.hidden = true));
+    storeOverlay.addEventListener("click", (e) => {
+      if (e.target === storeOverlay) storeOverlay.hidden = true;
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") storeOverlay.hidden = true;
+    });
+    storeOverlay.addEventListener("change", (e) => {
+      const input = e.target.closest("input[data-store-id]");
+      if (!input) return;
+      let saved = {};
+      try {
+        saved = JSON.parse(localStorage.getItem(CARD_STORE_KEY) ?? "{}");
+      } catch {}
+      saved[input.dataset.storeId] = input.checked;
+      localStorage.setItem(CARD_STORE_KEY, JSON.stringify(saved));
+      applyCards();
+    });
+  }
 
   /* ---- 时钟 ---- */
   const clockEl = document.getElementById("home-clock");
@@ -298,6 +424,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     if (cache?.events?.length && Date.now() - cache.t < TTL) render(cache.events);
 
     (async () => {
+      if (!cardOn("github")) return; // 商店关闭时不发请求
       try {
         const headers = cache?.etag ? { "If-None-Match": cache.etag } : {};
         const res = await fetch(
@@ -355,7 +482,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
   /* ---- 一言（hitokoto，失败保持占位句） ---- */
   const hitoText = document.getElementById("hitokoto-text");
   const hitoFrom = document.getElementById("hitokoto-from");
-  if (hitoText) {
+  if (hitoText && cardOn("hitokoto")) {
     const ctrl = new AbortController();
     setTimeout(() => ctrl.abort(), 3000);
     fetch("https://v1.hitokoto.cn/?max_length=24", { signal: ctrl.signal })
@@ -363,6 +490,59 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
       .then((h) => {
         hitoText.textContent = `“${h.hitokoto}”`;
         if (hitoFrom) hitoFrom.textContent = `—— ${h.from_work ?? h.from ?? "佚名"}`;
+      })
+      .catch(() => {});
+  }
+
+  /* ---- 天气（Open-Meteo 免 key 直连；失败隐藏卡片） ---- */
+  const wxCard = document.querySelector('[data-card-id="weather"]');
+  const wxIcon = document.getElementById("wx-icon");
+  if (wxCard && wxIcon && cardOn("weather")) {
+    // WMO weather_code → 图标与文案
+    const WMO = {
+      0: ["☀️", "晴"], 1: ["🌤️", "大致晴朗"], 2: ["⛅", "多云"], 3: ["☁️", "阴"],
+      45: ["🌫️", "有雾"], 48: ["🌫️", "雾凇"],
+      51: ["🌦️", "小毛毛雨"], 53: ["🌦️", "毛毛雨"], 55: ["🌦️", "大毛毛雨"],
+      61: ["🌧️", "小雨"], 63: ["🌧️", "中雨"], 65: ["🌧️", "大雨"],
+      66: ["🌧️", "冻雨"], 67: ["🌧️", "冻雨"],
+      71: ["🌨️", "小雪"], 73: ["🌨️", "中雪"], 75: ["🌨️", "大雪"], 77: ["🌨️", "米雪"],
+      80: ["🌦️", "阵雨"], 81: ["🌦️", "阵雨"], 82: ["🌧️", "强阵雨"],
+      85: ["🌨️", "阵雪"], 86: ["🌨️", "阵雪"],
+      95: ["⛈️", "雷阵雨"], 96: ["⛈️", "雷雨伴冰雹"], 99: ["⛈️", "雷雨伴冰雹"],
+    };
+    fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${weather.lat}&longitude=${weather.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`,
+    )
+      .then((r) => r.json())
+      .then((d) => {
+        const c = d?.current;
+        if (!c) throw new Error("no data");
+        const [icon, text] = WMO[c.weather_code] ?? ["🌡️", "未知"];
+        wxIcon.textContent = icon;
+        const t = document.getElementById("wx-temp");
+        if (t) t.textContent = String(Math.round(c.temperature_2m));
+        const desc = document.getElementById("wx-desc");
+        if (desc) desc.textContent = text;
+        const extra = document.getElementById("wx-extra");
+        if (extra)
+          extra.textContent = `湿度 ${c.relative_humidity_2m}% · 风速 ${Math.round(c.wind_speed_10m)} km/h`;
+        if (cardOn("weather")) wxCard.hidden = false;
+      })
+      .catch(() => {
+        wxCard.hidden = true;
+      });
+  }
+
+  /* ---- 每日诗词（jinrishici，失败保持占位句） ---- */
+  const poemText = document.getElementById("poem-text");
+  if (poemText && cardOn("poem")) {
+    fetch("https://v1.jinrishici.com/all.json")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d?.content) return;
+        poemText.textContent = `“${d.content}”`;
+        const from = document.getElementById("poem-from");
+        if (from) from.textContent = `—— ${d.author ?? "佚名"}《${d.origin ?? "无题"}》`;
       })
       .catch(() => {});
   }
@@ -395,7 +575,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
 </script>
 
 <style>
-  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; grid-auto-flow: row dense; }
   @media (max-width: 900px) { .bento { grid-template-columns: repeat(6, 1fr); } }
   @media (max-width: 560px) { .bento { grid-template-columns: 1fr; } }
   .sp4, .sp6 { grid-column: span 12; }
@@ -614,6 +794,134 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
   .fortune-icons { font-size: 20px; letter-spacing: 6px; display: block; margin-bottom: 6px; }
 
   .stats { display: flex; flex-direction: column; justify-content: center; }
+
+  /* ---- 天气 ---- */
+  .wx-city { margin-left: auto; font-size: 12px; }
+  .wx-body { display: flex; align-items: center; gap: 16px; }
+  .wx-icon { font-size: 44px; line-height: 1; }
+  .wx-main { display: flex; flex-direction: column; gap: 2px; }
+  .wx-temp { font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .wx-temp b { color: var(--text); }
+  .wx-extra { margin: 12px 0 0; font-size: 12.5px; }
+
+  /* ---- 每日诗词 ---- */
+  .poem blockquote { margin: 0 0 10px; font-size: 15px; line-height: 1.85; min-height: 3em; }
+
+  /* ---- 追番·在看封面条 ---- */
+  .bgm-strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+  .bgm-item {
+    flex: none;
+    width: 76px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .bgm-item img {
+    width: 76px;
+    height: 104px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .bgm-item:hover img { transform: translateY(-3px); border-color: var(--accent); }
+  .bgm-item span {
+    font-size: 11px;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ---- 卡片商店 ghost 入口与弹窗 ---- */
+  .ghost-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 130px;
+    border: 1.5px dashed var(--card-border);
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font: inherit;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .ghost-card:hover { border-color: var(--accent); color: var(--text); }
+  .ghost-plus { font-size: 26px; font-weight: 700; }
+  .ghost-label { font-size: 14px; font-weight: 600; }
+  .ghost-hint { font-size: 11px; }
+
+  .store-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: color-mix(in srgb, var(--bg) 55%, transparent);
+    backdrop-filter: blur(6px);
+  }
+  .store {
+    width: min(520px, 100%);
+    max-height: min(72vh, 640px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .store-close {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .store-close:hover { color: var(--text); background: var(--accent-soft); }
+  .store-hint { margin: -6px 0 12px; font-size: 12px; }
+  .store-list { overflow-y: auto; display: flex; flex-direction: column; }
+  .store-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 4px;
+    border-bottom: 1px dashed var(--card-border);
+    cursor: pointer;
+  }
+  .store-item:last-child { border-bottom: none; }
+  .s-icon { flex: none; font-size: 20px; }
+  .s-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+  .s-body b { font-size: 13.5px; }
+  .s-body .muted { font-size: 11.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .store-toggle { display: none; }
+  .s-switch {
+    flex: none;
+    width: 36px;
+    height: 20px;
+    border-radius: 999px;
+    background: var(--card-border);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .s-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+    transition: transform 0.2s;
+  }
+  .store-toggle:checked + .s-switch { background: var(--accent); }
+  .store-toggle:checked + .s-switch::after { transform: translateX(16px); }
   .stat-row { display: flex; justify-content: space-around; text-align: center; }
   .stat-row b { display: block; font-size: 24px; margin-bottom: 4px; }
   .stat-row span { font-size: 12px; }

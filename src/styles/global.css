@@ -87,6 +87,9 @@ a {
 
 /* ---------- 通用组件 ---------- */
 
+/* 卡片商店/天气等用 hidden 控制显隐；卡片类自带 display 会盖过 UA 样式，必须硬压 */
+[hidden] { display: none !important; }
+
 .card {
   background: var(--card);
   border: 1px solid var(--card-border);

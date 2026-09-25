@@ -23,6 +23,13 @@ export const socials = [
   { label: "📊 量化看板", url: "http://101.133.134.164:8000" },
 ] as const;
 
+/** 天气卡数据源（Open-Meteo 免 key 直连） */
+export const weather = {
+  city: "上海",
+  lat: 31.23,
+  lon: 121.47,
+} as const;
+
 /** 小组件注册表：一行开关，关闭后不渲染、不发请求 */
 export const widgets = {
   clock: true,
@@ -33,6 +40,9 @@ export const widgets = {
   hitokoto: true,
   fortune: true,
   visitorCounter: true,
+  weather: true,
+  poem: true,
+  bangumi: true,
 } as const;
 
 export type WidgetKey = keyof typeof widgets;

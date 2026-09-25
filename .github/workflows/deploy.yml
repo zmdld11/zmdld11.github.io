@@ -44,6 +44,7 @@ jobs:
           node scripts/fetch-contributions.mjs
           node scripts/fetch-events.mjs
           node scripts/fetch-netease.mjs
+          node scripts/fetch-bangumi.mjs
 
       - name: Build
         run: npm run build
