@@ -25,6 +25,8 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
       <div class="blob b2"></div>
       <div class="blob b3"></div>
     </div>
+    <!-- 自定义壁纸层（美化面板控制；激活时盖过极光） -->
+    <div class="wallpaper" id="wallpaper-layer" aria-hidden="true" hidden></div>
 
     <header class="topbar">
       <a class="logo accent-text" href="/">{site.title}</a>
@@ -68,6 +70,72 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
       </span>
     </footer>
 
+    <!-- 美化面板（左下角浮动按钮 + 抽屉） -->
+    <button class="appearance-fab" id="appearance-fab" type="button" aria-label="自定义外观" title="自定义外观">🎨</button>
+    <div class="appearance-drawer card" id="appearance-drawer" hidden>
+      <header class="ad-head">
+        <b>自定义外观</b>
+        <button id="appearance-close" type="button" aria-label="关闭">✕</button>
+      </header>
+
+      <section class="ad-sec">
+        <h4>壁纸</h4>
+        <div class="wp-grid" id="wp-grid"></div>
+        <div class="ad-row">
+          <label class="ad-btn" id="wp-upload-label">本地上传<input type="file" id="wp-upload" accept="image/*" hidden /></label>
+          <button class="ad-btn" id="wp-none" type="button">无壁纸</button>
+        </div>
+        <label class="ad-slider">
+          暗度 <input type="range" id="wp-dim" min="0" max="0.7" step="0.05" />
+        </label>
+      </section>
+
+      <section class="ad-sec">
+        <h4>鼠标指针</h4>
+        <div class="ad-chips">
+          <button class="ad-chip" data-cursor="violet" type="button">紫罗兰</button>
+          <button class="ad-chip" data-cursor="star" type="button">星星</button>
+          <button class="ad-chip" data-cursor="heart" type="button">爱心</button>
+          <label class="ad-btn" id="cursor-upload-label">上传图片<input type="file" id="cursor-upload" accept="image/*" hidden /></label>
+          <button class="ad-chip" id="cursor-default" type="button">系统默认</button>
+        </div>
+        <label class="ad-switch">
+          指针拖尾
+          <input type="checkbox" id="trail-toggle" hidden />
+          <i class="s-switch" aria-hidden="true"></i>
+        </label>
+      </section>
+
+      <section class="ad-sec">
+        <h4>点击特效</h4>
+        <div class="ad-chips">
+          <label class="ad-chip"><input type="radio" name="clickfx" value="none" hidden />无</label>
+          <label class="ad-chip"><input type="radio" name="clickfx" value="burst" hidden />粒子爆裂</label>
+          <label class="ad-chip"><input type="radio" name="clickfx" value="emoji" hidden />表情上浮</label>
+          <label class="ad-chip"><input type="radio" name="clickfx" value="ripple" hidden />水波纹</label>
+        </div>
+      </section>
+
+      <section class="ad-sec">
+        <h4>头像</h4>
+        <div class="ad-chips">
+          <label class="ad-btn" id="avatar-upload-label">上传头像<input type="file" id="avatar-upload" accept="image/*" hidden /></label>
+          <button class="ad-btn" id="avatar-clear" type="button">恢复默认</button>
+        </div>
+      </section>
+
+      <section class="ad-sec">
+        <h4>首页卡片</h4>
+        <div class="ad-chips">
+          <button class="ad-btn" id="layout-edit" type="button" hidden>编辑布局（拖拽 / 改宽度）</button>
+        </div>
+      </section>
+
+      <footer class="ad-foot">
+        <button class="ad-btn danger" id="appearance-reset" type="button">恢复全部默认</button>
+      </footer>
+    </div>
+
     {
       widgets.musicPlayer && (
         <div class="mini-player card" id="mini-player">
@@ -90,6 +158,9 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 <script>
   import { BlogPlayer } from "../scripts/media-player";
+  import { initAppearance } from "../scripts/appearance";
+
+  initAppearance();
 
   // 主题切换
   const themeBtn = document.querySelector<HTMLButtonElement>(".theme-btn");
@@ -279,5 +350,137 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
     .links { gap: 12px; font-size: 13px; }
     .site-main { padding-left: 14px; padding-right: 14px; }
     .foot { padding-left: 14px; padding-right: 14px; }
+  }
+
+  /* ---------- 美化面板 ---------- */
+  /* 自定义壁纸层：盖过极光（同 z-index 但 DOM 靠后）；::after 是暗度蒙版 */
+  .wallpaper {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+  }
+  .wallpaper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    opacity: var(--wp-dim, 0.35);
+  }
+  .site.has-wallpaper .aurora { display: none; }
+
+  html.custom-cursor,
+  html.custom-cursor * { cursor: var(--cursor-set) !important; }
+
+  /* 特效粒子与壁纸缩略图由 JS 运行时创建，scoped 样式匹配不到，统一走 global.css */
+  .wp-grid { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .appearance-fab {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 45;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    backdrop-filter: blur(var(--card-blur));
+    box-shadow: var(--shadow);
+    font-size: 19px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .appearance-fab:hover { transform: scale(1.08); border-color: var(--accent); }
+
+  .appearance-drawer {
+    position: fixed;
+    left: 18px;
+    bottom: 74px;
+    z-index: 45;
+    width: min(340px, calc(100vw - 36px));
+    max-height: min(70vh, 560px);
+    overflow-y: auto;
+    padding: 16px;
+  }
+  .ad-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .ad-head button {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .ad-head button:hover { color: var(--text); background: var(--accent-soft); }
+  .ad-sec { padding: 10px 0; border-top: 1px dashed var(--card-border); }
+  .ad-sec h4 {
+    margin: 0 0 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+  }
+  .wp-grid { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  /* .wp-thumb 由 JS 创建，样式在 global.css */
+  .ad-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .ad-chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .ad-btn, .ad-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: var(--accent-soft);
+    color: var(--text);
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .ad-btn:hover, .ad-chip:hover { border-color: var(--accent); }
+  .ad-chip.on, .ad-chip:has(input:checked) {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: var(--on-accent);
+    border-color: transparent;
+  }
+  .ad-btn.danger { color: #e5484d; }
+  .ad-slider { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 12.5px; color: var(--text-muted); }
+  .ad-slider input { flex: 1; accent-color: var(--accent); }
+  .ad-switch { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; font-size: 12.5px; color: var(--text-muted); cursor: pointer; }
+  /* 胶囊开关（与卡片商店同款；静态标记在模板里，scoped 可命中） */
+  .ad-switch .s-switch {
+    flex: none;
+    width: 36px;
+    height: 20px;
+    border-radius: 999px;
+    background: var(--card-border);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .ad-switch .s-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+    transition: transform 0.2s;
+  }
+  .ad-switch input:checked + .s-switch { background: var(--accent); }
+  .ad-switch input:checked + .s-switch::after { transform: translateX(16px); }
+  .ad-foot { padding-top: 12px; border-top: 1px dashed var(--card-border); }
+
+  @media (max-width: 640px) {
+    .appearance-drawer { bottom: 86px; }
   }
 </style>

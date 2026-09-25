@@ -188,7 +188,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
     <!-- 命理小馆入口（独立站，自托管在阿里云；排盘全在浏览器本地算） -->
     {
       widgets.fortune && (
-        <article class="card card-hover sp4 fortune-card">
+        <article class="card card-hover sp4 fortune-card" data-card-id="fortune">
           <header class="card-head">
             命理小馆
             <a class="more" href="http://101.133.134.164:8787" target="_blank" rel="noopener">去算一卦 →</a>
@@ -545,6 +545,126 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
         if (from) from.textContent = `—— ${d.author ?? "佚名"}《${d.origin ?? "无题"}》`;
       })
       .catch(() => {});
+  }
+
+  /* ---- 卡片布局编辑：右键 / 长按进入，也可从美化面板进入；拖拽排序 + 宽度切换 ---- */
+  const bento = document.querySelector(".bento");
+  if (bento) {
+    const LAYOUT_KEY = "bento-layout-v1";
+    const SPANS = ["sp4", "sp6", "sp12"];
+    const ghost = document.getElementById("store-open");
+    const cards = () => [...bento.querySelectorAll("[data-card-id]")];
+
+    const applyLayout = () => {
+      let saved = null;
+      try {
+        saved = JSON.parse(localStorage.getItem(LAYOUT_KEY) ?? "null");
+      } catch {}
+      if (!saved) return;
+      const byId = Object.fromEntries(cards().map((el) => [el.dataset.cardId, el]));
+      for (const id of saved.order ?? []) {
+        if (byId[id]) bento.insertBefore(byId[id], ghost ?? null);
+      }
+      if (ghost) bento.appendChild(ghost); // ghost 恒居末尾
+      for (const [id, span] of Object.entries(saved.span ?? {})) {
+        const el = byId[id];
+        if (el && SPANS.includes(span)) {
+          el.classList.remove(...SPANS);
+          el.classList.add(span);
+        }
+      }
+    };
+    applyLayout();
+
+    let editing = false;
+    const saveLayout = () => {
+      const span = {};
+      for (const el of cards()) {
+        span[el.dataset.cardId] = SPANS.find((s) => el.classList.contains(s)) ?? "sp4";
+      }
+      localStorage.setItem(
+        LAYOUT_KEY,
+        JSON.stringify({ order: cards().map((el) => el.dataset.cardId), span }),
+      );
+    };
+
+    const doneBar = document.createElement("div");
+    doneBar.className = "layout-done card";
+    doneBar.hidden = true;
+    doneBar.innerHTML = `<span>拖拽卡片调位置，右上「宽度」改大小</span><button type="button" class="btn">完成</button>`;
+    doneBar.querySelector("button").addEventListener("click", () => {
+      saveLayout();
+      setEdit(false);
+    });
+    document.body.append(doneBar);
+
+    function setEdit(on) {
+      editing = on;
+      bento.classList.toggle("editing", on);
+      doneBar.hidden = !on;
+      for (const el of cards()) {
+        el.draggable = on;
+        let btn = el.querySelector(".span-cycle");
+        if (on && !btn) {
+          btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "span-cycle";
+          btn.textContent = "宽度";
+          btn.title = "切换宽度：中 → 宽 → 整行 → 中";
+          btn.addEventListener("click", () => {
+            const nextSpan =
+              el.classList.contains("sp6") ? "sp12" : el.classList.contains("sp12") ? "sp4" : "sp6";
+            el.classList.remove(...SPANS);
+            el.classList.add(nextSpan);
+          });
+          el.append(btn);
+        } else if (!on && btn) btn.remove();
+      }
+    }
+
+    // 右键进入；移动端长按 500ms 进入（移动不算拖动才触发）
+    bento.addEventListener("contextmenu", (e) => {
+      if (editing || !e.target.closest("[data-card-id]")) return;
+      e.preventDefault();
+      setEdit(true);
+    });
+    let pressTimer;
+    bento.addEventListener("pointerdown", (e) => {
+      if (editing || !e.pointerType.match(/touch|pen/) || !e.target.closest("[data-card-id]")) return;
+      const x = e.clientX;
+      const y = e.clientY;
+      const cancel = (ev) => {
+        if (Math.hypot(ev.clientX - x, ev.clientY - y) > 10) clearTimeout(pressTimer);
+      };
+      pressTimer = setTimeout(() => setEdit(true), 500);
+      bento.addEventListener("pointermove", cancel, { once: true });
+      bento.addEventListener("pointerup", () => clearTimeout(pressTimer), { once: true });
+      bento.addEventListener("pointercancel", () => clearTimeout(pressTimer), { once: true });
+    });
+    window.addEventListener("open-card-editor", () => setEdit(true));
+
+    // 拖拽排序（编辑模式下启用 HTML5 DnD，按横向中点判定插入位）
+    bento.addEventListener("dragstart", (e) => {
+      const card = e.target.closest?.("[data-card-id]");
+      if (!card || !editing) {
+        e.preventDefault();
+        return;
+      }
+      e.dataTransfer.setData("text/plain", card.dataset.cardId);
+      card.classList.add("dragging");
+    });
+    bento.addEventListener("dragend", (e) => {
+      e.target.closest?.("[data-card-id]")?.classList.remove("dragging");
+    });
+    bento.addEventListener("dragover", (e) => {
+      if (!editing) return;
+      e.preventDefault();
+      const dragging = bento.querySelector(".dragging");
+      const over = e.target.closest("[data-card-id]");
+      if (!dragging || !over || over === dragging) return;
+      const rect = over.getBoundingClientRect();
+      bento.insertBefore(dragging, e.clientX < rect.left + rect.width / 2 ? over : over.nextSibling);
+    });
   }
 
   /* ---- 运行天数 ---- */
@@ -925,4 +1045,42 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
   .stat-row { display: flex; justify-content: space-around; text-align: center; }
   .stat-row b { display: block; font-size: 24px; margin-bottom: 4px; }
   .stat-row span { font-size: 12px; }
+</style>
+
+<style is:global>
+  /* 卡片布局编辑态（doneBar 挂在 body 下，scoped 样式够不到，走全局） */
+  .card { position: relative; }
+  .bento.editing [data-card-id] { outline: 1.5px dashed var(--accent); outline-offset: 3px; cursor: grab; }
+  .bento.editing [data-card-id].dragging { opacity: 0.45; }
+  /* 编辑态隐藏卡头右侧导航/标签，避免与「宽度」按钮互相遮挡，也防拖拽时误点跳转 */
+  .bento.editing .card-head .more,
+  .bento.editing .wx-city,
+  .bento.editing .contrib-mini { visibility: hidden; }
+  .span-cycle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 5;
+    padding: 3px 10px;
+    font-size: 11px;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: var(--card-solid, #fff);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .span-cycle:hover { color: var(--accent); border-color: var(--accent); }
+  .layout-done {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
 </style>

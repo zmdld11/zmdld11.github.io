@@ -90,6 +90,68 @@ a {
 /* 卡片商店/天气等用 hidden 控制显隐；卡片类自带 display 会盖过 UA 样式，必须硬压 */
 [hidden] { display: none !important; }
 
+/* ---------- 美化面板：JS 运行时创建的元素（scoped 样式匹配不到，统一全局） ---------- */
+.wp-thumb {
+  width: 88px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--card-border);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.wp-thumb:hover { transform: translateY(-2px); }
+.wp-thumb.on { border-color: var(--accent); }
+
+.fx-dot {
+  position: fixed;
+  z-index: 90;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: fxdot 0.65s ease-out forwards;
+}
+@keyframes fxdot {
+  to { transform: translateY(14px) scale(0.2); opacity: 0; }
+}
+.fx-burst {
+  position: fixed;
+  z-index: 90;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fxburst 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+@keyframes fxburst {
+  to { transform: translate(var(--dx), var(--dy)) scale(0.15); opacity: 0; }
+}
+.fx-emoji {
+  position: fixed;
+  z-index: 90;
+  font-size: 20px;
+  pointer-events: none;
+  animation: fxemoji 0.95s ease-out forwards;
+}
+@keyframes fxemoji {
+  to { transform: translateY(var(--dy)) rotate(14deg); opacity: 0; }
+}
+.fx-ripple {
+  position: fixed;
+  z-index: 90;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fxripple 0.7s ease-out forwards;
+}
+@keyframes fxripple {
+  to { transform: scale(6); opacity: 0; }
+}
+
 .card {
   background: var(--card);
   border: 1px solid var(--card-border);
