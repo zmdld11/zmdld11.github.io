@@ -4,7 +4,7 @@ export const admin = {
   owner: "zmdld11",
   repo: "zmdld11.github.io",
   branch: "main",
-  oauthClientId: "",
+  oauthClientId: "Ov23liQYHH7QKqFS8D0C",
   /** 自托管 OAuth 回调网关（阿里云 8788，见 gateway/README.md） */
   gatewayUrl: "http://101.133.134.164:8788",
 } as const;
