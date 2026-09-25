@@ -1,6 +1,927 @@
 {
   "source": "netease",
-  "playlistId": "",
-  "name": "",
-  "tracks": []
+  "playlistId": "3107409689",
+  "name": "zmdld11喜欢的音乐",
+  "tracks": [
+    {
+      "id": 3340112782,
+      "title": "星降る海",
+      "artist": "Aqu3ra / 月見ヤチヨ(cv.早見沙織) / 超かぐや姫！"
+    },
+    {
+      "id": 1389002225,
+      "title": "伤风",
+      "artist": "吴青峰"
+    },
+    {
+      "id": 29753404,
+      "title": "金曜日のおはよう",
+      "artist": "鎖那"
+    },
+    {
+      "id": 1469497524,
+      "title": "青嵐のあとで",
+      "artist": "sajou no hana"
+    },
+    {
+      "id": 438456541,
+      "title": "Into the Sky",
+      "artist": "Tielle"
+    },
+    {
+      "id": 29307295,
+      "title": "quantum jump",
+      "artist": "Angel Note / 真里歌"
+    },
+    {
+      "id": 28700951,
+      "title": "三月",
+      "artist": "张惠妹"
+    },
+    {
+      "id": 410446173,
+      "title": "東の空から始まる世界",
+      "artist": "yuiko"
+    },
+    {
+      "id": 1358848363,
+      "title": "歌颂者",
+      "artist": "吴青峰"
+    },
+    {
+      "id": 287617,
+      "title": "逃亡",
+      "artist": "孙燕姿"
+    },
+    {
+      "id": 1970560265,
+      "title": "天空没有极限",
+      "artist": "G.E.M.邓紫棋"
+    },
+    {
+      "id": 31889526,
+      "title": "冬に咲く華",
+      "artist": "美月琴音"
+    },
+    {
+      "id": 2001630254,
+      "title": "一冊のアロー",
+      "artist": "櫻川めぐ"
+    },
+    {
+      "id": 2001630255,
+      "title": "happy palette♪",
+      "artist": "藍月なくる"
+    },
+    {
+      "id": 3345623512,
+      "title": "愛言葉V",
+      "artist": "DECO*27 / 初音ミク"
+    },
+    {
+      "id": 1989142848,
+      "title": "（……醉鬼阿Q）（feat. 孙燕姿）",
+      "artist": "吴青峰 / 孙燕姿"
+    },
+    {
+      "id": 287716,
+      "title": "我要的幸福",
+      "artist": "孙燕姿"
+    },
+    {
+      "id": 286959,
+      "title": "当冬夜渐暖",
+      "artist": "孙燕姿"
+    },
+    {
+      "id": 2052322513,
+      "title": "孤独の海",
+      "artist": "霜月はるか"
+    },
+    {
+      "id": 2620912906,
+      "title": "蝉想 (苏打绿版)",
+      "artist": "苏打绿"
+    },
+    {
+      "id": 2685527762,
+      "title": "下雨的夜晚 (苏打绿版)",
+      "artist": "苏打绿"
+    },
+    {
+      "id": 27548281,
+      "title": "歌に形はないけれど",
+      "artist": "花たん"
+    },
+    {
+      "id": 1379662222,
+      "title": "キセキ",
+      "artist": "高橋李依"
+    },
+    {
+      "id": 479938319,
+      "title": "adrenaline!!!",
+      "artist": "TrySail"
+    },
+    {
+      "id": 2018462741,
+      "title": "Snow Globe",
+      "artist": "安月名莉子"
+    },
+    {
+      "id": 403136148,
+      "title": "負けないで",
+      "artist": "ZARD"
+    },
+    {
+      "id": 2128117549,
+      "title": "喜欢寂寞 (苏打绿版)",
+      "artist": "苏打绿"
+    },
+    {
+      "id": 2128117547,
+      "title": "当我们一起走过 (苏打绿版)",
+      "artist": "苏打绿"
+    },
+    {
+      "id": 1384286544,
+      "title": "地球最後の告白を",
+      "artist": "鹿乃"
+    },
+    {
+      "id": 2708984802,
+      "title": "Deadman",
+      "artist": "蔡徐坤"
+    },
+    {
+      "id": 2128117554,
+      "title": "燕窝 (苏打绿版)",
+      "artist": "苏打绿"
+    },
+    {
+      "id": 1913553528,
+      "title": "频率 (苏打绿版)",
+      "artist": "苏打绿"
+    },
+    {
+      "id": 287719,
+      "title": "开始懂了",
+      "artist": "孙燕姿"
+    },
+    {
+      "id": 28700045,
+      "title": "ヒマワリの教会(full ver)",
+      "artist": "はな"
+    },
+    {
+      "id": 1376832348,
+      "title": "月ノ鐘",
+      "artist": "中恵光城"
+    },
+    {
+      "id": 28466084,
+      "title": "瑠璃の鳥",
+      "artist": "霜月はるか"
+    },
+    {
+      "id": 22685914,
+      "title": "CATHY (2021 Remaster)",
+      "artist": "当山ひとみ"
+    },
+    {
+      "id": 1350447904,
+      "title": "これくらいで",
+      "artist": "藍月なくる"
+    },
+    {
+      "id": 1350446928,
+      "title": "夢と色でできている",
+      "artist": "佐咲紗花"
+    },
+    {
+      "id": 40915694,
+      "title": "心做し",
+      "artist": "鹿乃"
+    },
+    {
+      "id": 477913,
+      "title": "ヨスガノソラ メインテーマ -遠い空へ-",
+      "artist": "市川淳"
+    },
+    {
+      "id": 17910220,
+      "title": "We Are Young (feat. Janelle Monáe)",
+      "artist": "Fun. / Janelle Monáe"
+    },
+    {
+      "id": 2725944768,
+      "title": "#あくあ色ぱれっと",
+      "artist": "Kotoha"
+    },
+    {
+      "id": 2075565121,
+      "title": "雪は何色",
+      "artist": "Kotoha"
+    },
+    {
+      "id": 2075565122,
+      "title": "春を連れて",
+      "artist": "Kotoha"
+    },
+    {
+      "id": 459115010,
+      "title": "夜行少女",
+      "artist": "小野道ono / 花近"
+    },
+    {
+      "id": 29724134,
+      "title": "空気力学少女と少年の詩",
+      "artist": "はな"
+    },
+    {
+      "id": 399366428,
+      "title": "天球の奇蹟",
+      "artist": "松本文紀"
+    },
+    {
+      "id": 1840473524,
+      "title": "グッバイ宣言 (Cover)",
+      "artist": "鹿乃"
+    },
+    {
+      "id": 2639680021,
+      "title": "苏州夏夜",
+      "artist": "Soda纯白 / 洛天依"
+    },
+    {
+      "id": 1847213984,
+      "title": "Hands Up to the Sky",
+      "artist": "SawanoHiroyuki[nZk] / Laco"
+    },
+    {
+      "id": 33682872,
+      "title": "最高の片想い(yousa cover.)",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 430685035,
+      "title": "重力-GRAVITY",
+      "artist": "泠鸢yousa / 呆萌忆"
+    },
+    {
+      "id": 510371017,
+      "title": "小丑的品格【茜色诗集】",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 34324537,
+      "title": "スカート",
+      "artist": "葉月"
+    },
+    {
+      "id": 526470318,
+      "title": "伟大的渺小",
+      "artist": "林俊杰"
+    },
+    {
+      "id": 470547658,
+      "title": "Young",
+      "artist": "The Chainsmokers"
+    },
+    {
+      "id": 426027293,
+      "title": "你曾是少年",
+      "artist": "S.H.E"
+    },
+    {
+      "id": 2613962838,
+      "title": "海边城（Feat.洛天依）",
+      "artist": "Atsuko / 林墨白citrum / 洛天依"
+    },
+    {
+      "id": 1484844664,
+      "title": "リテラチュア",
+      "artist": "上田麗奈"
+    },
+    {
+      "id": 776039,
+      "title": "ONE's hope",
+      "artist": "やなぎなぎ"
+    },
+    {
+      "id": 480097177,
+      "title": "イマココ",
+      "artist": "東山奈央"
+    },
+    {
+      "id": 480097178,
+      "title": "月がきれい",
+      "artist": "東山奈央"
+    },
+    {
+      "id": 26209670,
+      "title": "今、歩き出す君へ。",
+      "artist": "Ceui"
+    },
+    {
+      "id": 4966647,
+      "title": "ナルキッソス",
+      "artist": "eufonius"
+    },
+    {
+      "id": 705331,
+      "title": "コネクト",
+      "artist": "ClariS"
+    },
+    {
+      "id": 29129677,
+      "title": "Re:Call",
+      "artist": "霜月はるか"
+    },
+    {
+      "id": 4937357,
+      "title": "夜の向日葵",
+      "artist": "松本文紀"
+    },
+    {
+      "id": 22730174,
+      "title": "irony",
+      "artist": "ClariS"
+    },
+    {
+      "id": 2077744389,
+      "title": "刻ト詩",
+      "artist": "水谷瑠奈"
+    },
+    {
+      "id": 1344874921,
+      "title": "繁华唱遍（泠鸢翻唱版）（翻自 乐正绫 调教：纳兰寻风）",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 2077744392,
+      "title": "虚無の先で愛を見つける",
+      "artist": "はな"
+    },
+    {
+      "id": 427419613,
+      "title": "こころに響く恋ほたる",
+      "artist": "橋本みゆき"
+    },
+    {
+      "id": 1996976277,
+      "title": "冬日来信",
+      "artist": "朵芊"
+    },
+    {
+      "id": 2086443037,
+      "title": "鹧鸪天·桂花【泠鸢】",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 31246106,
+      "title": "月光润色女孩",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1954273901,
+      "title": "镜空 -泠鸢翻唱",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 399367387,
+      "title": "櫻ノ詩",
+      "artist": "はな"
+    },
+    {
+      "id": 473403185,
+      "title": "ふたつの影",
+      "artist": "Famishin / 春風まゆき"
+    },
+    {
+      "id": 473403158,
+      "title": "とおりゃんせ～甘美風来 <Instrument Version>",
+      "artist": "Angel Note / ゆずひこ"
+    },
+    {
+      "id": 473403182,
+      "title": "恋ひ恋ふ縁",
+      "artist": "Famishin / KOTOKO"
+    },
+    {
+      "id": 2664420449,
+      "title": "几分造作",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 2664420463,
+      "title": "大海带不走",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 2664421401,
+      "title": "我的心是不夜城",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 28151051,
+      "title": "青空",
+      "artist": "Lia / VISUAL ARTS / Key"
+    },
+    {
+      "id": 1983714138,
+      "title": "Simon (Live)",
+      "artist": "周菲戈"
+    },
+    {
+      "id": 2604307454,
+      "title": "LOVE 2000",
+      "artist": "遠野ひかる"
+    },
+    {
+      "id": 543612338,
+      "title": "小さな恋のうた",
+      "artist": "高橋李依"
+    },
+    {
+      "id": 1824457777,
+      "title": "万象霜天",
+      "artist": "赤羽 / 忘川风华录"
+    },
+    {
+      "id": 1970343732,
+      "title": "所以我戴上了耳机",
+      "artist": "小熠IVAC / 洛天依Official"
+    },
+    {
+      "id": 2016400471,
+      "title": "闭眼，我触碰幻想的边界",
+      "artist": "苏逸_Suyi / 洛天依Official"
+    },
+    {
+      "id": 1982796624,
+      "title": "不需等天晴",
+      "artist": "Hanser"
+    },
+    {
+      "id": 1804555728,
+      "title": "序曲·折纸信笺",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 2072165014,
+      "title": "赴约四季",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1335706080,
+      "title": "告白（Acoustic）",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1956534872,
+      "title": "花の塔",
+      "artist": "さユり"
+    },
+    {
+      "id": 1895562245,
+      "title": "夏末与童年",
+      "artist": "三无Marblue"
+    },
+    {
+      "id": 1963053471,
+      "title": "光与影的对白",
+      "artist": "洛天依Official"
+    },
+    {
+      "id": 16343632,
+      "title": "Whataya Want from Me",
+      "artist": "Adam Lambert"
+    },
+    {
+      "id": 2155423467,
+      "title": "在银河中孤独摇摆",
+      "artist": "知更鸟 / HOYO-MiX / Chevy"
+    },
+    {
+      "id": 2155423468,
+      "title": "希望有羽毛和翅膀",
+      "artist": "知更鸟 / HOYO-MiX / Chevy"
+    },
+    {
+      "id": 1913478990,
+      "title": "Regression",
+      "artist": "阿云嘎 / HOYO-MiX"
+    },
+    {
+      "id": 1804555744,
+      "title": "惬意的事",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1495093451,
+      "title": "百变奶精",
+      "artist": "Hanser"
+    },
+    {
+      "id": 1391419936,
+      "title": "千里邀月",
+      "artist": "乐正绫 / 泠鸢yousa / 茶理理 / Hanser / 三无Marblue"
+    },
+    {
+      "id": 2013870113,
+      "title": "愛言葉IV（鹿乃xLONxHanser）",
+      "artist": "Hanser / 鹿乃 / ろん"
+    },
+    {
+      "id": 2037843658,
+      "title": "美しい鰭",
+      "artist": "スピッツ"
+    },
+    {
+      "id": 2026565329,
+      "title": "Da Capo",
+      "artist": "HOYO-MiX"
+    },
+    {
+      "id": 33682737,
+      "title": "黑猫",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1963588277,
+      "title": "星与你消失之日【原唱重录版2022】【星と君が消えた日】",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1449034817,
+      "title": "乙女解剖（翻自 初音ミク）",
+      "artist": "Hanser"
+    },
+    {
+      "id": 2003496380,
+      "title": "星座になれたら",
+      "artist": "結束バンド"
+    },
+    {
+      "id": 1989729997,
+      "title": "我的故事未写完",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1982798730,
+      "title": "偷腥",
+      "artist": "Hanser"
+    },
+    {
+      "id": 1394847947,
+      "title": "失眠飞行",
+      "artist": "KBShinya / Hanser"
+    },
+    {
+      "id": 1402846442,
+      "title": "summertime",
+      "artist": "Hanser / 三无Marblue"
+    },
+    {
+      "id": 1375725396,
+      "title": "Cyberangel",
+      "artist": "Hanser"
+    },
+    {
+      "id": 494952303,
+      "title": "一日都市 （人声本家）",
+      "artist": "小野道ono / Hanser"
+    },
+    {
+      "id": 1316479227,
+      "title": "【星火行动】朝汐（泠鸢&双笙）",
+      "artist": "双笙（陈元汐） / 泠鸢yousa"
+    },
+    {
+      "id": 1971144922,
+      "title": "TruE",
+      "artist": "黄龄 / HOYO-MiX"
+    },
+    {
+      "id": 1815684465,
+      "title": "Rubia",
+      "artist": "周深"
+    },
+    {
+      "id": 454905890,
+      "title": "泼墨漓江【茜色诗集】",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 548130331,
+      "title": "For you.写给你的歌",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 432486474,
+      "title": "妄想感傷代償連盟",
+      "artist": "DECO*27 / 初音ミク"
+    },
+    {
+      "id": 1385117201,
+      "title": "愛言葉III",
+      "artist": "DECO*27 / 初音ミク"
+    },
+    {
+      "id": 1869411855,
+      "title": "石头歌",
+      "artist": "三无Marblue"
+    },
+    {
+      "id": 1916435619,
+      "title": "他守恒",
+      "artist": "三无Marblue"
+    },
+    {
+      "id": 22811616,
+      "title": "モザイクロール",
+      "artist": "DECO*27 / GUMI"
+    },
+    {
+      "id": 1804552401,
+      "title": "航向你的海岛",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1804555743,
+      "title": "天文馆的猫",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 430053896,
+      "title": "悠哉日常~悠哉~悠哉",
+      "artist": "泠鸢yousa / Hanser / 呆萌忆"
+    },
+    {
+      "id": 468176711,
+      "title": "城南花已开",
+      "artist": "三亩地"
+    },
+    {
+      "id": 1401025135,
+      "title": "グランドエスケープ feat.三浦透子",
+      "artist": "RADWIMPS / 三浦透子"
+    },
+    {
+      "id": 1378491298,
+      "title": "愛にできることはまだあるかい",
+      "artist": "RADWIMPS"
+    },
+    {
+      "id": 1331927012,
+      "title": "ADAMAS",
+      "artist": "LiSA"
+    },
+    {
+      "id": 30854608,
+      "title": "シルシ",
+      "artist": "LiSA"
+    },
+    {
+      "id": 1407358755,
+      "title": "好想爱这个世界啊",
+      "artist": "华晨宇"
+    },
+    {
+      "id": 32317208,
+      "title": "僕らの手には何もないけど、",
+      "artist": "RAM WIRE"
+    },
+    {
+      "id": 1972677674,
+      "title": "时光软糖",
+      "artist": "Hanser / 幽舞越山"
+    },
+    {
+      "id": 1824454154,
+      "title": "时光盲盒",
+      "artist": "ChiliChill乐团"
+    },
+    {
+      "id": 1824222230,
+      "title": "大喜",
+      "artist": "泠鸢yousa / 音阙诗听"
+    },
+    {
+      "id": 444706525,
+      "title": "夏日已所剩无几【茜色诗集】",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 37196629,
+      "title": "不为谁而作的歌",
+      "artist": "林俊杰"
+    },
+    {
+      "id": 28832323,
+      "title": "三月雨",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 537787665,
+      "title": "室内系的TrackMaker(YUNOMI)（翻自 nicamoq）",
+      "artist": "Hanser"
+    },
+    {
+      "id": 1824454151,
+      "title": "吉祥话",
+      "artist": "Hanser / 泠鸢yousa / 祖娅纳惜 / 鹿乃"
+    },
+    {
+      "id": 1484320855,
+      "title": "憨色的偶像宣言",
+      "artist": "Hanser"
+    },
+    {
+      "id": 1831504253,
+      "title": "让风告诉你 (日文版)",
+      "artist": "Hanser / 泠鸢yousa"
+    },
+    {
+      "id": 1345872140,
+      "title": "勾指起誓",
+      "artist": "洛天依Official / ilem"
+    },
+    {
+      "id": 31140522,
+      "title": "普通DISCO",
+      "artist": "ilem / 洛天依Official / 言和"
+    },
+    {
+      "id": 541750547,
+      "title": "舞池之实 中文版(yunomi-ダンスフロアの果実）（翻自 nicamoq）",
+      "artist": "Hanser"
+    },
+    {
+      "id": 1474146255,
+      "title": "drop pop candy",
+      "artist": "Hanser / 鹿乃"
+    },
+    {
+      "id": 460478768,
+      "title": "「交织together」",
+      "artist": "DMYoung / Hanser / 泠鸢yousa"
+    },
+    {
+      "id": 29753702,
+      "title": "神的随波逐流",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1842950967,
+      "title": "与你有关",
+      "artist": "泠鸢yousa"
+    },
+    {
+      "id": 1859652717,
+      "title": "Moon Halo",
+      "artist": "茶理理 / TetraCalyx / Hanser / HOYO-MiX"
+    },
+    {
+      "id": 1868838401,
+      "title": "弱虫だって",
+      "artist": "咩栗 / 呜米"
+    },
+    {
+      "id": 1409311773,
+      "title": "夜に駆ける",
+      "artist": "YOASOBI"
+    },
+    {
+      "id": 426881487,
+      "title": "前前前世 (movie ver.)",
+      "artist": "RADWIMPS"
+    },
+    {
+      "id": 551337680,
+      "title": "嘘つきは恋のはじまり",
+      "artist": "洛天依Official / 40mP"
+    },
+    {
+      "id": 26830207,
+      "title": "僕が死のうと思ったのは",
+      "artist": "中島美嘉"
+    },
+    {
+      "id": 1460606296,
+      "title": "センチメートル",
+      "artist": "the peggies"
+    },
+    {
+      "id": 825343,
+      "title": "My Dearest",
+      "artist": "supercell"
+    },
+    {
+      "id": 29027453,
+      "title": "crossing field",
+      "artist": "LiSA"
+    },
+    {
+      "id": 505474379,
+      "title": "病名は愛だった",
+      "artist": "Neru / 鏡音リン / 鏡音レン / z'5"
+    },
+    {
+      "id": 29732992,
+      "title": "光るなら",
+      "artist": "Goose house"
+    },
+    {
+      "id": 427419509,
+      "title": "可愛くなりたい (feat. 鎖那)",
+      "artist": "HoneyWorks / 鎖那"
+    },
+    {
+      "id": 509106775,
+      "title": "彼女は旅に出る",
+      "artist": "鎖那"
+    },
+    {
+      "id": 399367218,
+      "title": "君の知らない物語",
+      "artist": "supercell"
+    },
+    {
+      "id": 22707009,
+      "title": "小さな手のひら",
+      "artist": "riya"
+    },
+    {
+      "id": 608667,
+      "title": "時を刻む唄",
+      "artist": "Lia"
+    },
+    {
+      "id": 760533,
+      "title": "だんご大家族",
+      "artist": "茶太"
+    },
+    {
+      "id": 28151022,
+      "title": "鳥の詩",
+      "artist": "Lia"
+    },
+    {
+      "id": 34077762,
+      "title": "Bravely You",
+      "artist": "Lia"
+    },
+    {
+      "id": 471795,
+      "title": "My Soul, Your Beats!",
+      "artist": "Lia"
+    },
+    {
+      "id": 33911781,
+      "title": "secret base ~君がくれたもの~ (10 years after Ver.)",
+      "artist": "茅野愛衣 / 戸松遥 / 早見沙織"
+    },
+    {
+      "id": 26201875,
+      "title": "わたしの恋はホッチキス",
+      "artist": "放課後ティータイム"
+    },
+    {
+      "id": 26201948,
+      "title": "U&I",
+      "artist": "放課後ティータイム"
+    },
+    {
+      "id": 26202010,
+      "title": "いちばんいっぱい",
+      "artist": "放課後ティータイム"
+    },
+    {
+      "id": 26201959,
+      "title": "天使にふれたよ!",
+      "artist": "放課後ティータイム"
+    },
+    {
+      "id": 512376195,
+      "title": "灰色と青",
+      "artist": "米津玄師 / 菅田将暉"
+    },
+    {
+      "id": 512359195,
+      "title": "LOSER",
+      "artist": "米津玄師"
+    },
+    {
+      "id": 1348568908,
+      "title": "蜂鸟",
+      "artist": "吴青峰"
+    },
+    {
+      "id": 287035,
+      "title": "遇见",
+      "artist": "孙燕姿"
+    }
+  ]
 }
