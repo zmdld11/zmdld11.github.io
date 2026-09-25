@@ -51,3 +51,7 @@ const server = createServer(async (req, res) => {
 
 server.listen(PORT, () => console.log(`blog gateway listening on :${PORT}`));
 process.on("SIGTERM", () => server.close(() => process.exit(0)));
+
+function redirect(res, location) {
+  res.writeHead(302, { Location: location }).end();
+}
