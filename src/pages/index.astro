@@ -116,7 +116,7 @@ const events = mapEvents(eventsRaw.events).map((e) => ({ ...e, time: relTime(e.i
       }
     </article>
 
-    <!-- 音乐播放器（歌单：content/settings/playlist.json，与右下角迷你条联动） -->
+    <!-- 音乐播放器（歌单：settings/music.json 可切网易云歌单/本地 playlist.json，与右下角迷你条联动） -->
     {
       widgets.musicPlayer && (
         <article class="card card-hover sp4 music">
