@@ -1,0 +1,297 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { admin } from "../config/admin";
+---
+<BaseLayout title={`投稿 · ${admin.owner}的角落`}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+  <main class="admin">
+    <div class="card admin-card">
+      <!-- 未登录态 -->
+      <section id="auth-view">
+        <h1>网页投稿</h1>
+        <p class="muted">
+          通过 GitHub OAuth 验证为 <b>{admin.owner}</b> 后可发布。发布 = 向 {admin.repo} 提交 commit，
+          Actions 构建约 2 分钟后自动上线。
+        </p>
+        <button class="btn" id="login-btn" type="button">使用 GitHub 登录</button>
+        <p class="auth-msg muted" id="auth-msg"></p>
+      </section>
+
+      <!-- 编辑器 -->
+      <section id="editor-view" hidden>
+        <header class="ed-head">
+          <h1>网页投稿</h1>
+          <span class="muted" id="who"></span>
+          <button id="logout-btn" class="linklike" type="button">退出登录</button>
+        </header>
+        <form id="post-form">
+          <input class="in" id="f-title" placeholder="标题 *" required maxlength="100" />
+          <div class="grid2">
+            <input class="in" id="f-slug" placeholder="slug（留空按标题自动生成）" pattern="[a-z0-9-]*" />
+            <input class="in" id="f-category" placeholder="分类（可选）" maxlength="20" />
+          </div>
+          <div class="grid2">
+            <input class="in" id="f-tags" placeholder="标签，逗号分隔（可选）" />
+            <input class="in" id="f-description" placeholder="摘要（可选）" maxlength="120" />
+          </div>
+          <label class="draft"><input type="checkbox" id="f-draft" /> 存为草稿（不上首页，仅直达链接可见）</label>
+          <textarea class="in mono" id="f-body" rows="14" placeholder="Markdown 正文 *" required></textarea>
+          <div class="tools">
+            <label class="btn2" id="img-pick">插入图片
+              <input type="file" id="f-images" multiple accept="image/*" hidden />
+            </label>
+            <span class="muted" id="img-note">选中后排队，发布时随文上传到文章目录</span>
+          </div>
+          <ul class="img-list muted" id="img-list" hidden></ul>
+          <div class="pub-row">
+            <button type="submit" class="btn" id="publish-btn">发布</button>
+            <span class="muted" id="pub-status"></span>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import { admin } from "../config/admin";
+  import { pinyin } from "pinyin-pro";
+
+  const TOKEN_KEY = "admin-token";
+  const STATE_KEY = "admin-oauth-state";
+  const API = "https://api.github.com";
+  const $ = (id) => document.getElementById(id);
+
+  const authView = $("auth-view");
+  const editorView = $("editor-view");
+  const authMsg = $("auth-msg");
+  const pubStatus = $("pub-status");
+  let token = null;
+  const imgQueue = [];
+
+  async function gh(path, opts = {}) {
+    const res = await fetch(`${API}${path}`, {
+      ...opts,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        ...(opts.body ? { "Content-Type": "application/json" } : {}),
+      },
+    });
+    if (!res.ok) {
+      const err = new Error(`${res.status} ${(await res.text()).slice(0, 160)}`);
+      err.status = res.status;
+      throw err;
+    }
+    return res.status === 204 ? null : res.json();
+  }
+
+  function showAuth(msg) {
+    authView.hidden = false;
+    editorView.hidden = true;
+    if (msg) authMsg.textContent = msg;
+  }
+  function showEditor(login) {
+    authView.hidden = true;
+    editorView.hidden = false;
+    $("who").textContent = `已登录：${login}`;
+  }
+
+  function base64Of(bytes) {
+    let bin = "";
+    const CH = 0x8000;
+    for (let i = 0; i < bytes.length; i += CH)
+      bin += String.fromCharCode(...bytes.subarray(i, i + CH));
+    return btoa(bin);
+  }
+
+  /* ---- 登录 / 登出 ---- */
+  $("login-btn")?.addEventListener("click", () => {
+    if (!admin.oauthClientId) {
+      authMsg.textContent = "尚未配置 oauthClientId（src/config/admin.ts）：先注册 GitHub OAuth App，见 gateway/README.md";
+      return;
+    }
+    const state = crypto.randomUUID();
+    localStorage.setItem(STATE_KEY, state);
+    const redirectUri = `${admin.gatewayUrl}/oauth/callback`;
+    location.href =
+      `https://github.com/login/oauth/authorize?client_id=${admin.oauthClientId}` +
+      `&redirect_uri=${encodeURIComponent(redirectUri)}&state=${encodeURIComponent(state)}&scope=public_repo`;
+  });
+  $("logout-btn")?.addEventListener("click", () => {
+    sessionStorage.removeItem(TOKEN_KEY);
+    showAuth("已退出");
+  });
+
+  /* ---- 启动：处理 OAuth 回调 fragment / 恢复会话 ---- */
+  (async () => {
+    const hash = new URLSearchParams(location.hash.slice(1));
+    const hashErr = hash.get("error");
+    const accessToken = hash.get("access_token");
+    if (hashErr) {
+      history.replaceState(null, "", location.pathname);
+      return showAuth(`登录失败：${hashErr}`);
+    }
+    if (accessToken) {
+      const savedState = localStorage.getItem(STATE_KEY) ?? "";
+      if (savedState && hash.get("state") !== savedState) return showAuth("state 校验失败，请重新登录");
+      token = accessToken;
+      try {
+        const user = await gh("/user");
+        if (user.login !== admin.owner) {
+          token = null;
+          return showAuth(`当前登录是 ${user.login}，仅 ${admin.owner} 可投稿`);
+        }
+        sessionStorage.setItem(TOKEN_KEY, token);
+        history.replaceState(null, "", location.pathname);
+        return showEditor(user.login);
+      } catch (e) {
+        token = null;
+        return showAuth(`token 校验失败：${e.message}`);
+      }
+    }
+    token = sessionStorage.getItem(TOKEN_KEY);
+    if (token) {
+      try {
+        const user = await gh("/user");
+        return showEditor(user.login);
+      } catch {
+        sessionStorage.removeItem(TOKEN_KEY);
+        token = null;
+      }
+    }
+    showAuth();
+  })();
+
+  /* ---- slug 自动生成 ---- */
+  const fSlug = $("f-slug");
+  $("f-title")?.addEventListener("blur", () => {
+    if (fSlug.value.trim()) return;
+    const title = $("f-title").value.trim();
+    if (!title) return;
+    fSlug.value = slugify(title);
+  });
+  function slugify(title) {
+    const py = pinyin(title, { toneType: "none", type: "array" })
+      .join("-")
+      .toLowerCase()
+      .replace(/[^a-z0-9-]+/g, "-")
+      .replace(/-{2,}/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 60);
+    return py || `post-${Date.now()}`;
+  }
+
+  /* ---- 图片队列 ---- */
+  $("f-images")?.addEventListener("change", async (e) => {
+    for (const file of e.target.files) imgQueue.push(file);
+    e.target.value = "";
+    renderImages();
+  });
+  function renderImages() {
+    const ul = $("img-list");
+    ul.hidden = imgQueue.length === 0;
+    ul.innerHTML = imgQueue.map((f, i) => `<li>${i + 1}. ${f.name}（${Math.ceil(f.size / 1024)}KB）</li>`).join("");
+  }
+
+  /* ---- 发布 ---- */
+  async function putFile(path, base64, message) {
+    const url = `/repos/${admin.owner}/${admin.repo}/contents/${path}`;
+    const payload = { message, branch: admin.branch, content: base64 };
+    try {
+      await gh(url, { method: "PUT", body: JSON.stringify(payload) });
+    } catch (e) {
+      if (e.status === 422) {
+        // 文件已存在：带 sha 更新
+        const cur = await gh(`${url}?ref=${admin.branch}`);
+        await gh(url, { method: "PUT", body: JSON.stringify({ ...payload, sha: cur.sha }) });
+      } else throw e;
+    }
+  }
+
+  $("post-form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const title = $("f-title").value.trim();
+    const rawSlug = fSlug.value.trim() || slugify(title);
+    const slug = rawSlug.replace(/[^a-z0-9-]/g, "-").replace(/-{2,}/g, "-");
+    const body = $("f-body").value;
+    if (!title || !body || !token) return;
+    if (!/^[a-z0-9-]+$/.test(slug)) return (pubStatus.textContent = "slug 只能是小写字母/数字/连字符");
+
+    const btn = $("publish-btn");
+    btn.disabled = true;
+    pubStatus.textContent = "上传图片中…";
+    try {
+      // 1) 配图先传（同目录，正文里用 ./文件名 引用）
+      const refs = [];
+      for (const [i, file] of imgQueue.entries()) {
+        const safe = file.name.replace(/[^\w.-]+/g, "-");
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        await putFile(`src/content/posts/${slug}/${safe}`, base64Of(bytes), `post: 上传配图 ${safe} (#9)`);
+        refs.push(`![${i + 1}](./${safe})`);
+      }
+      // 2) frontmatter + 正文
+      const lines = ["---", `title: "${title.replace(/"/g, '\\"')}"`, `pubDate: ${new Date().toISOString()}`];
+      const desc = $("f-description").value.trim();
+      if (desc) lines.push(`description: "${desc.replace(/"/g, '\\"')}"`);
+      const cat = $("f-category").value.trim();
+      if (cat) lines.push(`category: ${cat}`);
+      const tags = $("f-tags").value.split(/[,，]/).map((t) => t.trim()).filter(Boolean);
+      if (tags.length) lines.push(`tags: [${tags.join(", ")}]`);
+      if ($("f-draft").checked) lines.push("draft: true");
+      lines.push("---", "");
+      const content = `${lines.join("\n")}\n${body.trim()}\n${refs.length ? `\n${refs.join("\n\n")}\n` : ""}`;
+
+      // 3) 提交文章
+      pubStatus.textContent = "提交文章中…";
+      await putFile(`src/content/posts/${slug}/index.md`, base64Of(new TextEncoder().encode(content)), `post: ${title} via 网页投稿 (#9)`);
+      pubStatus.textContent = `已提交！构建约 2 分钟后上线 /posts/${slug}/`;
+      e.target.reset();
+      imgQueue.length = 0;
+      renderImages();
+    } catch (err) {
+      pubStatus.textContent = `失败：${err.message}`;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .admin { max-width: 760px; margin: 0 auto; padding: 40px 16px 60px; }
+  .admin-card { padding: 28px; }
+  h1 { font-size: 22px; margin: 0 0 10px; }
+  .ed-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+  .ed-head h1 { margin: 0; }
+  .ed-head .muted { flex: 1; }
+  .linklike {
+    border: none; background: transparent; color: var(--accent);
+    cursor: pointer; font-size: 13px; padding: 2px 4px;
+  }
+  .auth-msg { margin-top: 14px; color: #e5484d; }
+  form { display: flex; flex-direction: column; gap: 12px; }
+  .in {
+    width: 100%; padding: 10px 12px; font: inherit; font-size: 14px;
+    border: 1px solid var(--card-border); border-radius: var(--radius-sm);
+    background: var(--bg-soft); color: var(--text);
+  }
+  .in:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  .in.mono { font-family: var(--font-mono); font-size: 13px; line-height: 1.7; resize: vertical; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+  .draft { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); }
+  .draft input { accent-color: var(--accent); }
+  .tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .btn2 {
+    display: inline-flex; padding: 7px 14px; font-size: 13px;
+    border-radius: 999px; border: 1px solid var(--card-border);
+    background: var(--accent-soft); cursor: pointer;
+  }
+  .btn2:hover { border-color: var(--accent); }
+  .img-list { margin: 0; padding-left: 18px; font-size: 12.5px; }
+  .pub-row { display: flex; align-items: center; gap: 14px; }
+  .pub-row .btn { align-self: flex-start; }
+  #pub-status { font-size: 13px; }
+</style>
